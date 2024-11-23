@@ -10,9 +10,9 @@ services:
     - 8080:8080
 
   tailwind:
-    image: node:23-alpine  # You can use any Node.js version here
+    image: node:23-alpine 
     working_dir: /app
     volumes:
-      - ./frontend:/app  # Mount the current directory to the container
-    command: npx tailwindcss -i ./css/style.css -o ./css/tailwind.css --watch
+      - ./frontend:/app
+    command: npx tailwindcss -i ./src/css/style.css -o ./src/css/tailwind.css --watch
     tty: true  # Keep the terminal open for interactive commands
