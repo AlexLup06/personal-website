@@ -5,6 +5,7 @@
 @font-face {
     font-family: 'FunnelSans';
     src: url('/public/fonts/FunnelSans-VariableFont_wght.ttf') format('opentype');
+    font-display: swap;
 }
 
 button {

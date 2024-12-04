@@ -6,12 +6,13 @@ templ Layout() {
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="description" content="Personal Website of Alexander Lupatsiy."/>
 			<title>Document</title>
-			<script src="/js/htmx.min.js" defer></script>
 			<link rel="stylesheet" href="/css/tailwind.css"/>
 		</head>
-		<body>
-			@Content()
+		<body class="m-0">
+			{ children... }
 		</body>
+		<script src="/js/htmx.min.js" defer></script>
 	</html>
 }
