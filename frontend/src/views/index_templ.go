@@ -37,7 +37,7 @@ func Layout() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body><script src=\"/js/htmx.min.js\" defer></script></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body><script src=\"/js/htmx/htmx.min.js\" defer></script><script src=\"/js/build/bundle.js\" type=\"module\" defer></script></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
