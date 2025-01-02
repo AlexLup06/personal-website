@@ -1,14 +1,10 @@
 version: "3"
 services:
   backend:
-    build:
-      dockerfile: Dockerfile
-      context: ./
-    volumes:
-      - ./:/app
-    ports:
-    - 8080:8080
-
+    extends:
+      file: docker-compose.yml
+      service: backend
+      
   ts-dev:
     image: node:23-alpine 
     working_dir: /app

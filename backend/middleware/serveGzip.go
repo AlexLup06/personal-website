@@ -8,7 +8,7 @@ import (
 )
 
 // Middleware to serve .gz files
-func ServeGzippedFiles() gin.HandlerFunc {
+func ServeGzippedFiles(mode string) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// Check if the client accepts gzip
 		acceptEncoding := c.GetHeader("Accept-Encoding")
@@ -17,7 +17,7 @@ func ServeGzippedFiles() gin.HandlerFunc {
 			// Check if a .gz version of the file exists
 			requestedFile := c.Request.URL.Path
 			gzippedFile := requestedFile + ".gz"
-			if _, err := http.Dir("./frontend/src").Open(gzippedFile); err == nil {
+			if _, err := http.Dir("./frontend/src").Open(gzippedFile); err == nil && mode == "production" {
 				// Serve the .gz file
 				c.Writer.Header().Set("Content-Encoding", "gzip")
 				c.Writer.Header().Set("Content-Type", resolveContentType(requestedFile))

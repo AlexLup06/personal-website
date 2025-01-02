@@ -10,23 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/test.js":
+/***/ "./src/ts/test.ts":
 /*!************************!*\
-  !*** ./src/js/test.js ***!
+  !*** ./src/ts/test.ts ***!
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _testFunction_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./testFunction.js */ \"./src/js/testFunction.js\");\n\nconsole.log('Hello from test.js');\n(0,_testFunction_js__WEBPACK_IMPORTED_MODULE_0__.testFunction)();\n\n\n//# sourceURL=webpack:///./src/js/test.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _testFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./testFunction */ \"./src/ts/testFunction.ts\");\n\nconsole.log('Hello from testtttt.js');\n(0,_testFunction__WEBPACK_IMPORTED_MODULE_0__.testFunction)();\n\n\n//# sourceURL=webpack://presonal-website/./src/ts/test.ts?");
 
 /***/ }),
 
-/***/ "./src/js/testFunction.js":
+/***/ "./src/ts/testFunction.ts":
 /*!********************************!*\
-  !*** ./src/js/testFunction.js ***!
+  !*** ./src/ts/testFunction.ts ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   testFunction: () => (/* binding */ testFunction)\n/* harmony export */ });\nfunction testFunction() {\n    console.log('Hello Woooorld');\n    var string = \"Hello World\";\n    return string;\n}\n\n\n//# sourceURL=webpack:///./src/js/testFunction.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   testFunction: () => (/* binding */ testFunction)\n/* harmony export */ });\nfunction testFunction() {\n    console.log('Hello Woooooooorld');\n    var string = \"Hello World\";\n    return string;\n}\n\n\n//# sourceURL=webpack://presonal-website/./src/ts/testFunction.ts?");
 
 /***/ })
 
@@ -90,7 +90,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/js/test.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/ts/test.ts");
 /******/ 	
 /******/ })()
 ;

@@ -33,3 +33,7 @@ frontend/css/tailwind.css
 frontend/views/**/*_templ.go
 
 .vscode
+
+*.gz
+
+bin/

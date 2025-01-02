@@ -1,6 +1,8 @@
 package backend
 
 import (
+	"os"
+
 	"alexlupatsiy.com/personal-website/backend/middleware"
 	"alexlupatsiy.com/personal-website/frontend/src/views"
 	"github.com/a-h/templ"
@@ -14,8 +16,9 @@ func render(c *gin.Context, status int, template templ.Component) error {
 
 func Router() *gin.Engine {
 	r := gin.Default()
+	mode := os.Getenv("MODE")
 
-	static := r.Group("/", middleware.ServeGzippedFiles())
+	static := r.Group("/", middleware.ServeGzippedFiles(mode))
 	{
 		static.GET("/js/*filepath", middleware.ServeStaticFiles("./frontend/src/js"))
 		static.GET("/css/*filepath", middleware.ServeStaticFiles("./frontend/src/css"))
