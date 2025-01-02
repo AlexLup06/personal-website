@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tes
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   testFunction: () => (/* binding */ testFunction)\n/* harmony export */ });\nfunction testFunction() {\n    console.log('Hello Woooooooorld');\n    var string = \"Hello World\";\n    return string;\n}\n\n\n//# sourceURL=webpack://presonal-website/./src/ts/testFunction.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   testFunction: () => (/* binding */ testFunction)\n/* harmony export */ });\nfunction testFunction() {\n    console.log('Hello Wooooooooooooorld');\n    var string = \"Hello World\";\n    return string;\n}\n\n\n//# sourceURL=webpack://presonal-website/./src/ts/testFunction.ts?");
 
 /***/ })
 
