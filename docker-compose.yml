@@ -8,11 +8,3 @@ services:
       - ./:/app
     ports:
     - 8080:8080
-
-  ts-dev:
-    image: node:23-alpine 
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
-    command: npm run dev:all
-    tty: true  # Keep the terminal open for interactive commands
