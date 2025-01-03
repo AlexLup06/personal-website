@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'FunnelSans';
-    src: url('/public/fonts/FunnelSans-VariableFont_wght.ttf') format('opentype');
-    font-display: swap;
-}
-
 button {
     font-family: inherit
-}
-
-body {
-    font-family: 'FunnelSans', sans-serif !important;
 }

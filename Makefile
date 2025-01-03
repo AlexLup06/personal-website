@@ -19,7 +19,7 @@ compress-static-files:
 	@echo "Compressing static files..."
 	@gzip -k -f frontend/src/js/build/*.js
 	@gzip -k -f frontend/src/css/tailwind.css
-	@gzip -f -r -k frontend/public 
+	@find ./frontend/public -type f ! -path "./frontend/public/fonts/*" ! -name "*.gz" -exec sh -c 'gzip -c "$1" > "$1.gz"' _ {} \;
 	@echo "Static files compressed!"
 build:
 	@echo "Building the project..."

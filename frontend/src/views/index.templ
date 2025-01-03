@@ -9,6 +9,16 @@ templ Layout() {
 			<meta name="description" content="Personal Website of Alexander Lupatsiy."/>
 			<title>Document</title>
 			<link rel="stylesheet" href="/css/tailwind.css"/>
+			<style>
+				@font-face {
+					font-family: 'FunnelSans';
+					src: url('/public/fonts/FunnelSans-VariableFont_wght.ttf') format('opentype');
+					font-display: swap;
+				}
+				body {
+					font-family: 'FunnelSans', sans-serif;
+				}
+			</style>
 		</head>
 		<body class="m-0">
 			{ children... }

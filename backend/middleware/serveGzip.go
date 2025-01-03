@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -8,7 +9,7 @@ import (
 )
 
 // Middleware to serve .gz files
-func ServeGzippedFiles(mode string) gin.HandlerFunc {
+func ServeGzippedFiles(isProductionMode bool) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// Check if the client accepts gzip
 		acceptEncoding := c.GetHeader("Accept-Encoding")
@@ -17,7 +18,15 @@ func ServeGzippedFiles(mode string) gin.HandlerFunc {
 			// Check if a .gz version of the file exists
 			requestedFile := c.Request.URL.Path
 			gzippedFile := requestedFile + ".gz"
-			if _, err := http.Dir("./frontend/src").Open(gzippedFile); err == nil && mode == "production" {
+
+			var subDir string
+			if strings.Split(requestedFile, "/")[1] != "public" {
+				subDir = "/src"
+			}
+
+			fmt.Println("./frontend" + subDir + gzippedFile)
+
+			if _, err := http.Dir("./frontend" + subDir).Open(gzippedFile); err == nil && isProductionMode {
 				// Serve the .gz file
 				c.Writer.Header().Set("Content-Encoding", "gzip")
 				c.Writer.Header().Set("Content-Type", resolveContentType(requestedFile))

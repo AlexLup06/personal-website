@@ -29,7 +29,7 @@ func Layout() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta name=\"description\" content=\"Personal Website of Alexander Lupatsiy.\"><title>Document</title><link rel=\"stylesheet\" href=\"/css/tailwind.css\"></head><body class=\"m-0\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta name=\"description\" content=\"Personal Website of Alexander Lupatsiy.\"><title>Document</title><link rel=\"stylesheet\" href=\"/css/tailwind.css\"><style>\n\t\t\t\t@font-face {\n\t\t\t\t\tfont-family: 'FunnelSans';\n\t\t\t\t\tsrc: url('/public/fonts/FunnelSans-VariableFont_wght.ttf') format('opentype');\n\t\t\t\t\tfont-display: swap;\n\t\t\t\t}\n\t\t\t\tbody {\n\t\t\t\t\tfont-family: 'FunnelSans', sans-serif;\n\t\t\t\t}\n\t\t\t</style></head><body class=\"m-0\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
