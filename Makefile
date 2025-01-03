@@ -1,4 +1,4 @@
-all: typescript-to-javascript compress-static-files webpack tailwind build run
+all: compress-static-files webpack tailwind build run
 
 typescript-to-javascript:
 	@echo "Compiling TypeScript to JavaScript..."
