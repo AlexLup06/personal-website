@@ -9,7 +9,7 @@ webpack:
 	@echo "Running Webpack..."
 	@cd frontend && npm run prod:webpack
 	@echo "Webpack finished!"
-
+	
 tailwind:
 	@echo "Compiling Tailwind CSS..."
 	@cd frontend && npx tailwindcss build -i src/css/style.css -o src/css/tailwind.css

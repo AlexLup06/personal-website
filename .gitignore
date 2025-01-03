@@ -28,7 +28,7 @@ tmp/
 
 frontend/node_modules/
 
-frontend/css/tailwind.css
+frontend/src/css/tailwind.css
 
 frontend/views/**/*_templ.go
 
