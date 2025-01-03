@@ -14,15 +14,14 @@ func render(c *gin.Context, status int, template templ.Component) error {
 }
 
 func Router() *gin.Engine {
-	r := gin.Default()
-
 	envVars := helpers.LoadEnv()
 	mode := envVars["MODE"]
 	isProductionMode := mode == "production"
-
 	if isProductionMode {
 		gin.SetMode(gin.ReleaseMode)
 	}
+
+	r := gin.Default()
 
 	static := r.Group("/", middleware.ServeGzippedFiles(isProductionMode))
 	{
