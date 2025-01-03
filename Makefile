@@ -12,7 +12,7 @@ webpack:
 
 tailwind:
 	@echo "Compiling Tailwind CSS..."
-	@cd frontend && npx tailwindcss build src/css/style.css -o src/css/tailwind.css
+	@cd frontend && npx tailwindcss build -i src/css/style.css -o src/css/tailwind.css
 	@echo "Tailwind CSS compiled!"
 
 compress-static-files:
