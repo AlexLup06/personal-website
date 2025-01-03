@@ -20,6 +20,10 @@ func Router() *gin.Engine {
 	mode := envVars["MODE"]
 	isProductionMode := mode == "production"
 
+	if isProductionMode {
+		gin.SetMode(gin.ReleaseMode)
+	}
+
 	static := r.Group("/", middleware.ServeGzippedFiles(isProductionMode))
 	{
 		static.GET("/js/*filepath", middleware.ServeStaticFiles("./frontend/src/js"))
