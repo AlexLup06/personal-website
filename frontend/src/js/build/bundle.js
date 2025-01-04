@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("Hello from test.js"),console.log("Hello World")})();

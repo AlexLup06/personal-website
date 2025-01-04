@@ -38,4 +38,4 @@ frontend/views/**/*_templ.go
 
 bin/
 
-frontend/public/src/js/build
+frontend/src/js/build/
