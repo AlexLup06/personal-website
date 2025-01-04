@@ -41,7 +41,7 @@ func Home() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"relative h-screen w-screen\"><div class=\"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-bold\">Alexander Lupatsiy</div></div><div class=\"m-4\"><div class=\"text-2xl font-bold bg-slate-300\">About me</div><div class=\"text-md\">I am a software engineer with a passion for web development. I have experience in building web applications using React, Node.js, and other technologies. I am always looking for new challenges and opportunities to learn and grow as a developer.</div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"relative h-screen w-screen\"><h1 class=\"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-bold\">Alexander Lupatsiy</h1></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
