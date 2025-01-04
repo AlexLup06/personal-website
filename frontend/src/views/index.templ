@@ -4,10 +4,10 @@ templ Layout() {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
+			<title>Alex Lupatsiy - Portfolio and Blog</title>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<meta name="description" content="Personal Website of Alexander Lupatsiy."/>
-			<title>Document</title>
+			<meta name="description" content="Welcome to Alex Lupatsiy's personal website. Explore projects, blogs, and professional background."/>
 			<link rel="stylesheet" href="/css/tailwind.css"/>
 			<style>
 				@font-face {
@@ -19,6 +19,18 @@ templ Layout() {
 					font-family: 'FunnelSans', sans-serif;
 				}
 			</style>
+			<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@type": "Person",
+					"name": "Alex Lupatsiy",
+					"url": "https://alexlupatsiy.com",
+					"sameAs": [
+						"https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/",
+						"https://github.com/AlexLup06"
+					]
+				}
+			</script>
 		</head>
 		<body class="m-0">
 			{ children... }
