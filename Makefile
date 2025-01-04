@@ -1,14 +1,9 @@
-all: npm-install compress-static-files webpack tailwind
+all: npm-install webpack tailwind compress-static-files
 
 npm-install:
 	@echo "Installing npm packages..."
 	@cd frontend && npm install
 	@echo "npm packages installed!"
-
-typescript-to-javascript:
-	@echo "Compiling TypeScript to JavaScript..."
-	@cd frontend && npx tsc 
-	@echo "TypeScript compiled to JavaScript!"
 
 webpack:
 	@echo "Running Webpack..."
