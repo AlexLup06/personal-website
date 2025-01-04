@@ -1,0 +1,17 @@
+FROM golang:1.23-alpine as builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN go mod download && \
+    go build -o bin/main main.go
+
+FROM alpine:latest
+
+WORKDIR /root/
+
+COPY --from=builder /app/bin/main .
+COPY --from=builder /app/frontend/public ./public
+
+CMD ["./main"]

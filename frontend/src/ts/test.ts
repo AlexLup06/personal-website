@@ -1,5 +1,5 @@
 import { testFunction } from "./testFunction";
 
-console.log('Hello from testtttt.js');
+console.log('Hello from test.js');
 
 testFunction();

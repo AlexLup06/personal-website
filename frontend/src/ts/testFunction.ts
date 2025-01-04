@@ -1,5 +1,5 @@
 export function testFunction(): string {
-    console.log('Hello Wooooooooooooorld');
+    console.log('Hello World');
     var string: string = "Hello World";
     return string;
 }

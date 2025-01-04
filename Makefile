@@ -1,4 +1,9 @@
-all: compress-static-files webpack tailwind build run
+all: npm-install compress-static-files webpack tailwind
+
+npm-install:
+	@echo "Installing npm packages..."
+	@cd frontend && npm install
+	@echo "npm packages installed!"
 
 typescript-to-javascript:
 	@echo "Compiling TypeScript to JavaScript..."
@@ -17,16 +22,10 @@ tailwind:
 
 compress-static-files:
 	@echo "Compressing static files..."
-	@gzip -k -f frontend/src/js/build/*.js
-	@gzip -k -f frontend/src/css/tailwind.css
+	@for file in frontend/src/js/build/*.js; do \
+		gzip -c $$file > frontend/public/$$(basename $$file).gz; \
+	done
+	@gzip -k -f frontend/src/css/tailwind.css -c > frontend/public/tailwind.css.gz
+	@gzip -k -f frontend/src/js/htmx/htmx.min.js -c > frontend/public/htmx.min.js.gz
 	@find ./frontend/public -type f ! -path "./frontend/public/fonts/*" ! -name "*.gz" -exec sh -c 'gzip -c "$1" > "$1.gz"' _ {} \;
 	@echo "Static files compressed!"
-build:
-	@echo "Building the project..."
-	@go build -o bin/main main.go
-	@echo "Project built!"
-
-run:
-	@echo "Running the project..."
-	@./bin/main
-	@echo "Project running!"
