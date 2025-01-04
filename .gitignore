@@ -37,3 +37,5 @@ frontend/views/**/*_templ.go
 *.gz
 
 bin/
+
+frontend/public/src/js/build/*.js
