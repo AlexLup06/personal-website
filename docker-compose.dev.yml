@@ -19,3 +19,11 @@ services:
     volumes:
       - ./frontend:/frontend
     command: npm run dev:all
+
+  caddy:
+    image: caddy:2.7-alpine
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${PWD}/caddy/Caddyfile.dev:/etc/caddy/Caddyfile
