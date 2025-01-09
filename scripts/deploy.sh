@@ -16,13 +16,13 @@ sudo docker compose -f docker-compose.prod.yml build
 
 OLD_CONTAINER=$(sudo docker ps -aqf "name=server")
 echo "$(date): Scaling server up..."
-BUILD_VERSION=$BUILD_VERSION sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=2 --no-recreate server
+BUILD_VERSION=$BUILD_VERSION PWD=${PWD} sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=2 --no-recreate server
 
 sleep 30
 
 echo "$(date): Scaling old server down..."
 sudo docker container rm -f $OLD_CONTAINER
-sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=1 --no-recreate server
+sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=1 --no-recreate server --remove-orphans
 
 echo "$(date): Reloading caddy..."
 CADDY_CONTAINER=$(sudo docker ps -aqf "name=caddy")
