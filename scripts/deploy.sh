@@ -21,8 +21,8 @@ BUILD_VERSION=$BUILD_VERSION PWD=${PWD} sudo docker compose -f docker-compose.pr
 sleep 30
 
 echo "$(date): Scaling old server down..."
-sudo docker container rm -f $OLD_CONTAINER
-sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=1 --no-recreate server --remove-orphans
+PWD=${PWD} sudo docker container rm -f $OLD_CONTAINER
+PWD=${PWD} sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=1 --no-recreate server --remove-orphans
 
 echo "$(date): Reloading caddy..."
 CADDY_CONTAINER=$(sudo docker ps -aqf "name=caddy")
