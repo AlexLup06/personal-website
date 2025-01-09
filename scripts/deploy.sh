@@ -14,9 +14,9 @@ make
 sudo docker compose -f docker-compose.prod.yml rm -f
 sudo docker compose -f docker-compose.prod.yml build
 
-OLD_CONTAINER=$(docker ps -aqf "name=server")
+OLD_CONTAINER=$(sudo docker ps -aqf "name=server")
 echo "$(date): Scaling server up..."
-BUILD_VERSION=$BUILD_VERSION docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=2 --no-recreate server
+BUILD_VERSION=$BUILD_VERSION sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=2 --no-recreate server
 
 sleep 30
 
