@@ -14,4 +14,4 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - $./caddy/Caddyfile.prod:/etc/caddy/Caddyfile
+      - ./caddy/Caddyfile.prod:/etc/caddy/Caddyfile
