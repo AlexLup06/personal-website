@@ -2,6 +2,8 @@
 
 cd ${PWD}${1}
 
+echo "Third scrip. We are in ${PWD}"
+
 git pull
 
 BUILD_VERSION=$(git rev-parse HEAD)

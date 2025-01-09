@@ -1,25 +1,35 @@
 #!/bin/bash
 
-cd ${PWD}${1}
+# Ensure a directory is provided
+
+# Change to the specified directory
+cd "${PWD}${1}" || { echo "Failed to change directory to $1"; exit 1; }
+
+echo "We are in $(pwd)"
 
 echo "$(date): Fetching remote repository..."
-git fetch
+git fetch || { echo "Failed to fetch remote repository"; exit 1; }
 
-UPSTREAM=${1:-'@{u}'}
+UPSTREAM="@{u}"
 LOCAL=$(git rev-parse @)
 REMOTE=$(git rev-parse "$UPSTREAM")
 BASE=$(git merge-base @ "$UPSTREAM")
 
-if [ $LOCAL = $REMOTE ]; then
+echo "LOCAL: $LOCAL"
+echo "REMOTE: $REMOTE"
+echo "BASE: $BASE"
+
+if [ "$LOCAL" = "$REMOTE" ]; then
     echo "$(date): No changes detected in git"
-elif [ $LOCAL = $BASE ]; then
+elif [ "$LOCAL" = "$BASE" ]; then
     BUILD_VERSION=$(git rev-parse HEAD)
     echo "$(date): Changes detected, deploying new version: $BUILD_VERSION"
-    sudo ./scripts/deploy.sh
-elif [ $REMOTE = $BASE ]; then
+    sudo ./scripts/deploy.sh "$1"
+elif [ "$REMOTE" = "$BASE" ]; then
     echo "$(date): Local changes detected, stashing"
     git stash
-    sudo ./scripts/deploy.sh
+    sudo ./scripts/deploy.sh "$1"
 else
     echo "$(date): Git is diverged, this is unexpected."
 fi
+
