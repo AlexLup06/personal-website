@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-cd ${PWD}${1}
-
 echo "Third scrip. We are in ${PWD}"
 
 git pull
