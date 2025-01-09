@@ -11,18 +11,18 @@ echo "$(date): Releasing new server version. $BUILD_VERSION"
 
 echo "$(date): Running build..."
 make
-env PWD=${PWD} sudo docker compose -f docker-compose.prod.yml rm -f
-env PWD=${PWD} sudo docker compose -f docker-compose.prod.yml build
+sudo env PWD=${PWD} docker compose -f docker-compose.prod.yml rm -f
+sudo env PWD=${PWD} docker compose -f docker-compose.prod.yml build
 
 OLD_CONTAINER=$(sudo docker ps -aqf "name=server")
 echo "$(date): Scaling server up..."
-env PWD=${PWD} sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=2 --no-recreate server
+sudo env PWD=${PWD} docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=2 --no-recreate server
 
 sleep 30
 
 echo "$(date): Scaling old server down..."
-env PWD=${PWD} sudo docker container rm -f $OLD_CONTAINER
-env PWD=${PWD} sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=1 --no-recreate server --remove-orphans
+sudo env PWD=${PWD} docker container rm -f $OLD_CONTAINER
+sudo env PWD=${PWD} docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=1 --no-recreate server --remove-orphans
 
 echo "$(date): Reloading caddy..."
 CADDY_CONTAINER=$(sudo docker ps -aqf "name=caddy")
