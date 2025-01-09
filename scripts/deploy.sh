@@ -26,4 +26,4 @@ sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=1 
 
 echo "$(date): Reloading caddy..."
 CADDY_CONTAINER=$(sudo docker ps -aqf "name=caddy")
-sudo docker exec $CADDY_CONTAINER caddy reload -c /etc/caddy/Caddyfile
+sudo docker exec $CADDY_CONTAINER sudo caddy reload -c /etc/caddy/Caddyfile
