@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd ${PWD}${1}
+
 git pull
 
 BUILD_VERSION=$(git rev-parse HEAD)

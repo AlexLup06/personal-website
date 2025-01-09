@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ${PWD}${1}
+
 echo "$(date): Fetching remote repository..."
 git fetch
 
