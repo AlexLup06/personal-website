@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 echo "Third scrip. We are in ${PWD}"
-
+echo "Trying to Pull"
 git pull
+echo "just pulled"
 
 BUILD_VERSION=$(git rev-parse HEAD)
 

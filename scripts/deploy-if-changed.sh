@@ -24,11 +24,11 @@ if [ "$LOCAL" = "$REMOTE" ]; then
 elif [ "$LOCAL" = "$BASE" ]; then
     BUILD_VERSION=$(git rev-parse HEAD)
     echo "$(date): Changes detected, deploying new version: $BUILD_VERSION"
-    sudo ./scripts/deploy.sh "$1"
+    ./scripts/deploy.sh "$1"
 elif [ "$REMOTE" = "$BASE" ]; then
     echo "$(date): Local changes detected, stashing"
     git stash
-    sudo ./scripts/deploy.sh "$1"
+    ./scripts/deploy.sh "$1"
 else
     echo "$(date): Git is diverged, this is unexpected."
 fi
