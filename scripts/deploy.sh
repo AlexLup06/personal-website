@@ -11,8 +11,8 @@ echo "$(date): Releasing new server version. $BUILD_VERSION"
 
 echo "$(date): Running build..."
 make
-sudo docker compose -f docker-compose.prod.yml rm -f
-sudo docker compose -f docker-compose.prod.yml build
+PWD=${PWD} sudo docker compose -f docker-compose.prod.yml rm -f
+PWD=${PWD} sudo docker compose -f docker-compose.prod.yml build
 
 OLD_CONTAINER=$(sudo docker ps -aqf "name=server")
 echo "$(date): Scaling server up..."
