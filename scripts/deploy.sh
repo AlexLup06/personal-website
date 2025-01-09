@@ -15,7 +15,7 @@ OLD_CONTAINER=$(docker ps -aqf "name=server")
 echo "$(date): Scaling server up..."
 BUILD_VERSION=$BUILD_VERSION docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=2 --no-recreate server
 
-sleep 60
+sleep 30
 
 echo "$(date): Scaling old server down..."
 docker container rm -f $OLD_CONTAINER
