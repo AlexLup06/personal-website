@@ -1,0 +1,9 @@
+package views
+
+var size = "9"
+
+templ SocialLink(link string) {
+	<a href={ templ.SafeURL(link) } class="inline-block w-9 h-9 rounded-md overflow-hidden">
+		{ children... }
+	</a>
+}

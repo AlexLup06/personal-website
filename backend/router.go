@@ -40,7 +40,7 @@ func Router() *gin.Engine {
 	r.Use(middleware.CheckHTMXRequest())
 
 	r.GET("/", func(c *gin.Context) {
-		render(c, 200, views.Home())
+		render(c, 200, views.Layout())
 	})
 
 	return r
