@@ -29,7 +29,35 @@ func TechStack() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"pt-12 mx-auto h-screen min-h-[800px] flex flex-col gap-6\"><div class=\"flex-1 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 grid-rows-10\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Card("Frontend", "a", []string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"}, "row-start-1 row-end-7").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Card("Backend", "", []string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"}, "row-start-1 row-end-5").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Card("Database", "a", []string{"MySQL", "PostgreQL", "MongoDB"}, "row-start-1 row-end-7").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Card("Systems Engineering", "", []string{"C", "Rust", "Java", "Docker", "bash"}, "row-start-7 row-end-11").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Card("Machine Learning", "a", []string{"Pytorth", "Tensor Flow"}, "row-start-5 row-end-11").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Card("Other", "", []string{"OMNeT++", "LLVM", "Matlab"}, "row-start-7 row-end-11").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

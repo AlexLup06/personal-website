@@ -1,5 +1,14 @@
 package views
 
 templ TechStack() {
-	<div></div>
+	<div class="pt-12 mx-auto h-screen min-h-[800px] flex flex-col gap-6">
+		<div class="flex-1 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 grid-rows-10">
+			@Card("Frontend", "a", []string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"}, "row-start-1 row-end-7")
+			@Card("Backend", "", []string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"}, "row-start-1 row-end-5")
+			@Card("Database", "a", []string{"MySQL", "PostgreQL", "MongoDB"}, "row-start-1 row-end-7")
+			@Card("Systems Engineering", "", []string{"C", "Rust", "Java", "Docker", "bash"}, "row-start-7 row-end-11")
+			@Card("Machine Learning", "a", []string{"Pytorth", "Tensor Flow"}, "row-start-5 row-end-11")
+			@Card("Other", "", []string{"OMNeT++", "LLVM", "Matlab"}, "row-start-7 row-end-11")
+		</div>
+	</div>
 }
