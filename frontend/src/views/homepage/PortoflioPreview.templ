@@ -1,0 +1,33 @@
+package homepage
+
+templ PortoflioPreview() {
+	<div>
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+			@ProjectCard("Project Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.", true)
+			@ProjectCard("Project Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.", true)
+			@ProjectCard("Project Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.", false)
+			@ProjectCard("Project Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.", false)
+		</div>
+		<button class="mt-4 lg:mt-6 px-8 py-4 border-4 rounded-2xl text-xl border-cyan-50 hover:bg-cyan-50 transition">View all projects &nbsp &nbsp &nbsp &nbsp &nbsp></button>
+	</div>
+}
+
+templ ProjectCard(name string, description string, show bool) {
+	<div
+		if show {
+			class="shadow-md rounded-3xl flex overflow-hidden"
+		} else {
+			class="shadow-md rounded-3xl overflow-hidden hidden md:flex"
+		}
+	>
+		<div class="bg-cyan-50 w-1/2 cursor-pointer"></div>
+		<div class="flex flex-col gap-4 w-1/2 p-6 md:p-10 lg:p-8">
+			<div class="flex flex-col gap-2">
+				<h2 class="text-3xl font-semibold">{ name }</h2>
+				<p class="text-lg">
+					{ description }
+				</p>
+			</div>
+		</div>
+	</div>
+}

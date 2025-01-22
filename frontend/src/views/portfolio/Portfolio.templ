@@ -1,0 +1,19 @@
+package portfolio
+
+import "alexlupatsiy.com/personal-website/frontend/src/views"
+
+templ Portfolio() {
+	if ctx.Value("HX-Request")=="true" {
+		@portfolio()
+	} else {
+		@views.Layout() {
+			@portfolio()
+		}
+	}
+}
+
+templ portfolio() {
+	<div id="body-section">
+		<h1>Portfolio</h1>
+	</div>
+}

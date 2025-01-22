@@ -1,0 +1,24 @@
+package homepage
+
+templ BlogPreview() {
+	<div>
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+			@BlogCard("Blog Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.")
+			@BlogCard("Blog Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.")
+		</div>
+		<button class="mt-4 lg:mt-8 px-8 py-4 border-4 rounded-2xl text-xl border-cyan-50 hover:bg-cyan-50 transition">Check out more entries! &nbsp &nbsp &nbsp &nbsp &nbsp></button>
+	</div>
+}
+
+templ BlogCard(name string, description string) {
+	<div class="shadow-md rounded-3xl flex overflow-hidden">
+		<div class="flex flex-col gap-4 p-6 md:p-10 lg:p-8">
+			<div class="flex flex-col gap-2">
+				<h2 class="text-3xl font-semibold">{ name }</h2>
+				<p class="text-lg">
+					{ description }
+				</p>
+			</div>
+		</div>
+	</div>
+}

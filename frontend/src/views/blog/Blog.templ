@@ -1,0 +1,19 @@
+package blog
+
+import "alexlupatsiy.com/personal-website/frontend/src/views"
+
+templ Blog() {
+	if ctx.Value("HX-Request")=="true" {
+		@blog()
+	} else {
+		@views.Layout() {
+			@blog()
+		}
+	}
+}
+
+templ blog() {
+	<div id="body-section">
+		<h1>Blog</h1>
+	</div>
+}

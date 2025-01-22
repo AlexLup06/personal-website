@@ -1,0 +1,29 @@
+package homepage
+
+import "alexlupatsiy.com/personal-website/frontend/src/views"
+
+templ Homepage() {
+	if ctx.Value("HX-Request")==nil {
+		@views.Layout() {
+			@homepage()
+		}
+	} else {
+		@homepage()
+	}
+}
+
+templ homepage() {
+	<div id="body-section">
+		@LandingPage()
+		@TechStack()
+		<div class="flex justify-center py-20 md:py-40">
+			<h2 class="text-4xl text-center inline-block p-0">Powered by these tools, I bring ideas to life through innovative apps.</h2>
+		</div>
+		@PortoflioPreview()
+		<div class="flex justify-center py-20 md:py-40">
+			<h2 class="text-4xl text-center inline-block p-0">I share my journey and experiences through my blog.</h2>
+		</div>
+		@BlogPreview()
+		@Panel()
+	</div>
+}

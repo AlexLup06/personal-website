@@ -5,13 +5,17 @@ import (
 
 	"alexlupatsiy.com/personal-website/backend/middleware"
 	"alexlupatsiy.com/personal-website/frontend/src/views"
+	"alexlupatsiy.com/personal-website/frontend/src/views/blog"
+	"alexlupatsiy.com/personal-website/frontend/src/views/homepage"
+	"alexlupatsiy.com/personal-website/frontend/src/views/portfolio"
 	"github.com/a-h/templ"
+	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 )
 
 func render(c *gin.Context, status int, template templ.Component) error {
 	c.Status(status)
-	return template.Render(c.Request.Context(), c.Writer)
+	return template.Render(c, c.Writer)
 }
 
 func Router() *gin.Engine {
@@ -37,11 +41,23 @@ func Router() *gin.Engine {
 		static.GET("/public/*filepath", middleware.ServeStaticFiles(staticBasePath))
 	}
 
-	r.Use(middleware.CheckHTMXRequest())
+	r.Use(middleware.CheckHTMXRequest(), middleware.SetGlobalValues())
+	r.Use(gzip.Gzip(gzip.DefaultCompression))
 
 	r.GET("/", func(c *gin.Context) {
-		render(c, 200, views.Layout())
+		render(c, 200, homepage.Homepage())
 	})
 
+	r.GET("/portfolio", func(c *gin.Context) {
+		render(c, 200, portfolio.Portfolio())
+	})
+
+	r.GET("/blog", func(c *gin.Context) {
+		render(c, 200, blog.Blog())
+	})
+
+	r.GET("/test", func(c *gin.Context) {
+		render(c, 200, views.Test())
+	})
 	return r
 }
