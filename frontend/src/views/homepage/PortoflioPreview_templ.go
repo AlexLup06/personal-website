@@ -8,6 +8,8 @@ package homepage
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "alexlupatsiy.com/personal-website/frontend/src/views/components"
+
 func PortoflioPreview() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -29,32 +31,55 @@ func PortoflioPreview() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div><div class=\"grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"py-12\"><div class=\"grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ProjectCard("Project Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.", true).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ProjectCard("GEMS",
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.",
+			true).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ProjectCard("Project Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.", true).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ProjectCard("NutrInvest",
+			"AI-powered app that analyzes food photos to provide nutritional information.",
+			true).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ProjectCard("Project Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.", false).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ProjectCard("GoFlow",
+			"A streamlined framework to set up full-stack Go applications with CI/CD, Dockerized development, and production-ready configurations.",
+			false).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ProjectCard("Project Name", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.", false).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ProjectCard("NutrInvest",
+			"AI-powered app that analyzes food photos to provide nutritional information.",
+			false).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><button class=\"mt-4 lg:mt-6 px-8 py-4 border-4 rounded-2xl text-xl border-cyan-50 hover:bg-cyan-50 transition\">View all projects &nbsp &nbsp &nbsp &nbsp &nbsp></button></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><button class=\"lg:mt-6 px-8 py-4 shadow-inner rounded-2xl bg-white mt-4 flex items-center gap-2\"><span class=\"text-xl\">View all projects</span><div class=\"h-8 aspect-square text-2xl\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = components.RightArrow().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></button></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		return nil
 	})
+}
+
+func showElement(show bool) string {
+	if show {
+		return "flex"
+	}
+	return "hidden"
 }
 
 func ProjectCard(name string, description string, show bool) templ.Component {
@@ -78,48 +103,51 @@ func ProjectCard(name string, description string, show bool) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div")
+		var templ_7745c5c3_Var3 = []any{"shadow-md rounded-3xl overflow-hidden md:flex bg-white", showElement(show)}
+		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var3...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		if show {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, " class=\"shadow-md rounded-3xl flex overflow-hidden\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, " class=\"shadow-md rounded-3xl overflow-hidden hidden md:flex\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "><div class=\"bg-cyan-50 w-1/2 cursor-pointer\"></div><div class=\"flex flex-col gap-4 w-1/2 p-6 md:p-10 lg:p-8\"><div class=\"flex flex-col gap-2\"><h2 class=\"text-3xl font-semibold\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var3 string
-		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(name)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 26, Col: 45}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</h2><p class=\"text-lg\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(description)
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var3).String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 28, Col: 18}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 1, Col: 0}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\"><div class=\"bg-neutral-300 w-1/2 cursor-pointer\"></div><div class=\"flex flex-col gap-4 w-1/2 p-6 md:p-10 lg:p-8\"><div class=\"flex flex-col gap-2\"><h2 class=\"text-3xl font-semibold\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var5 string
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 44, Col: 45}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</h2><p class=\"text-lg\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(description)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 46, Col: 18}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

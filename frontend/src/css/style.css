@@ -4,5 +4,35 @@
 
 
 body {
-    margin: 0;
+    --grad-color: linear-gradient(to right, #4CB8C4 0%, #3CD3AD 51%, #4CB8C4 100%);
+}
+
+.bg-gradient-tech-stack {
+    background: linear-gradient(to bottom, #3CD3AD, #54C5FF);
+}
+
+.btn-grad {
+    background-image: var(--grad-color);
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+}
+
+.gradient-text {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+details>summary {
+    list-style: none;
+}
+
+details>summary::marker,
+details>summary::-webkit-details-marker {
+    display: none;
 }

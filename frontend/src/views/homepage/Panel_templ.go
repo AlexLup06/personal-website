@@ -29,7 +29,7 @@ func Panel() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-screen py-32 w-full\"><div class=\"rounded-3xl h-full shadow-lg bg-cyan-50\"></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-screen py-32 w-full relative\"><div id=\"parallax-panel-wrapper\" class=\"[--translate-y-panel:0] w-full h-full rounded-3xl shadow-lg overflow-hidden bg-black relative\"><img src=\"/public/images/dima-solomin-VbRvcSpzOV4-unsplash.jpg\" class=\"absolute object-cover bottom-0 translate-y-[var(--translate-y-panel)]\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

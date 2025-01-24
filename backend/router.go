@@ -56,8 +56,10 @@ func Router() *gin.Engine {
 		render(c, 200, blog.Blog())
 	})
 
-	r.GET("/test", func(c *gin.Context) {
-		render(c, 200, views.Test())
-	})
+	if !isProductionMode {
+		r.GET("/test", func(c *gin.Context) {
+			render(c, 200, views.Test())
+		})
+	}
 	return r
 }

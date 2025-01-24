@@ -14,16 +14,47 @@ templ Homepage() {
 
 templ homepage() {
 	<div id="body-section">
-		@LandingPage()
-		@TechStack()
-		<div class="flex justify-center py-20 md:py-40">
-			<h2 class="text-4xl text-center inline-block p-0">Powered by these tools, I bring ideas to life through innovative apps.</h2>
-		</div>
-		@PortoflioPreview()
-		<div class="flex justify-center py-20 md:py-40">
-			<h2 class="text-4xl text-center inline-block p-0">I share my journey and experiences through my blog.</h2>
-		</div>
-		@BlogPreview()
-		@Panel()
+		@Section("") {
+			@LandingPage()
+		}
+		@Section("") {
+			@TechStack()
+		}
+		@Section() {
+			<div class="flex justify-center py-20">
+				<h2 class="text-2xl md:text-3xl lg:text-4xl text-center inline-block px-4 md:px-20">Powered by these tools, I bring ideas to life through innovative apps.</h2>
+			</div>
+		}
+		@Section("") {
+			@PortoflioPreview()
+		}
+		@Section() {
+			<div class="flex justify-center py-20">
+				<h2 class="text-2xl md:text-3xl lg:text-4xl text-center inline-block px-4 md:px-20">I share my journey and experiences through my blog.</h2>
+			</div>
+		}
+		@Section() {
+			@BlogPreview()
+		}
+		@Section() {
+			@Panel()
+		}
+		@Section() {
+			@Footer()
+		}
 	</div>
+}
+
+func computed(styles []string) string {
+	var computedStyles string
+	for _, style := range styles {
+		computedStyles += style + " "
+	}
+	return computedStyles
+}
+
+templ Section(styles ...string) {
+	<section class={ "lg:px-20 md:px-12 sm:px-8 px-4", computed(styles) }>
+		{ children... }
+	</section>
 }

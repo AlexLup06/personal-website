@@ -1,3 +1,5 @@
+import "./parallax.ts"
+
 const navbar: HTMLDivElement = document.querySelector('#navbar')!;
 const navlinks = navbar.children;
 
@@ -17,3 +19,11 @@ for (var i = 0; i < navlinks.length; i++) {
         navlink.setAttribute('data-active', 'true')
     });
 }
+
+const socialsDropdown = document.getElementById("socials-dd")!;
+document.addEventListener("click", function (event: any) {
+    // Check if the click was outside the element
+    if (!socialsDropdown.contains(event.target)) {
+        (socialsDropdown.firstChild as HTMLElement).removeAttribute("open");
+    }
+});

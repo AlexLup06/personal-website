@@ -29,25 +29,7 @@ func Test() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
-			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
-			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
-			if !templ_7745c5c3_IsBuffer {
-				defer func() {
-					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
-					if templ_7745c5c3_Err == nil {
-						templ_7745c5c3_Err = templ_7745c5c3_BufErr
-					}
-				}()
-			}
-			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"wrapper\"><header><img src=\"/public/images/image1.jpg\" class=\"foreground\"><h1 class=\"title\">Welcome!</h1></header><section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse facilis unde  illo neque at hic quisquam, nulla consectetur, itaque maxime sit iusto aliquam culpa  reiciendis eaque recusandae vitae modi, animi expedita perferendis inventore. Culpa  incidunt odit dicta quibusdam ullam facilis eum magnam, consectetur voluptates </section><div class=\"h-screen\"></div></div>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			return nil
-		})
-		templ_7745c5c3_Err = Layout().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Document</title><link rel=\"stylesheet\" href=\"/css/tailwind.css\"><style>\n  body {\n  margin: 0;\n}\n\n.wrapper {\n  height: 100vh;\n  overflow-y: auto;\n  overflow-x: hidden;\n  perspective: 10px;\n}\n\nheader {\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 500px;\n  width:300px;\n  margin:100px;\n  transform-style: preserve-3d;\n  z-index: -10;\n}\n\n.background {\n  transform: translateZ(-10px) scale(2);\n}\n.background{\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n}\n\n.title {\n  font-size: 7rem;\n  color: white;\n  text-shadow: 0 0 5px black;;\n}\n\nsection {\n  font-size: 2rem;\n  padding: 2rem;\n  background-color: #333;\n  color: white;\n}\n\n\n.parallaax {\n  perspective: 1px;\n  height: 100vh;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.parallax__layer {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n.parallax__layer--base {\n  transform: translateZ(0);\n}\n.parallax__layer--back {\n  transform: translateZ(-1px);\n}\n  </style></head><body><div class=\"parallaax w-full\"><div class=\"h-screen\"></div><div class=\"parallax__layer parallax__layer--back mt-96\">layer 1</div><div class=\"parallax__layer parallax__layer--base mt-96\">layer 2</div><div class=\"h-screen\"></div></div><div class=\"h-screen\"></div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

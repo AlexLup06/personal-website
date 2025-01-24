@@ -29,7 +29,7 @@ func LandingPage() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-[calc(100vh-96px)]\"><div class=\"h-full flex flex-col justify-center items-center py-10 pb-14\"><div class=\"flex-1 flex flex-col gap-2\"><h1 class=\"text-5xl sm:text-6xl lg:text-7xl font-semibold mt-[50%]\">Alex Lupatsiy</h1><h2 class=\"text-3xl lg:text-4xl font-medium \">Software Engineer</h2></div><div class=\"flex shadow-lg px-6 py-5  justify-center gap-2 items-center rounded-3xl overflow-hidden bg-white\"><p class=\"text-xl\">Get in touch!</p><button class=\"px-2 py-1 border-4 rounded-xl text-xl border-cyan-50 hover:bg-cyan-50\">Email me</button></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-screen pt-24\"><div class=\"h-full flex flex-col justify-center items-center py-10 pb-14\"><div class=\"flex-1 flex flex-col gap-2\"><h1 class=\"text-5xl sm:text-6xl lg:text-7xl font-semibold mt-[50%]\">Alex Lupatsiy</h1><h2 class=\"text-3xl lg:text-4xl font-medium \">Software Engineer</h2></div><div class=\"flex shadow-md shadow-[#4CB8C4] hover:shadow-[#3CD3AD] hover:-translate-y-0.5 transition-all duration-700 px-6 py-4  justify-center gap-4 items-center rounded-3xl overflow-hidden bg-white\"><p class=\"text-xl\">Get in touch!</p><button class=\"btn-grad px-5 py-3 rounded-2xl shadow-inner text-xl\">Email me</button></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
