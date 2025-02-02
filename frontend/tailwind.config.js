@@ -3,17 +3,49 @@ const { plugin } = require("postcss");
 
 module.exports = {
   content: ["./src/views/**/*.templ"],
+  mode: "jit",
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'black': '#000000',
+      "main": {
+        50: "#ecfbf7",
+        100: "#c5f2e6",
+        200: "#9ee9d6",
+        300: "#77e0c6",
+        400: "#50d7b5",
+        500: "#3CD3AD",
+        600: "#30a98a",
+        700: "#247f68",
+        800: "#185445",
+        900: "#061511",
+      },
+      "grey": {
+        50: "#f9fafb",
+        100: "#f3f4f6",
+        200: "#e5e7eb",
+        300: "#d1d5db",
+        400: "#9ca3af",
+        500: "#6b7280",
+        600: "#4b5563",
+        700: "#374151",
+        800: "#1f2937",
+        900: "#111827",
+        950: "#030712"
+      }
+    },
     extend: {
     },
   },
   plugins: [
     require('daisyui'),
+    require('@tailwindcss/container-queries'),
   ],
   corePlugins: {
     preflight: true,
   },
-  mode: "jit",
   daisyui: {
     themes: [],
   },

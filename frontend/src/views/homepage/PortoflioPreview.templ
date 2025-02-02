@@ -3,46 +3,56 @@ package homepage
 import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ PortoflioPreview() {
-	<div class="py-12">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-			@ProjectCard("GEMS",
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui in nunc ultricies tincidunt.",
-				true)
-			@ProjectCard("NutrInvest",
-				"AI-powered app that analyzes food photos to provide nutritional information.",
-				true)
-			@ProjectCard("GoFlow",
-				"A streamlined framework to set up full-stack Go applications with CI/CD, Dockerized development, and production-ready configurations.",
-				false)
-			@ProjectCard("NutrInvest",
-				"AI-powered app that analyzes food photos to provide nutritional information.",
-				false)
-		</div>
-		<button class="lg:mt-6 px-8 py-4 shadow-inner rounded-2xl bg-white mt-4 flex items-center gap-2">
-			<span class="text-xl">View all projects</span>
-			<div class="h-8 aspect-square text-2xl">
-				@components.RightArrow()
+	<div class="py-12 @container">
+		<div class="mx-auto w-fit">
+			<div class="mb-4 lg:mb-6 grid w-fit grid-cols-1 @xl:grid-cols-2 gap-4 lg:gap-6 [&>*:nth-child(n+3)]:hidden @xl:[&>*:nth-child(n+3)]:flex">
+				@ProjectCard("GoFlow",
+					[]string{"Go", "Docker", "HTMX", "Postgres"},
+					"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+					"/public/images/goflow-logo.png",
+				// "shadow-[rgba(231,70,19,0.4)]",
+				)
+				@ProjectCard("NutrInvest",
+					[]string{"Pytorch", "MonogoDB", "React"},
+					"AI-powered app that analyzes food photos to provide nutritional information.",
+					"/public/images/Logo_TechLabs.png",
+				// "shadow-[rgba(255,0,86,0.4)]",
+				)
+				@ProjectCard("GEMS",
+					[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+					"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+					"/public/images/gems-preview.png",
+				// "shadow-[#3b82f6]",
+				)
+				@ProjectCard("NutrInvest",
+					[]string{},
+					"AI-powered app that analyzes food photos to provide nutritional information.",
+					"")
 			</div>
-		</button>
+			@components.Lg() {
+				<span class="text-xl">View all projects</span>
+				<div class="h-8 aspect-square text-2xl">
+					@components.RightArrow()
+				</div>
+			}
+		</div>
 	</div>
 }
 
-func showElement(show bool) string {
-	if show {
-		return "flex"
-	}
-	return "hidden"
-}
-
-templ ProjectCard(name string, description string, show bool) {
-	<div
-		class={ "shadow-md rounded-3xl overflow-hidden md:flex bg-white",showElement(show) }
-	>
-		<div class="bg-neutral-300 w-1/2 cursor-pointer"></div>
-		<div class="flex flex-col gap-4 w-1/2 p-6 md:p-10 lg:p-8">
+templ ProjectCard(name string, badges []string, description string, imgSrc string, style ...string) {
+	<div class={ "shadow-md flex flex-col rounded-2xl overflow-hidden bg-white max-w-96",style }>
+		<div class="w-full aspect-video flex items-center overflow-hidden">
+			<img src={ imgSrc } alt="Project image" class="object-cover"/>
+		</div>
+		<div class="flex flex-col gap-4 p-6 md:p-10 lg:p-8">
 			<div class="flex flex-col gap-2">
 				<h2 class="text-3xl font-semibold">{ name }</h2>
-				<p class="text-lg">
+				<div class="flex flex-row flex-wrap -translate-x-1">
+					for _,badge :=range badges {
+						@Badge(badge)
+					}
+				</div>
+				<p class="text-md">
 					{ description }
 				</p>
 			</div>

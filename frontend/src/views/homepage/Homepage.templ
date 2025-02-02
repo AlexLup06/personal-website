@@ -37,7 +37,7 @@ templ homepage() {
 			@BlogPreview()
 		}
 		@Section() {
-			@Panel()
+			@Life()
 		}
 		@Section() {
 			@Footer()
@@ -45,16 +45,8 @@ templ homepage() {
 	</div>
 }
 
-func computed(styles []string) string {
-	var computedStyles string
-	for _, style := range styles {
-		computedStyles += style + " "
-	}
-	return computedStyles
-}
-
 templ Section(styles ...string) {
-	<section class={ "lg:px-20 md:px-12 sm:px-8 px-4", computed(styles) }>
+	<section class={ "lg:px-20 md:px-12 sm:px-8 px-4", styles }>
 		{ children... }
 	</section>
 }

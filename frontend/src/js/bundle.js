@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/ts/main.ts":
+/*!************************!*\
+  !*** ./src/ts/main.ts ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _parallax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parallax */ \"./src/ts/parallax.ts\");\n/* harmony import */ var _parallax__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_parallax__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _slidingCards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slidingCards */ \"./src/ts/slidingCards.ts\");\n/* harmony import */ var _slidingCards__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_slidingCards__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst navbar = document.querySelector('#navbar');\nconst navlinks = navbar.children;\nfor (var i = 0; i < navlinks.length; i++) {\n    const navlink = navlinks[i];\n    navlink.addEventListener('click', function () {\n        const pathAttr = navlink.getAttribute('data-path');\n        const pathName = window.location.pathname;\n        if (pathAttr === pathName) {\n            return;\n        }\n        const currentlyActive = document.querySelector('[data-active=\"true\"]');\n        currentlyActive.setAttribute('data-active', 'false');\n        navlink.setAttribute('data-active', 'true');\n    });\n}\nconst socialsDropdown = document.getElementById(\"socials-dd\");\ndocument.addEventListener(\"click\", function (event) {\n    // Check if the click was outside the element\n    if (!socialsDropdown.contains(event.target)) {\n        socialsDropdown.firstChild.removeAttribute(\"open\");\n    }\n});\n\n\n//# sourceURL=webpack://presonal-website/./src/ts/main.ts?");
+
+/***/ }),
+
 /***/ "./src/ts/parallax.ts":
 /*!****************************!*\
   !*** ./src/ts/parallax.ts ***!
@@ -20,13 +30,13 @@ eval("\nconst parallaxElements = document.querySelectorAll('.parallax-element');
 
 /***/ }),
 
-/***/ "./src/ts/test.ts":
-/*!************************!*\
-  !*** ./src/ts/test.ts ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/ts/slidingCards.ts":
+/*!********************************!*\
+  !*** ./src/ts/slidingCards.ts ***!
+  \********************************/
+/***/ (() => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _parallax_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parallax.ts */ \"./src/ts/parallax.ts\");\n/* harmony import */ var _parallax_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_parallax_ts__WEBPACK_IMPORTED_MODULE_0__);\n\nconst navbar = document.querySelector('#navbar');\nconst navlinks = navbar.children;\nfor (var i = 0; i < navlinks.length; i++) {\n    const navlink = navlinks[i];\n    navlink.addEventListener('click', function () {\n        const pathAttr = navlink.getAttribute('data-path');\n        const pathName = window.location.pathname;\n        if (pathAttr === pathName) {\n            return;\n        }\n        const currentlyActive = document.querySelector('[data-active=\"true\"]');\n        currentlyActive.setAttribute('data-active', 'false');\n        navlink.setAttribute('data-active', 'true');\n    });\n}\nconst socialsDropdown = document.getElementById(\"socials-dd\");\ndocument.addEventListener(\"click\", function (event) {\n    // Check if the click was outside the element\n    if (!socialsDropdown.contains(event.target)) {\n        socialsDropdown.firstChild.removeAttribute(\"open\");\n    }\n});\n\n\n//# sourceURL=webpack://presonal-website/./src/ts/test.ts?");
+eval("\nconst lifeSection = document.getElementById('life-section');\nconst lifeSectionCards = lifeSection.children;\nconst lifeCardObserver = new IntersectionObserver((entries) => {\n    entries.forEach(entry => {\n        if (entry.isIntersecting) {\n            window.addEventListener('scroll', handleLifeCardScroll);\n        }\n        else {\n            window.removeEventListener('scroll', handleLifeCardScroll);\n        }\n    });\n}, {});\nlifeCardObserver.observe(lifeSection);\nfunction handleLifeCardScroll() {\n    const scrolled = window.scrollY + window.innerHeight - lifeSection.offsetTop;\n    const currentIndex = Math.floor(scrolled / window.innerHeight);\n    const ratioInView = scrolled / window.innerHeight - currentIndex;\n    // console.log(scrolled, ratioInView, currentIndex);\n    if (currentIndex < 0) {\n        return;\n    }\n    if (currentIndex > 0) {\n        const prevCard = lifeSectionCards[currentIndex - 1];\n        prevCard.style.transform = `scale(${2 - ratioInView})`;\n        if (ratioInView > 0.2) {\n            prevCard.style.opacity = `${1.2 - ratioInView}`;\n        }\n        else {\n            prevCard.style.opacity = '1';\n        }\n    }\n    if (currentIndex < lifeSectionCards.length) {\n        const currentCard = lifeSectionCards[currentIndex];\n        currentCard.style.transform = `scale(${1 + ratioInView})`;\n        currentCard.style.opacity = `${1.5 * ratioInView}`;\n    }\n}\n\n\n//# sourceURL=webpack://presonal-website/./src/ts/slidingCards.ts?");
 
 /***/ })
 
@@ -102,7 +112,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _par
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/ts/test.ts");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/ts/main.ts");
 /******/ 	
 /******/ })()
 ;

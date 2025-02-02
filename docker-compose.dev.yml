@@ -15,7 +15,7 @@ services:
     working_dir: /frontend
     volumes:
       - ./frontend:/frontend
-    command: npm run dev:all
+    command: npm run dev:webpack
 
   caddy:
     image: caddy:2.7-alpine

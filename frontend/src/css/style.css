@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] {
+    display: none !important;
+}
+
+.tttttt {
+    background-color: red;
+}
 
 body {
     --grad-color: linear-gradient(to right, #4CB8C4 0%, #3CD3AD 51%, #4CB8C4 100%);

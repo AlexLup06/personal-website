@@ -41,12 +41,13 @@ templ Layout() {
 				]
 			}
 			</script>
+			<script src="/js/htmx.min.js" defer></script>
+			<script src="/js/alpine.min.js" defer></script>
+			<script src="/js/bundle.js" defer></script>
 		</head>
 		<body class="m-0">
 			@navbar.Header()
 			{ children... }
 		</body>
-		<script src="/js/htmx/htmx.min.js" defer></script>
-		<script src="/js/bundle.js" defer></script>
 	</html>
 }

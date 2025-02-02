@@ -33,7 +33,6 @@ func Router() *gin.Engine {
 	}
 
 	r := gin.Default()
-
 	static := r.Group("/", middleware.ServeGzippedFiles(isProductionMode))
 	{
 		static.GET("/js/*filepath", middleware.ServeStaticFiles("./frontend/src/js"))

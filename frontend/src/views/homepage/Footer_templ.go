@@ -29,7 +29,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-screen \"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-96 w-full flex gap-6 my-10\"><div class=\"h-full flex flex-col gap-6 w-1/2\"><div class=\"h-1/2  bg-grey-500 rounded-3xl\"></div><div class=\"h-1/2 bg-grey-500 rounded-3xl\"></div></div><div class=\"h-full bg-grey-500 w-1/2 rounded-3xl\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

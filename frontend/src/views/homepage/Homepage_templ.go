@@ -233,7 +233,7 @@ func homepage() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = Panel().Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Life().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -273,14 +273,6 @@ func homepage() templ.Component {
 	})
 }
 
-func computed(styles []string) string {
-	var computedStyles string
-	for _, style := range styles {
-		computedStyles += style + " "
-	}
-	return computedStyles
-}
-
 func Section(styles ...string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -302,7 +294,7 @@ func Section(styles ...string) templ.Component {
 			templ_7745c5c3_Var12 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var13 = []any{"lg:px-20 md:px-12 sm:px-8 px-4", computed(styles)}
+		var templ_7745c5c3_Var13 = []any{"lg:px-20 md:px-12 sm:px-8 px-4", styles}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var13...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err

@@ -22,3 +22,13 @@ compress-static-files:
 	@gzip -k -f frontend/src/js/htmx/htmx.min.js -c > frontend/public/htmx.min.js.gz
 	@find ./frontend/public -type f ! -path "./frontend/public/fonts/*" ! -name "*.gz" -exec sh -c 'gzip -c "$1" > "$1.gz"' _ {} \;
 	@echo "Static files compressed!"
+
+run-tailwind:
+	@echo "Running Tailwind CSS..."
+	@cd frontend && npx tailwindcss build -i src/css/style.css -o src/css/tailwind.css --watch
+	@echo "Tailwind CSS running!"
+
+run-tailwind:
+	@echo "Running Tailwind CSS..."
+	@cd frontend && npx tailwindcss build -i src/css/style.css -o src/css/tailwind.css --watch
+	@echo "Tailwind CSS running!"

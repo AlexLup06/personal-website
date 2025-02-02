@@ -3,44 +3,44 @@ package homepage
 import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ TechStack() {
-	<div class="py-12 mx-auto lg:h-screen lg:min-h-[800px]">
-		<div class="h-full flex flex-col md:grid grid-cols-1 gap-4 lg:gap-6 md:grid-cols-2 lg:grid-cols-3 grid-rows-30  lg:grid-rows-10">
+	<div class="py-12 mx-auto xl:h-screen xl:min-h-[800px]">
+		<div class="h-full flex flex-col md:grid gap-4 lg:gap-6 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-10">
 			@Card("Frontend",
 				"image-1-parallax",
 				"/public/images/frontend.png",
 				components.Layers(),
 				[]string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"},
-				"max-h-[500px] lg:max-h-auto lg:row-start-1 lg:row-end-7")
+				"max-h-[500px] xl:max-h-auto xl:row-start-1 xl:row-end-7")
 			@Card("Backend",
 				"",
 				"",
 				components.CloudServer(),
 				[]string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"},
-				"lg:h-auto lg:row-start-1 lg:row-end-5")
+				"xl:h-auto xl:row-start-1 xl:row-end-5")
 			@Card("Database",
 				"image-2-parallax",
 				"/public/images/backend.png",
 				components.Layers(),
 				[]string{"MySQL", "PostgreQL", "MongoDB"},
-				"max-h-[550px] lg:max-h-auto lg:row-start-1 lg:row-end-7")
+				"max-h-[550px] xl:max-h-auto xl:row-start-1 xl:row-end-7")
 			@Card("Systems Engineering",
 				"",
 				"",
 				components.Layers(),
 				[]string{"C", "Rust", "Java", "Docker", "bash"},
-				"lg:h-auto row-start-17 row-end-21 lg:row-start-7 lg:row-end-11")
+				"xl:h-auto row-start-17 row-end-21 xl:row-start-7 xl:row-end-11")
 			@Card("Machine Learning",
 				"image-3-parallax",
 				"/public/images/machine-learning.png",
 				components.Layers(),
 				[]string{"Pytorth", "Tensor Flow"},
-				"max-h-[550px] lg:max-h-auto lg:row-start-5 lg:row-end-11")
+				"max-h-[550px] xl:max-h-auto xl:row-start-5 xl:row-end-11")
 			@Card("Other",
 				"",
 				"",
 				components.Atoms(),
 				[]string{"OMNeT++", "LLVM", "Matlab"},
-				"lg:h-auto lg:row-start-7 lg:row-end-11")
+				"xl:h-auto xl:row-start-7 xl:row-end-11")
 		</div>
 	</div>
 }
@@ -48,11 +48,11 @@ templ TechStack() {
 templ Card(title string, id string, imgSrc string, svgComponent templ.Component, techs []string, style string) {
 	<div class={ "transform flex flex-col rounded-3xl shadow-lg overflow-hidden bg-white",style }>
 		if imgSrc != "" {
-			<div class="h-72 md:h-1/2 relative overflow-hidden">
+			<div class="min-h-40 h-72 md:h-1/2 relative overflow-hidden">
 				<img id={ id } class={ "parallax-element z-10 absolute top-0 " } src={ imgSrc }/>
 			</div>
 		} else {
-			<div class="h-1/3 flex items-center justify-center p-8">
+			<div class="h-1/3 md:h-1/2 xl:h-1/3 flex items-center justify-center p-8">
 				<div class="h-12 aspect-square">
 					@svgComponent
 				</div>
@@ -60,9 +60,9 @@ templ Card(title string, id string, imgSrc string, svgComponent templ.Component,
 		}
 		<div
 			if imgSrc!="" {
-				class="h-1/2 p-8"
+				class="p-8"
 			} else {
-				class="h-2/3 p-8 pt-0"
+				class="xl:h-2/3 p-8 xl:pt-0"
 			}
 		>
 			<h4 class="text-2xl font-medium mb-2">{ title }</h4>
@@ -76,7 +76,7 @@ templ Card(title string, id string, imgSrc string, svgComponent templ.Component,
 }
 
 templ Badge(name string) {
-	<p class="flex flex-row items-center justify-center px-2 py-1 m-1 text-md rounded-full border-2 border-gray-100">
+	<p class="flex flex-row items-center justify-center px-2 py-1 m-1 text-md rounded-full border-2 border-grey-400">
 		{ name }
 	</p>
 }

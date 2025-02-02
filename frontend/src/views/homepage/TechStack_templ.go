@@ -31,7 +31,7 @@ func TechStack() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"py-12 mx-auto lg:h-screen lg:min-h-[800px]\"><div class=\"h-full flex flex-col md:grid grid-cols-1 gap-4 lg:gap-6 md:grid-cols-2 lg:grid-cols-3 grid-rows-30  lg:grid-rows-10\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"py-12 mx-auto xl:h-screen xl:min-h-[800px]\"><div class=\"h-full flex flex-col md:grid gap-4 lg:gap-6 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-10\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -40,7 +40,7 @@ func TechStack() templ.Component {
 			"/public/images/frontend.png",
 			components.Layers(),
 			[]string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"},
-			"max-h-[500px] lg:max-h-auto lg:row-start-1 lg:row-end-7").Render(ctx, templ_7745c5c3_Buffer)
+			"max-h-[500px] xl:max-h-auto xl:row-start-1 xl:row-end-7").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -49,7 +49,7 @@ func TechStack() templ.Component {
 			"",
 			components.CloudServer(),
 			[]string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"},
-			"lg:h-auto lg:row-start-1 lg:row-end-5").Render(ctx, templ_7745c5c3_Buffer)
+			"xl:h-auto xl:row-start-1 xl:row-end-5").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -58,7 +58,7 @@ func TechStack() templ.Component {
 			"/public/images/backend.png",
 			components.Layers(),
 			[]string{"MySQL", "PostgreQL", "MongoDB"},
-			"max-h-[550px] lg:max-h-auto lg:row-start-1 lg:row-end-7").Render(ctx, templ_7745c5c3_Buffer)
+			"max-h-[550px] xl:max-h-auto xl:row-start-1 xl:row-end-7").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -67,7 +67,7 @@ func TechStack() templ.Component {
 			"",
 			components.Layers(),
 			[]string{"C", "Rust", "Java", "Docker", "bash"},
-			"lg:h-auto row-start-17 row-end-21 lg:row-start-7 lg:row-end-11").Render(ctx, templ_7745c5c3_Buffer)
+			"xl:h-auto row-start-17 row-end-21 xl:row-start-7 xl:row-end-11").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -76,7 +76,7 @@ func TechStack() templ.Component {
 			"/public/images/machine-learning.png",
 			components.Layers(),
 			[]string{"Pytorth", "Tensor Flow"},
-			"max-h-[550px] lg:max-h-auto lg:row-start-5 lg:row-end-11").Render(ctx, templ_7745c5c3_Buffer)
+			"max-h-[550px] xl:max-h-auto xl:row-start-5 xl:row-end-11").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -85,7 +85,7 @@ func TechStack() templ.Component {
 			"",
 			components.Atoms(),
 			[]string{"OMNeT++", "LLVM", "Matlab"},
-			"lg:h-auto lg:row-start-7 lg:row-end-11").Render(ctx, templ_7745c5c3_Buffer)
+			"xl:h-auto xl:row-start-7 xl:row-end-11").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -141,7 +141,7 @@ func Card(title string, id string, imgSrc string, svgComponent templ.Component, 
 			return templ_7745c5c3_Err
 		}
 		if imgSrc != "" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"h-72 md:h-1/2 relative overflow-hidden\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"min-h-40 h-72 md:h-1/2 relative overflow-hidden\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -194,7 +194,7 @@ func Card(title string, id string, imgSrc string, svgComponent templ.Component, 
 				return templ_7745c5c3_Err
 			}
 		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"h-1/3 flex items-center justify-center p-8\"><div class=\"h-12 aspect-square\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"h-1/3 md:h-1/2 xl:h-1/3 flex items-center justify-center p-8\"><div class=\"h-12 aspect-square\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -212,12 +212,12 @@ func Card(title string, id string, imgSrc string, svgComponent templ.Component, 
 			return templ_7745c5c3_Err
 		}
 		if imgSrc != "" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, " class=\"h-1/2 p-8\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, " class=\"p-8\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, " class=\"h-2/3 p-8 pt-0\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, " class=\"xl:h-2/3 p-8 xl:pt-0\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -274,7 +274,7 @@ func Badge(name string) templ.Component {
 			templ_7745c5c3_Var10 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<p class=\"flex flex-row items-center justify-center px-2 py-1 m-1 text-md rounded-full border-2 border-gray-100\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<p class=\"flex flex-row items-center justify-center px-2 py-1 m-1 text-md rounded-full border-2 border-grey-400\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
