@@ -21,7 +21,6 @@ compress-static-files:
 	@gzip -k -f frontend/src/js/bundle.js -c > frontend/public/bundle.js.gz
 	@gzip -k -f frontend/src/js/htmx.min.js -c > frontend/public/htmx.min.js.gz
 	@gzip -k -f frontend/src/js/alpine.min.js -c > frontend/public/alpine.min.js.gz
-	@find ./frontend/public -type f ! -path "./frontend/public/fonts/*" ! -name "*.gz" -exec sh -c 'gzip -c "$1" > "$1.gz"' _ {} \;
 	@echo "Static files compressed!"
 
 run-tailwind:
