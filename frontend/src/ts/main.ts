@@ -1,5 +1,12 @@
 import "./parallax"
 import "./slidingCards"
+import "./blogScroll"
+
+declare global {
+    interface Window {
+        htmx: any;
+    }
+}
 
 const navbar: HTMLDivElement = document.querySelector('#navbar')!;
 const navlinks = navbar.children;
