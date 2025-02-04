@@ -27,13 +27,13 @@ templ TechStack() {
 				"",
 				"",
 				components.Layers(),
-				[]string{"C", "Rust", "Java", "Docker", "bash"},
+				[]string{"C/C++", "Rust", "Java", "Docker", "bash"},
 				"xl:h-auto row-start-17 row-end-21 xl:row-start-7 xl:row-end-11")
 			@Card("Machine Learning",
 				"image-3-parallax",
 				"/public/images/machine-learning.png",
 				components.Layers(),
-				[]string{"Pytorth", "Tensor Flow"},
+				[]string{"Pytorch", "TensorFlow"},
 				"max-h-[550px] xl:max-h-auto xl:row-start-5 xl:row-end-11")
 			@Card("Other",
 				"",
@@ -76,7 +76,7 @@ templ Card(title string, id string, imgSrc string, svgComponent templ.Component,
 }
 
 templ Badge(name string) {
-	<p class="flex flex-row items-center justify-center px-2 py-1 m-1 text-md rounded-full border-2 border-grey-200">
+	<p class="flex flex-row items-center justify-center px-3 py-1.5 m-1 text-md rounded-xl shadow-sm bg-white">
 		{ name }
 	</p>
 }

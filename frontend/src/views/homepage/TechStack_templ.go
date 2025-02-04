@@ -66,7 +66,7 @@ func TechStack() templ.Component {
 			"",
 			"",
 			components.Layers(),
-			[]string{"C", "Rust", "Java", "Docker", "bash"},
+			[]string{"C/C++", "Rust", "Java", "Docker", "bash"},
 			"xl:h-auto row-start-17 row-end-21 xl:row-start-7 xl:row-end-11").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -75,7 +75,7 @@ func TechStack() templ.Component {
 			"image-3-parallax",
 			"/public/images/machine-learning.png",
 			components.Layers(),
-			[]string{"Pytorth", "Tensor Flow"},
+			[]string{"Pytorch", "TensorFlow"},
 			"max-h-[550px] xl:max-h-auto xl:row-start-5 xl:row-end-11").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -274,7 +274,7 @@ func Badge(name string) templ.Component {
 			templ_7745c5c3_Var10 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<p class=\"flex flex-row items-center justify-center px-2 py-1 m-1 text-md rounded-full border-2 border-grey-200\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<p class=\"flex flex-row items-center justify-center px-3 py-1.5 m-1 text-md rounded-xl shadow-sm bg-white\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

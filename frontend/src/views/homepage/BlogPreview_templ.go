@@ -31,7 +31,7 @@ func BlogPreview() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-screen xl:px-20 py-32 flex justify-end\"><div class=\"h-full w-full xl:w-[calc(100%-150px)] rounded-3xl shadow-md relative py-10 px-6 md:py-14 md:px-8 xl:py-20 xl:px-10\"><div class=\"absolute left-8 -top-14 xl:top-1/2 xl:-translate-y-1/2 xl:left-0 xl:-translate-x-[150px] z-10 w-32 \n\t\t\t\t\t\tsm:w-44 md:w-52 xl:w-auto xl:h-3/4 xl:max-h-96 aspect-square\"><div class=\"bg-grey-200 h-full rounded-2xl md:rounded-3xl xl:rounded-3xl shadow-lg \"></div></div><div class=\"xl:ml-[246px] h-full box-border flex gap-10 xl:gap-12 pt-12 sm:pt-20 md:pt-24 xl:pt-0 items-center\"><div id=\"blog-section\" class=\"relative flex-1 h-full overflow-scroll snap-y snap-mandatory hide-scrollbar\"><div class=\"absolute h-[300%] flex flex-col\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-screen xl:px-20 py-32 pt-[calc(128px+56px)] lg:pt-32 flex justify-end\"><div class=\"h-full w-full xl:w-[calc(100%-150px)] rounded-3xl bg-grey-50 relative py-10 px-6 md:py-14 md:px-8 xl:py-20 xl:px-10\"><div class=\"absolute left-8 -top-14 xl:top-1/2 xl:-translate-y-1/2 xl:left-0 xl:-translate-x-[150px] z-10 w-32 \n\t\t\t\t\t\tsm:w-44 md:w-52 xl:w-auto xl:h-3/4 xl:max-h-96 aspect-square\"><div class=\"bg-white h-full rounded-2xl md:rounded-3xl xl:rounded-3xl shadow-lg \"></div></div><div class=\"xl:ml-[246px] h-full box-border flex gap-10 xl:gap-12 pt-12 sm:pt-20 md:pt-24 xl:pt-0 items-center\"><div id=\"blog-section\" class=\"relative flex-1 h-full overflow-scroll snap-y snap-mandatory hide-scrollbar\"><div class=\"absolute h-[300%] flex flex-col\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -98,14 +98,14 @@ func blog(date, title, entry string) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"h-1/3  flex flex-col justify-between py-4 md:py-10 xl:py-10 snap-center\"><div class=\"flex flex-col gap-4 text-lg\"><p>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"h-1/3  flex flex-col justify-between py-4 md:py-10 xl:py-10 snap-center\"><div class=\"flex flex-col gap-4 text-lg\"><p class=\"text-grey-500\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(date)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 41, Col: 12}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 41, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -153,7 +153,7 @@ func blog(date, title, entry string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "Keep Reading")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "Continue Reading")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -210,12 +210,12 @@ func indicator(id string) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		if id == "indicator-1" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, " class=\"bg-main-500 h-8 w-4 rounded-full cursor-pointer hover:bg-main-300 transition-all duration-300\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, " class=\"bg-main-500 h-8 w-3 rounded-md cursor-pointer hover:bg-main-300 transition-all duration-300\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, " class=\"bg-main-100 h-4 w-4 rounded-full cursor-pointer hover:bg-main-300 transition-all duration-300\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, " class=\"bg-main-100 h-4 w-3 rounded-md cursor-pointer hover:bg-main-300 transition-all duration-300\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
