@@ -3,7 +3,7 @@ package homepage
 import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ TechStack() {
-	<div class="py-12 mx-auto xl:h-screen xl:min-h-[800px]">
+	<div class="mx-auto xl:h-screen xl:min-h-[800px] py-12">
 		<div class="h-full flex flex-col md:grid gap-4 lg:gap-6 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-10">
 			@Card("Frontend",
 				"image-1-parallax",
@@ -46,7 +46,7 @@ templ TechStack() {
 }
 
 templ Card(title string, id string, imgSrc string, svgComponent templ.Component, techs []string, style string) {
-	<div class={ "transform flex flex-col rounded-3xl shadow-lg overflow-hidden bg-white",style }>
+	<div class={ "transform flex flex-col rounded-2xl bg-grey-50 overflow-hidden",style }>
 		if imgSrc != "" {
 			<div class="min-h-40 h-72 md:h-1/2 relative overflow-hidden">
 				<img id={ id } class={ "parallax-element z-10 absolute top-0 " } src={ imgSrc }/>
@@ -76,7 +76,7 @@ templ Card(title string, id string, imgSrc string, svgComponent templ.Component,
 }
 
 templ Badge(name string) {
-	<p class="flex flex-row items-center justify-center px-2 py-1 m-1 text-md rounded-full border-2 border-grey-400">
+	<p class="flex flex-row items-center justify-center px-2 py-1 m-1 text-md rounded-full border-2 border-grey-200">
 		{ name }
 	</p>
 }

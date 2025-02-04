@@ -31,7 +31,7 @@ func PortoflioPreview() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"py-12 @container\"><div class=\"mx-auto w-fit\"><div class=\"mb-4 lg:mb-6 grid w-fit grid-cols-1 @xl:grid-cols-2 gap-4 lg:gap-6 [&amp;&gt;*:nth-child(n+3)]:hidden @xl:[&amp;&gt;*:nth-child(n+3)]:flex\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"@container\"><div class=\"mx-auto w-fit\"><div class=\"mb-4 lg:mb-6 grid w-fit grid-cols-1 @xl:grid-cols-2 gap-4 lg:gap-6 [&amp;&gt;*:nth-child(n+3)]:hidden @xl:[&amp;&gt;*:nth-child(n+3)]:flex\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -62,10 +62,12 @@ func PortoflioPreview() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ProjectCard("NutrInvest",
-			[]string{},
-			"AI-powered app that analyzes food photos to provide nutritional information.",
-			"").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ProjectCard("GoFlow",
+			[]string{"Go", "Docker", "HTMX", "Postgres"},
+			"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+			"/public/images/goflow-logo.png",
+		// "shadow-[rgba(231,70,19,0.4)]",
+		).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -132,7 +134,7 @@ func ProjectCard(name string, badges []string, description string, imgSrc string
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var4 = []any{"shadow-md flex flex-col rounded-2xl overflow-hidden bg-white max-w-96", style}
+		var templ_7745c5c3_Var4 = []any{"bg-grey-50 flex flex-col rounded-2xl overflow-hidden max-w-96", style}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var4...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -150,14 +152,14 @@ func ProjectCard(name string, badges []string, description string, imgSrc string
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\"><div class=\"w-full aspect-video flex items-center overflow-hidden\"><img src=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\"><div class=\"w-full aspect-video flex items-center overflow-hidden bg-white\"><img src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(imgSrc)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 45, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 47, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -170,7 +172,7 @@ func ProjectCard(name string, badges []string, description string, imgSrc string
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 49, Col: 45}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 51, Col: 45}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
@@ -193,7 +195,7 @@ func ProjectCard(name string, badges []string, description string, imgSrc string
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 56, Col: 18}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/PortoflioPreview.templ`, Line: 58, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {

@@ -72,7 +72,7 @@ func Header() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = SocialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = socialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -94,7 +94,7 @@ func Header() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = SocialLink("https://github.com/AlexLup06").Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = socialLink("https://github.com/AlexLup06").Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -116,11 +116,11 @@ func Header() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = SocialLink("/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = socialLink("/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</ul><div id=\"socials-dd\" x-data=\"{open:false}\" @click.outside=\"open = false\" id=\"socials-dd\" class=\"md:hidden relative\"><button @click=\"open = !open\" class=\"shadow-lg text-4xl p-2 rounded-lg\">&commat;</button><div class=\"right-1/2 translate-x-1/2 absolute top-[calc(100%+8px)]\"><ul x-cloak x-show=\"open\" x-transition.duration.300ms class=\"rounded-lg z-[1] flex flex-col gap-3 p-3 shadow\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</ul><div id=\"socials-dd\" x-data=\"{open:false}\" @click.outside=\"open = false\" id=\"socials-dd\" class=\"md:hidden relative\"><button @click=\"open = !open\" class=\"text-4xl p-2\">&commat;</button><div class=\"right-1/2 translate-x-1/2 absolute top-[calc(100%+4px)]\"><ul x-cloak x-show=\"open\" x-transition.duration.300ms class=\"rounded-lg z-[1] flex flex-col gap-3 p-2 shadow\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -142,7 +142,7 @@ func Header() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = SocialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = socialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -164,7 +164,7 @@ func Header() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = SocialLink("https://github.com/AlexLup06").Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = socialLink("https://github.com/AlexLup06").Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -186,7 +186,7 @@ func Header() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = SocialLink("/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = socialLink("/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -307,7 +307,7 @@ func NavLink(link string, text string) templ.Component {
 	})
 }
 
-func SocialLink(link string) templ.Component {
+func socialLink(link string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {

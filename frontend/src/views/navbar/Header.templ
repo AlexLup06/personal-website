@@ -14,34 +14,34 @@ templ Header() {
 			@NavLink("/blog", "BLOG")
 		</ul>
 		<ul class="hidden md:flex md:gap-4 gap-2">
-			@SocialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+			@socialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
 				@components.LinkedIn()
 			}
-			@SocialLink("https://github.com/AlexLup06") {
+			@socialLink("https://github.com/AlexLup06") {
 				@components.Github()
 			}
-			@SocialLink("/") {
+			@socialLink("/") {
 				@components.Twitter()
 			}
 		</ul>
 		<div id="socials-dd" x-data="{open:false}" @click.outside="open = false" id="socials-dd" class="md:hidden relative">
-			<button @click="open = !open" class="shadow-lg text-4xl p-2 rounded-lg">
+			<button @click="open = !open" class="text-4xl p-2">
 				&commat;
 			</button>
-			<div class="right-1/2 translate-x-1/2 absolute top-[calc(100%+8px)]">
+			<div class="right-1/2 translate-x-1/2 absolute top-[calc(100%+4px)]">
 				<ul
 					x-cloak
 					x-show="open"
 					x-transition.duration.300ms
-					class="rounded-lg z-[1] flex flex-col gap-3 p-3 shadow"
+					class="rounded-lg z-[1] flex flex-col gap-3 p-2 shadow"
 				>
-					@SocialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+					@socialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
 						@components.LinkedIn()
 					}
-					@SocialLink("https://github.com/AlexLup06") {
+					@socialLink("https://github.com/AlexLup06") {
 						@components.Github()
 					}
-					@SocialLink("/") {
+					@socialLink("/") {
 						@components.Twitter()
 					}
 				</ul>
@@ -85,7 +85,7 @@ templ NavLink(link string, text string) {
 	</li>
 }
 
-templ SocialLink(link string) {
+templ socialLink(link string) {
 	<li>
 		<a
 			href={ templ.SafeURL(link) }
