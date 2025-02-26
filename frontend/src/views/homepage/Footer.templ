@@ -18,7 +18,7 @@ templ Footer() {
 		<div class="md:h-full flex flex-col gap-6 w-full md:w-1/2">
 			<div class="md:h-1/2 bg-grey-50 rounded-3xl p-10 md:p-16 flex flex-col gap-2 md:gap-4 justify-center">
 				<p>Let's build experiences together!</p>
-				<button class="btn-grad px-8 py-4 rounded-2xl text-xl shadow-inner w-fit" hx-on:click="test()">Email Me</button>
+				@components.EmailButton()
 			</div>
 			<div class="md:h-1/2 flex gap-6">
 				@socialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {

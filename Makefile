@@ -28,7 +28,7 @@ run-tailwind:
 	@cd frontend && npx tailwindcss build -i src/css/style.css -o src/css/tailwind.css --watch
 	@echo "Tailwind CSS running!"
 
-run-tailwind:
+dev:
 	@echo "Running Tailwind CSS..."
 	@cd frontend && npx tailwindcss build -i src/css/style.css -o src/css/tailwind.css --watch
 	@echo "Tailwind CSS running!"

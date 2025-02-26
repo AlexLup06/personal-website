@@ -2,9 +2,31 @@ package components
 
 templ Lg() {
 	<button
-		class="px-8 py-4 rounded-2xl active:scale-95 hover:bg-main-700 transition 
+		class="px-8 py-4 rounded-2xl active:scale-0.95 hover:bg-main-700 transition 
 			 bg-main-500 text-white flex items-center gap-2 w-fit text-xl"
 	>
 		{ children... }
+	</button>
+}
+
+templ EmailButton() {
+	<button class="btn-grad px-5 py-3 rounded-xl shadow-inner text-xl gap-2 flex items-center w-fit active:scale-90">
+		<div class="w-6 ">
+			@Mail()
+		</div>
+		<p>
+			Email
+		</p>
+	</button>
+}
+
+templ EmailButtonSM() {
+	<button class="btn-grad px-4 py-2.5 rounded-xl shadow-inner text-lg gap-2 flex items-center w-fit active:scale-90">
+		<div class="w-5 ">
+			@Mail()
+		</div>
+		<p>
+			Email
+		</p>
 	</button>
 }

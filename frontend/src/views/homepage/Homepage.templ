@@ -1,6 +1,9 @@
 package homepage
 
-import "alexlupatsiy.com/personal-website/frontend/src/views"
+import (
+	"alexlupatsiy.com/personal-website/frontend/src/views"
+	"alexlupatsiy.com/personal-website/frontend/src/views/components"
+)
 
 templ Homepage() {
 	if ctx.Value("HX-Request")==nil {
@@ -14,39 +17,30 @@ templ Homepage() {
 
 templ homepage() {
 	<div id="body-section">
-		@Section("") {
+		@components.Section() {
 			@LandingPage()
 		}
-		@Section("") {
+		@components.Section() {
 			@TechStack()
 		}
-		@Section("pb-32 pt-20") {
+		@components.Section("pb-32 pt-20") {
 			<div class="flex justify-center">
 				<h2 class="text-2xl md:text-3xl lg:text-4xl text-center inline-block px-4 md:px-20">Powered by these tools, I bring ideas to life through innovative apps.</h2>
 			</div>
 		}
-		@Section("") {
+		@components.Section() {
 			@PortoflioPreview()
 		}
-		@Section("pt-32") {
+		@components.Section("pt-32") {
 			<div class="flex justify-center">
 				<h2 class="text-2xl md:text-3xl lg:text-4xl text-center inline-block px-4 md:px-20">I share my journey and experiences through my blog.</h2>
 			</div>
 		}
-		@Section("") {
+		@components.Section() {
 			@BlogPreview()
 		}
-		// @Section() {
-		// 	@Life()
-		// }
-		@Section("pb-4 sm:pb-8") {
+		@components.Section("pb-4 sm:pb-8") {
 			@Footer()
 		}
 	</div>
-}
-
-templ Section(styles ...string) {
-	<section class={ "lg:px-20 md:px-12 sm:px-8 px-4", styles }>
-		{ children... }
-	</section>
 }

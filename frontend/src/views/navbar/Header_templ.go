@@ -34,7 +34,7 @@ func Header() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header class=\"h-24 flex justify-between md:justify-normal items-center w-full absolute top-0 lg:px-20 md:px-12 sm:px-8 px-4\"><img class=\"w-12 md:mr-20\" src=\"/public/images/memoji.png\"><ul id=\"navbar\" class=\"flex md:flex-1 lg:gap-14 md:gap-8 gap-4 items-center\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header class=\"h-nav-height flex justify-between md:justify-normal items-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4\"><img class=\"w-12 md:mr-20\" src=\"/public/images/memoji.png\"><ul id=\"navbar\" class=\"flex md:flex-1 lg:gap-14 md:gap-8 gap-4 items-center\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -286,14 +286,14 @@ func NavLink(link string, text string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "\" hx-target=\"#body-section\" hx-replace-url=\"true\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "\" hx-target=\"#body-section\" hx-swap=\"outerHTML\" hx-replace-url=\"true\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var13 string
 		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/navbar/Header.templ`, Line: 84, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/navbar/Header.templ`, Line: 85, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 		if templ_7745c5c3_Err != nil {

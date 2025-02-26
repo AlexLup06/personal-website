@@ -5,6 +5,11 @@ module.exports = {
   content: ["./src/views/**/*.templ"],
   mode: "jit",
   theme: {
+    extend: {
+      spacing: {
+        "nav-height": "96px"
+      },
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -35,8 +40,6 @@ module.exports = {
         900: "#111827",
         950: "#030712"
       }
-    },
-    extend: {
     },
   },
   plugins: [

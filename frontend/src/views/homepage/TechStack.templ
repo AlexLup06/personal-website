@@ -4,7 +4,7 @@ import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ TechStack() {
 	<div class="mx-auto xl:h-screen xl:min-h-[800px] py-12">
-		<div class="h-full flex flex-col md:grid gap-4 lg:gap-6 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-10">
+		<div class="h-full flex flex-col md:grid gap-4 lg:gap-6 md:grid-cols-2 xl:grid-cols-3 md:grid-rows-3 xl:grid-rows-10">
 			@Card("Frontend",
 				"image-1-parallax",
 				"/public/images/frontend.png",
@@ -22,13 +22,13 @@ templ TechStack() {
 				"/public/images/backend.png",
 				components.Layers(),
 				[]string{"MySQL", "PostgreQL", "MongoDB"},
-				"max-h-[550px] xl:max-h-auto xl:row-start-1 xl:row-end-7")
+				"max-h-[550px] xl:max-h-auto xl:row-start-1 xl:row-end-7 md:order-last")
 			@Card("Systems Engineering",
 				"",
 				"",
 				components.Layers(),
 				[]string{"C/C++", "Rust", "Java", "Docker", "bash"},
-				"xl:h-auto row-start-17 row-end-21 xl:row-start-7 xl:row-end-11")
+				"xl:h-auto xl:row-start-7 xl:row-end-11")
 			@Card("Machine Learning",
 				"image-3-parallax",
 				"/public/images/machine-learning.png",
@@ -40,7 +40,7 @@ templ TechStack() {
 				"",
 				components.Atoms(),
 				[]string{"OMNeT++", "LLVM", "Matlab"},
-				"xl:h-auto xl:row-start-7 xl:row-end-11")
+				"xl:h-auto xl:row-start-7 xl:row-end-11 md:order-last")
 		</div>
 	</div>
 }

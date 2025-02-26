@@ -28,10 +28,9 @@ body {
 
 .btn-grad {
     background-image: var(--grad-color);
-    transition: 0.5s;
+    transition: 0.4s;
     background-size: 200% auto;
     color: white;
-    display: block;
 }
 
 .btn-grad:hover {
