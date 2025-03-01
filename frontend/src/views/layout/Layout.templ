@@ -1,6 +1,4 @@
-package views
-
-import "alexlupatsiy.com/personal-website/frontend/src/views/navbar"
+package layout
 
 templ Layout() {
 	<!DOCTYPE html>
@@ -46,8 +44,9 @@ templ Layout() {
 			<script src="/js/bundle.js" defer></script>
 		</head>
 		<body class="m-0 h">
-			@navbar.Header()
+			@Header()
 			{ children... }
+			@Footer()
 		</body>
 	</html>
 }

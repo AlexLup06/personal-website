@@ -1,4 +1,4 @@
-package navbar
+package layout
 
 import (
 	"alexlupatsiy.com/personal-website/frontend/src/views/components"
@@ -17,18 +17,18 @@ templ Header() {
 			src="/public/images/memoji.png"
 		/>
 		<ul id="navbar" class="flex md:flex-1 lg:gap-14 md:gap-8 gap-4 items-center">
-			@NavLink("/", "HOME")
-			@NavLink("/portfolio", "PORTFOLIO")
-			@NavLink("/blog", "BLOG")
+			@navLinkHeader("/", "HOME")
+			@navLinkHeader("/portfolio", "PORTFOLIO")
+			@navLinkHeader("/blog", "BLOG")
 		</ul>
 		<ul class="hidden md:flex md:gap-4 gap-2">
-			@socialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+			@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
 				@components.LinkedIn()
 			}
-			@socialLink("https://github.com/AlexLup06") {
+			@socialLinkHeader("https://github.com/AlexLup06") {
 				@components.Github()
 			}
-			@socialLink("/") {
+			@socialLinkHeader("/") {
 				@components.Twitter()
 			}
 		</ul>
@@ -43,13 +43,13 @@ templ Header() {
 					x-transition.duration.300ms
 					class="rounded-lg z-[1] flex flex-col gap-3 p-2 shadow"
 				>
-					@socialLink("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+					@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
 						@components.LinkedIn()
 					}
-					@socialLink("https://github.com/AlexLup06") {
+					@socialLinkHeader("https://github.com/AlexLup06") {
 						@components.Github()
 					}
-					@socialLink("/") {
+					@socialLinkHeader("/") {
 						@components.Twitter()
 					}
 				</ul>
@@ -73,7 +73,7 @@ func isActive(c context.Context, link string) string {
 	return "false"
 }
 
-templ NavLink(link string, text string) {
+templ navLinkHeader(link string, text string) {
 	<li
 		class="
 			after:w-0 after:h-1 after:block after:absolute after:text-xl after:border-b-2 
@@ -94,7 +94,7 @@ templ NavLink(link string, text string) {
 	</li>
 }
 
-templ socialLink(link string) {
+templ socialLinkHeader(link string) {
 	<li>
 		<a
 			href={ templ.SafeURL(link) }

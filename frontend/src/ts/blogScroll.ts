@@ -4,7 +4,6 @@ window.htmx.onLoad(function () {
         return
     }
 
-
     const clientHeight = blogSection.clientHeight; // Visible height
 
     const indicatorSection = document.getElementById("indicator-section") as HTMLDivElement

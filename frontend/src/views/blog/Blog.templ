@@ -1,15 +1,15 @@
 package blog
 
 import (
-	"alexlupatsiy.com/personal-website/frontend/src/views"
 	"alexlupatsiy.com/personal-website/frontend/src/views/components"
+	"alexlupatsiy.com/personal-website/frontend/src/views/layout"
 )
 
 templ Blog() {
 	if ctx.Value("HX-Request")=="true" {
 		@blog()
 	} else {
-		@views.Layout() {
+		@layout.Layout() {
 			@blog()
 		}
 	}

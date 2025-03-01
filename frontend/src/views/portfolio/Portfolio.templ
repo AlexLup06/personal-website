@@ -1,12 +1,12 @@
 package portfolio
 
-import "alexlupatsiy.com/personal-website/frontend/src/views"
+import "alexlupatsiy.com/personal-website/frontend/src/views/layout"
 
 templ Portfolio() {
 	if ctx.Value("HX-Request")=="true" {
 		@portfolio()
 	} else {
-		@views.Layout() {
+		@layout.Layout() {
 			@portfolio()
 		}
 	}

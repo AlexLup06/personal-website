@@ -1,13 +1,13 @@
 package homepage
 
 import (
-	"alexlupatsiy.com/personal-website/frontend/src/views"
 	"alexlupatsiy.com/personal-website/frontend/src/views/components"
+	"alexlupatsiy.com/personal-website/frontend/src/views/layout"
 )
 
 templ Homepage() {
 	if ctx.Value("HX-Request")==nil {
-		@views.Layout() {
+		@layout.Layout() {
 			@homepage()
 		}
 	} else {
@@ -38,9 +38,6 @@ templ homepage() {
 		}
 		@components.Section() {
 			@BlogPreview()
-		}
-		@components.Section("pb-4 sm:pb-8") {
-			@Footer()
 		}
 	</div>
 }
