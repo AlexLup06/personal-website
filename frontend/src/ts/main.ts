@@ -11,6 +11,17 @@ declare global {
 
 const navbar: HTMLDivElement = document.querySelector('#navbar')!;
 const navlinks = navbar.children;
+const logo = document.getElementById("logo") as HTMLDivElement;
+
+logo.addEventListener("click", () => {
+    if (window.location.pathname == "/") {
+        return
+    }
+
+    const currentlyActive = document.querySelector("[data-linkactive='true']") as HTMLDivElement
+    currentlyActive.setAttribute('data-linkactive', 'false')
+    navlinks[0].setAttribute('data-linkactive', 'true')
+})
 
 for (var i = 0; i < navlinks.length; i++) {
     const navlink = navlinks[i];

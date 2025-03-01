@@ -7,7 +7,15 @@ import (
 
 templ Header() {
 	<header class="h-nav-height flex justify-between md:justify-normal items-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4">
-		<img class="w-12 md:mr-20" src="/public/images/memoji.png"/>
+		<img
+			class="w-12 md:mr-20"
+			id="logo"
+			hx-get="/"
+			hx-target="#body-section"
+			hx-swap="outerHTML"
+			hx-replace-url="true"
+			src="/public/images/memoji.png"
+		/>
 		<ul id="navbar" class="flex md:flex-1 lg:gap-14 md:gap-8 gap-4 items-center">
 			@NavLink("/", "HOME")
 			@NavLink("/portfolio", "PORTFOLIO")
