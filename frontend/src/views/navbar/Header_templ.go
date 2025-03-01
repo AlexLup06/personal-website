@@ -234,14 +234,14 @@ func NavLink(link string, text string) templ.Component {
 			templ_7745c5c3_Var8 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<li class=\"\n\t\t\tafter:w-0 after:h-1 after:block after:absolute after:text-xl after:border-b-2 \n\t\t\tafter:border-black  after:transition-all after:duration-300\n\t\t\thover:after:w-full\n\t\t\tafter:data-[active=true]:w-full\n\t\t\trelative cursor-pointer md:text-xl md:font-medium\n\t\t\" data-active=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<li class=\"\n\t\t\tafter:w-0 after:h-1 after:block after:absolute after:text-xl after:border-b-2 \n\t\t\tafter:border-black  after:transition-all after:duration-300\n\t\t\thover:after:w-full\n\t\t\tafter:data-[linkactive=true]:w-full\n\t\t\trelative cursor-pointer md:text-xl md:font-medium\n\t\t\" data-linkactive=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var9 string
 		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(isActive(ctx, link))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/navbar/Header.templ`, Line: 77, Col: 35}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/navbar/Header.templ`, Line: 77, Col: 39}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {

@@ -30,8 +30,7 @@ window.htmx.onLoad(function () {
             }
 
         });
-    }, {
-    });
+    }, {});
 
     for (const element of parallaxElements) {
         observer.observe(element);

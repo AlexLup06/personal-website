@@ -1,6 +1,7 @@
 import "./parallax"
 import "./slidingCards"
 import "./blogScroll"
+import "./blogPage"
 
 declare global {
     interface Window {
@@ -21,10 +22,10 @@ for (var i = 0; i < navlinks.length; i++) {
             return
         }
 
-        const currentlyActive = document.querySelector('[data-active="true"]')!
-        currentlyActive.setAttribute('data-active', 'false')
+        const currentlyActive = document.querySelector('[data-linkactive="true"]')!
+        currentlyActive.setAttribute('data-linkactive', 'false')
 
-        navlink.setAttribute('data-active', 'true')
+        navlink.setAttribute('data-linkactive', 'true')
     });
 }
 

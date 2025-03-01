@@ -9,6 +9,9 @@ module.exports = {
       spacing: {
         "nav-height": "96px"
       },
+      screens: {
+        'xs': '480px',
+      },
     },
     colors: {
       transparent: 'transparent',

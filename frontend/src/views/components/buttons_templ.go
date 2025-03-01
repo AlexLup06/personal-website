@@ -29,7 +29,7 @@ func Lg() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button class=\"px-8 py-4 rounded-2xl active:scale-0.95 hover:bg-main-700 transition \n\t\t\t bg-main-500 text-white flex items-center gap-2 w-fit text-xl\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button class=\"px-5 py-3 rounded-2xl active:scale-95 hover:bg-main-700 transition \n\t\t\t bg-main-500 text-white flex items-center gap-2 w-fit text-lg\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -66,7 +66,7 @@ func EmailButton() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<button class=\"btn-grad px-5 py-3 rounded-xl shadow-inner text-xl gap-2 flex items-center w-fit active:scale-90\"><div class=\"w-6 \">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<button class=\"btn-grad px-5 py-3 rounded-2xl shadow-inner text-xl gap-2 flex items-center w-fit active:scale-90\"><div class=\"w-6 \">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -103,7 +103,7 @@ func EmailButtonSM() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<button class=\"btn-grad px-4 py-2.5 rounded-xl shadow-inner text-lg gap-2 flex items-center w-fit active:scale-90\"><div class=\"w-5 \">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<button class=\"btn-grad px-4 py-2.5 rounded-2xl shadow-inner text-lg gap-2 flex items-center w-fit active:scale-90\"><div class=\"w-5 \">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -31,7 +31,7 @@ func TechStack() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"mx-auto xl:h-screen xl:min-h-[800px] py-12\"><div class=\"h-full flex flex-col md:grid gap-4 lg:gap-6 md:grid-cols-2 xl:grid-cols-3 md:grid-rows-3 xl:grid-rows-10\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"mx-auto xl:h-screen xl:min-h-[800px] pt-8 md:pt-12\"><div class=\"h-full flex flex-col md:grid gap-4 lg:gap-6 md:grid-cols-2 xl:grid-cols-3 md:grid-rows-3 xl:grid-rows-10\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

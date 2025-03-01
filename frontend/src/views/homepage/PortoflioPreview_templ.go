@@ -31,7 +31,7 @@ func PortoflioPreview() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"@container\"><div class=\"mx-auto w-fit\"><div class=\"mb-4 lg:mb-6 grid w-fit grid-cols-1 @xl:grid-cols-2 gap-4 lg:gap-6 [&amp;&gt;*:nth-child(n+3)]:hidden @xl:[&amp;&gt;*:nth-child(n+3)]:flex\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"@container\"><div class=\"mx-auto w-fit\"><div class=\"mb-4 lg:mb-4 grid w-fit grid-cols-1 @xl:grid-cols-2 gap-4 lg:gap-4 [&amp;&gt;*:nth-child(n+3)]:hidden @xl:[&amp;&gt;*:nth-child(n+3)]:flex\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -87,7 +87,7 @@ func PortoflioPreview() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<span>View all projects</span><div class=\"h-8 aspect-square text-2xl\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<span>View all projects</span><div class=\"h-7 aspect-square\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -165,7 +165,7 @@ func ProjectCard(name string, badges []string, description string, imgSrc string
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\" alt=\"Project image\" class=\"object-cover\"></div><div class=\"flex flex-col gap-4 p-6 md:p-10 lg:p-8\"><div class=\"flex flex-col gap-2\"><h2 class=\"text-3xl font-semibold\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\" alt=\"Project image\" class=\"object-cover\"></div><div class=\"flex flex-col gap-4 p-6 md:p-10 lg:p-8\"><div class=\"flex flex-col gap-2\"><h2 class=\"text-2xl font-semibold\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

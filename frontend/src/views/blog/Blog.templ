@@ -23,15 +23,27 @@ templ blog() {
 					<h1 class="text-7xl">Blog</h1>
 					<h2 class="text-3xl">Discover my shower thoughts and experiences.</h2>
 				</div>
-				<div class="mt-6 flex flex-row flex-wrap gap-2 w-full sticky top-0 bg-white items-center">
-					@searchBar()
-					// @filter()
-					@filter("All", true)
-					@filter("Technology", false)
-					@filter("Philosohpy", false)
-					@filter("Economics", false)
-					@filter("Shower Thoughts", false)
-					@filter("Experiences", false)
+				<div
+					id="search-and-filter"
+					data-stickyactive="false"
+					class="mt-6 w-full sticky top-[-1px] bg-white items-center 
+							data-[stickyactive='true']:py-4 lg:data-[stickyactive='true']:py-6 data-[stickyactive='true']:border-b-2 border-grey-200 transition-all"
+				>
+					<div class="hidden lg:flex flex-row flex-wrap gap-2">
+						@searchBar()
+						// @filter()
+						@filter("All", true)
+						@filter("Technology", false)
+						@filter("Philosohpy", false)
+						@filter("Economics", false)
+						@filter("Shower Thoughts", false)
+						@filter("Experiences", false)
+					</div>
+					<div class="lg:hidden flex flex-row flex-wrap gap-2">
+						@searchBar()
+						// @filter()
+						@filterDrop("Filter", true)
+					</div>
 				</div>
 				<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 					@blogEntry("Why I am Always Right.",
@@ -92,6 +104,16 @@ templ filter(name string, active bool) {
 	</div>
 }
 
+templ filterDrop(name string, active bool) {
+	<div
+		class={ " px-3.5 rounded-xl text-sm  cursor-pointer transition",
+		templ.KV("bg-main-500 text-white hover:bg-main-600 py-1.5",active),
+		templ.KV("text-main-500 border-2 border-main-500 hover:bg-main-500 hover:text-white py-1",!active) }
+	>
+		{ name }
+	</div>
+}
+
 templ blogEntry(title, date, preview string, badges []string) {
 	<div class="rounded-2xl overflow-hidden">
 		<div class="bg-grey-100 w-full aspect-[16/11] rounded-2xl overflow-hidden"></div>
@@ -121,7 +143,7 @@ templ blogBadge(name string) {
 }
 
 templ searchBar() {
-	<div class="flex h-8 items-center border-2 border-main-500 rounded-xl overflow-hidden flex-1 min-w-32 md:min-w-52">
+	<div class="flex h-8 items-center border-2 border-main-500 rounded-xl overflow-hidden flex-1 min-w-32 max-w-96 md:min-w-52">
 		<input
 			type="text"
 			placeholder="Search..."

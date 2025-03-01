@@ -5,7 +5,7 @@ import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 templ PortoflioPreview() {
 	<div class="@container">
 		<div class="mx-auto w-fit">
-			<div class="mb-4 lg:mb-6 grid w-fit grid-cols-1 @xl:grid-cols-2 gap-4 lg:gap-6 [&>*:nth-child(n+3)]:hidden @xl:[&>*:nth-child(n+3)]:flex">
+			<div class="mb-4 lg:mb-4 grid w-fit grid-cols-1 @xl:grid-cols-2 gap-4 lg:gap-4 [&>*:nth-child(n+3)]:hidden @xl:[&>*:nth-child(n+3)]:flex">
 				@ProjectCard("GoFlow",
 					[]string{"Go", "Docker", "HTMX", "Postgres"},
 					"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
@@ -33,7 +33,7 @@ templ PortoflioPreview() {
 			</div>
 			@components.Lg() {
 				<span>View all projects</span>
-				<div class="h-8 aspect-square text-2xl">
+				<div class="h-7 aspect-square">
 					@components.RightArrow()
 				</div>
 			}
@@ -48,7 +48,7 @@ templ ProjectCard(name string, badges []string, description string, imgSrc strin
 		</div>
 		<div class="flex flex-col gap-4 p-6 md:p-10 lg:p-8">
 			<div class="flex flex-col gap-2">
-				<h2 class="text-3xl font-semibold">{ name }</h2>
+				<h2 class="text-2xl font-semibold">{ name }</h2>
 				<div class="flex flex-row flex-wrap -translate-x-1">
 					for _,badge :=range badges {
 						@Badge(badge)
