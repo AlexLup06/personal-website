@@ -18,15 +18,15 @@ templ Blog() {
 templ blog() {
 	<div id="body-section">
 		@components.Section() {
-			<div class="max-w-4xl mx-auto my-10">
-				<div class="gap-3 flex flex-col">
-					<h1 class="text-7xl">Blog</h1>
-					<h2 class="text-3xl">Discover my shower thoughts and experiences.</h2>
+			<div class="max-w-4xl mx-auto mb-10">
+				<div class="gap-2 md:gap-3 flex flex-col">
+					<h1 class="text-5xl md:text-7xl">Blog</h1>
+					<h2 class="text-xl md:text-3xl">Discover my shower thoughts and experiences.</h2>
 				</div>
 				<div
 					id="search-and-filter"
 					data-stickyactive="false"
-					class="mt-6 w-full sticky top-[-1px] bg-white items-center 
+					class="my-4 md:my-6 w-full sticky top-[-1px] bg-white items-center 
 							data-[stickyactive='true']:py-4 lg:data-[stickyactive='true']:py-6 data-[stickyactive='true']:border-b-2 border-grey-200 transition-all"
 				>
 					<div class="hidden lg:flex flex-row flex-wrap gap-2">
@@ -45,7 +45,7 @@ templ blog() {
 						@filterDrop("Filter", true)
 					</div>
 				</div>
-				<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 					@blogEntry("Why I am Always Right.",
 						"January 24th 2025",
 						"A deep dive into the art of being right—always. Is it logic, luck, or just sheer genius? Let's settle the debate once and for all.",

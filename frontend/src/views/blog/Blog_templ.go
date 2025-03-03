@@ -104,7 +104,7 @@ func blog() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto my-10\"><div class=\"gap-3 flex flex-col\"><h1 class=\"text-7xl\">Blog</h1><h2 class=\"text-3xl\">Discover my shower thoughts and experiences.</h2></div><div id=\"search-and-filter\" data-stickyactive=\"false\" class=\"mt-6 w-full sticky top-[-1px] bg-white items-center \n\t\t\t\t\t\t\tdata-[stickyactive=&#39;true&#39;]:py-4 lg:data-[stickyactive=&#39;true&#39;]:py-6 data-[stickyactive=&#39;true&#39;]:border-b-2 border-grey-200 transition-all\"><div class=\"hidden lg:flex flex-row flex-wrap gap-2\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto mb-10\"><div class=\"gap-2 md:gap-3 flex flex-col\"><h1 class=\"text-5xl md:text-7xl\">Blog</h1><h2 class=\"text-xl md:text-3xl\">Discover my shower thoughts and experiences.</h2></div><div id=\"search-and-filter\" data-stickyactive=\"false\" class=\"my-4 md:my-6 w-full sticky top-[-1px] bg-white items-center \n\t\t\t\t\t\t\tdata-[stickyactive=&#39;true&#39;]:py-4 lg:data-[stickyactive=&#39;true&#39;]:py-6 data-[stickyactive=&#39;true&#39;]:border-b-2 border-grey-200 transition-all\"><div class=\"hidden lg:flex flex-row flex-wrap gap-2\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -148,7 +148,7 @@ func blog() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div><div class=\"mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div><div class=\"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
