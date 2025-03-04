@@ -48,6 +48,7 @@ templ navLinkFooter(name string, link string) {
 		hx-target="#body-section"
 		hx-swap="outerHTML show:window:top"
 		hx-replace-url="true"
+		href={ templ.SafeURL(link) }
 	>
 		{ name }
 	</a>

@@ -16,7 +16,7 @@ templ Header() {
 			hx-replace-url="true"
 			src="/public/images/memoji.png"
 		/>
-		<ul id="navbar" class="flex md:flex-1 lg:gap-14 md:gap-8 gap-4 items-center">
+		<ul id="navbar" class="flex md:flex-1 lg:gap-14 md:gap-6 gap-2 items-center">
 			@navLinkHeader("/", "HOME")
 			@navLinkHeader("/portfolio", "PORTFOLIO")
 			@navLinkHeader("/blog", "BLOG")
@@ -74,23 +74,25 @@ func isActive(c context.Context, link string) string {
 }
 
 templ navLinkHeader(link string, text string) {
-	<li
-		class="
+	<li>
+		<a
+			class="
 			after:w-0 after:h-1 after:block after:absolute after:text-xl after:border-b-2 
 			after:border-black  after:transition-all after:duration-300
 			hover:after:w-full
 			after:data-[linkactive=true]:w-full
-			relative cursor-pointer md:text-xl md:font-medium
-		"
-		data-linkactive={ isActive(ctx, link) }
-		data-path={ link }
-		data-text={ text }
-		hx-get={ link }
-		hx-target="#body-section"
-		hx-swap="outerHTML"
-		hx-replace-url="true"
-	>
-		{ text }
+			relative md:text-xl md:font-medium cursor-pointer"
+			data-linkactive={ isActive(ctx, link) }
+			data-path={ link }
+			data-text={ text }
+			hx-get={ link }
+			hx-target="#body-section"
+			hx-swap="outerHTML"
+			hx-replace-url="true"
+			href={ templ.SafeURL(link) }
+		>
+			{ text }
+		</a>
 	</li>
 }
 

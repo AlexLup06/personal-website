@@ -3,13 +3,10 @@ const NAV_LINKS = {
     portfolio: 1,
     blog: 2
 }
-// window.htmx.onLoad(function () {
+
 const navbar = document.getElementById('navbar') as HTMLDivElement;
 const footer = document.getElementById('footer-navlinks') as HTMLDivElement;
 const logo = document.getElementById("logo") as HTMLDivElement;
-// if (navbar == null || footer == null || logo == null) {
-//     return
-// }
 
 const navlinks = navbar.children;
 const footerLinks = footer.children
@@ -25,7 +22,7 @@ logo.addEventListener("click", () => {
 })
 
 for (var i = 0; i < navlinks.length; i++) {
-    const navlink = navlinks[i];
+    const navlink = navlinks[i].children[0];
     navlink.addEventListener('click', function () {
         const pathAttr = navlink.getAttribute('data-path')
         const pathName = window.location.pathname
@@ -71,4 +68,3 @@ for (var i = 0; i < footerLinks.length; i++) {
         }
     });
 }
-// })
