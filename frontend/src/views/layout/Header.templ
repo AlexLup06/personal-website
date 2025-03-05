@@ -82,6 +82,7 @@ templ navLinkHeader(link string, text string) {
 			hover:after:w-full
 			after:data-[linkactive=true]:w-full
 			relative md:text-xl md:font-medium cursor-pointer"
+			id="navbar-link"
 			data-linkactive={ isActive(ctx, link) }
 			data-path={ link }
 			data-text={ text }

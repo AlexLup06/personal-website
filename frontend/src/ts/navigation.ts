@@ -4,12 +4,10 @@ const NAV_LINKS = {
     blog: 2
 }
 
-const navbar = document.getElementById('navbar') as HTMLDivElement;
-const footer = document.getElementById('footer-navlinks') as HTMLDivElement;
+const navLinks = document.querySelectorAll("#navbar-link");
+const footerLinks = document.querySelectorAll("#footer-links");
 const logo = document.getElementById("logo") as HTMLDivElement;
 
-const navlinks = navbar.children;
-const footerLinks = footer.children
 
 logo.addEventListener("click", () => {
     if (window.location.pathname == "/") {
@@ -18,11 +16,11 @@ logo.addEventListener("click", () => {
 
     const currentlyActive = document.querySelector("[data-linkactive='true']") as HTMLDivElement
     currentlyActive.setAttribute('data-linkactive', 'false')
-    navlinks[NAV_LINKS.home].setAttribute('data-linkactive', 'true')
+    navLinks[NAV_LINKS.home].setAttribute('data-linkactive', 'true')
 })
 
-for (var i = 0; i < navlinks.length; i++) {
-    const navlink = navlinks[i].children[0];
+for (var i = 0; i < navLinks.length; i++) {
+    const navlink = navLinks[i];
     navlink.addEventListener('click', function () {
         const pathAttr = navlink.getAttribute('data-path')
         const pathName = window.location.pathname
@@ -51,19 +49,19 @@ for (var i = 0; i < footerLinks.length; i++) {
 
         switch (pathAttr) {
             case "/":
-                navlinks[NAV_LINKS.home].setAttribute('data-linkactive', 'true')
-                navlinks[NAV_LINKS.portfolio].setAttribute('data-linkactive', 'false')
-                navlinks[NAV_LINKS.blog].setAttribute('data-linkactive', 'false')
+                navLinks[NAV_LINKS.home].setAttribute('data-linkactive', 'true')
+                navLinks[NAV_LINKS.portfolio].setAttribute('data-linkactive', 'false')
+                navLinks[NAV_LINKS.blog].setAttribute('data-linkactive', 'false')
                 break
             case "/portfolio":
-                navlinks[NAV_LINKS.home].setAttribute('data-linkactive', 'false')
-                navlinks[NAV_LINKS.portfolio].setAttribute('data-linkactive', 'true')
-                navlinks[NAV_LINKS.blog].setAttribute('data-linkactive', 'false')
+                navLinks[NAV_LINKS.home].setAttribute('data-linkactive', 'false')
+                navLinks[NAV_LINKS.portfolio].setAttribute('data-linkactive', 'true')
+                navLinks[NAV_LINKS.blog].setAttribute('data-linkactive', 'false')
                 break
             case "/blog":
-                navlinks[NAV_LINKS.home].setAttribute('data-linkactive', 'false')
-                navlinks[NAV_LINKS.portfolio].setAttribute('data-linkactive', 'false')
-                navlinks[NAV_LINKS.blog].setAttribute('data-linkactive', 'true')
+                navLinks[NAV_LINKS.home].setAttribute('data-linkactive', 'false')
+                navLinks[NAV_LINKS.portfolio].setAttribute('data-linkactive', 'false')
+                navLinks[NAV_LINKS.blog].setAttribute('data-linkactive', 'true')
                 break
         }
     });
