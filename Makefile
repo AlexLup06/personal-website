@@ -23,12 +23,7 @@ compress-static-files:
 	@gzip -k -f frontend/src/js/alpine.min.js -c > frontend/public/alpine.min.js.gz
 	@echo "Static files compressed!"
 
-run-tailwind:
-	@echo "Running Tailwind CSS..."
-	@cd frontend && npx tailwindcss build -i src/css/style.css -o src/css/tailwind.css --watch
-	@echo "Tailwind CSS running!"
-
 dev:
 	@echo "Running Tailwind CSS..."
-	@cd frontend && npx tailwindcss build -i src/css/style.css -o src/css/tailwind.css --watch
+	@cd frontend && npx @tailwindcss/cli -i ./src/css/style.css -o ./src/css/tailwind.css --watch
 	@echo "Tailwind CSS running!"

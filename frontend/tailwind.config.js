@@ -1,6 +1,3 @@
-const { default: daisyui } = require("daisyui");
-const { plugin } = require("postcss");
-
 module.exports = {
   content: ["./src/views/**/*.templ"],
   mode: "jit",
@@ -58,14 +55,7 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    require('daisyui'),
-    require('@tailwindcss/container-queries'),
-  ],
   corePlugins: {
     preflight: true,
-  },
-  daisyui: {
-    themes: [],
   },
 };
