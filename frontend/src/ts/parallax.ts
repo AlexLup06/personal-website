@@ -6,6 +6,10 @@ window.htmx.onLoad(function () {
         elementsInView.set(element.id, false);
     }
 
+    for (const [elementId, _] of elementsInView) {
+        modifyElement(elementId)
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -39,14 +43,17 @@ window.htmx.onLoad(function () {
     function handleScroll() {
         for (const [elementId, inView] of elementsInView) {
             if (!inView) continue;
-
-            const element = document.querySelector(`#${elementId}`) as HTMLDivElement;
-            const minTranslateY = 0;
-            const maxTranslateY = 100;
-            const scrollProgress = calculateScrollProgress(element);
-            const currentTranslateY = minTranslateY + (maxTranslateY - minTranslateY) * scrollProgress / 100;
-            element.style.transform = `translateY(-${currentTranslateY}px)`;
+            modifyElement(elementId)
         }
+    }
+
+    function modifyElement(elementId: string) {
+        const element = document.querySelector(`#${elementId}`) as HTMLDivElement;
+        const minTranslateY = 0;
+        const maxTranslateY = 100;
+        const scrollProgress = calculateScrollProgress(element);
+        const currentTranslateY = minTranslateY + (maxTranslateY - minTranslateY) * scrollProgress / 100;
+        element.style.transform = `translateY(-${currentTranslateY}px)`;
     }
 
 

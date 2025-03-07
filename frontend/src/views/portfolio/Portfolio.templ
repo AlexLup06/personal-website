@@ -1,6 +1,9 @@
 package portfolio
 
-import "alexlupatsiy.com/personal-website/frontend/src/views/layout"
+import (
+	"alexlupatsiy.com/personal-website/frontend/src/views/components"
+	"alexlupatsiy.com/personal-website/frontend/src/views/layout"
+)
 
 templ Portfolio() {
 	if ctx.Value("HX-Request")=="true" {
@@ -14,6 +17,11 @@ templ Portfolio() {
 
 templ portfolio() {
 	<div id="body-section">
-		<h1>Portfolio</h1>
+		@components.Section() {
+			<div class="gap-2 md:gap-2 flex flex-col pt-32 mb-10">
+				<h1 class="text-5xl md:text-7xl">Portfolio</h1>
+				<h2 class="text-xl md:text-3xl">Check out my Projects.</h2>
+			</div>
+		}
 	</div>
 }

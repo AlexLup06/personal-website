@@ -3,80 +3,72 @@ package homepage
 import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ TechStack() {
-	<div class="mx-auto xl:h-screen xl:min-h-[800px] pt-8 md:pt-12">
-		<div class="h-full flex flex-col md:grid gap-4 lg:gap-6 md:grid-cols-2 xl:grid-cols-3 md:grid-rows-3 xl:grid-rows-10">
-			@Card("Frontend",
-				"image-1-parallax",
-				"/public/images/frontend.png",
-				components.Layers(),
-				[]string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"},
-				"max-h-[500px] xl:max-h-auto xl:row-start-1 xl:row-end-7")
-			@Card("Backend",
-				"",
-				"",
-				components.CloudServer(),
-				[]string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"},
-				"xl:h-auto xl:row-start-1 xl:row-end-5")
-			@Card("Database",
-				"image-2-parallax",
-				"/public/images/backend.png",
-				components.Layers(),
-				[]string{"MySQL", "PostgreQL", "MongoDB"},
-				"max-h-[550px] xl:max-h-auto xl:row-start-1 xl:row-end-7 md:order-last")
-			@Card("Systems Engineering",
-				"",
-				"",
-				components.Layers(),
-				[]string{"C/C++", "Rust", "Java", "Docker", "bash"},
-				"xl:h-auto xl:row-start-7 xl:row-end-11")
-			@Card("Machine Learning",
-				"image-3-parallax",
-				"/public/images/machine-learning.png",
-				components.Layers(),
-				[]string{"Pytorch", "TensorFlow"},
-				"max-h-[550px] xl:max-h-auto xl:row-start-5 xl:row-end-11")
-			@Card("Other",
-				"",
-				"",
-				components.Atoms(),
-				[]string{"OMNeT++", "LLVM", "Matlab"},
-				"xl:h-auto xl:row-start-7 xl:row-end-11 md:order-last")
+	<div class="mt-40">
+		<div class="text-5xl mb-6">
+			Tools & Techonolgies
 		</div>
 	</div>
-}
-
-templ Card(title string, id string, imgSrc string, svgComponent templ.Component, techs []string, style string) {
-	<div class={ "transform flex flex-col rounded-2xl bg-grey-50 overflow-hidden",style }>
-		if imgSrc != "" {
-			<div class="min-h-40 h-72 md:h-1/2 relative overflow-hidden">
-				<img id={ id } class={ "parallax-element z-10 absolute top-0 " } src={ imgSrc }/>
+	<div class="flex gap-2 mb-4">
+		@BestTech("Go")
+		@BestTech("HTMX")
+		@BestTech("PostgreSQL")
+		@BestTech("SwiftUI")
+		@BestTech("React")
+	</div>
+	<div class="mx-auto flex flex-col gap-4">
+		<div class="h-72 relative overflow-x-scroll snap-mandatory snap-x">
+			<div class="absolute grid h-full grid-flow-col gap-4">
+				@Card("Frontend",
+					[]string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"})
+				@Card("Backend",
+					[]string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"})
+				@Card("Database",
+					[]string{"MySQL", "PostgreSQL", "MongoDB"})
+				@Card("Systems Engineering",
+					[]string{"C/C++", "Rust", "Java", "Docker", "bash"})
+				@Card("Machine Learning",
+					[]string{"Pytorch", "TensorFlow"})
+				@Card("Other",
+					[]string{"OMNeT++", "LLVM", "Matlab"})
 			</div>
-		} else {
-			<div class="h-1/3 md:h-1/2 xl:h-1/3 flex items-center justify-center p-8">
-				<div class="h-12 aspect-square">
-					@svgComponent
-				</div>
-			</div>
-		}
-		<div
-			if imgSrc!="" {
-				class="p-8"
-			} else {
-				class="xl:h-2/3 p-8 xl:pt-0"
+		</div>
+		<div class="flex gap-2.5 ml-auto mr-4 cursor-pointer">
+			@Button() {
+				@components.LeftArrow()
 			}
-		>
-			<h4 class="text-2xl font-medium mb-2">{ title }</h4>
-			<div class="flex flex-row flex-wrap">
-				for _,tech := range techs {
-					@Badge(tech)
-				}
-			</div>
+			@Button() {
+				@components.RightArrow()
+			}
 		</div>
 	</div>
 }
 
-templ Badge(name string) {
-	<p class="flex flex-row items-center justify-center px-3 py-1.5 m-1 text-md rounded-xl shadow-sm bg-white">
+templ Button() {
+	<div
+		class="bg-second-500 hover:bg-second-50 border-2 border-second-500 text-second-50 
+			   hover:text-second-500  h-8 w-8 stroke-2 center text-3xl rounded-full transition"
+	>
+		{ children... }
+	</div>
+}
+
+templ BestTech(name string) {
+	<div class="center px-5 py-2.5 bg-main-700 text-white rounded-2xl text-lg">
 		{ name }
-	</p>
+	</div>
+}
+
+templ Card(title string, techs []string) {
+	<div class="snap-start transform w-60 flex flex-col overflow-hidden border-2 bg-main-50 border-main-800 rounded-2xl p-4">
+		<div>
+			<h4 class="text-2xl font-medium mb-2">{ title }</h4>
+			<ul role="list" class="list-disc marker:text-main-700 pl-4">
+				for _,tech := range techs {
+					<li class="text-lg">
+						{ tech }
+					</li>
+				}
+			</ul>
+		</div>
+	</div>
 }

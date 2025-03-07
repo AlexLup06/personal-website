@@ -29,7 +29,7 @@ func Lg() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button class=\"px-5 py-3 rounded-2xl active:scale-95 hover:bg-main-700 transition \n\t\t\t bg-main-500 text-white flex items-center gap-2 w-fit text-lg\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button class=\"px-5 py-3 rounded-2xl active:scale-95 hover:bg-second-50 text-white hover:text-second-500 \n\t\t\t\toutline outline-2 outline-second-500 transition \n\t\t\t  bg-second-500 flex items-center gap-2 w-fit text-lg\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -74,7 +74,7 @@ func EmailButton() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><p>Email</p></button>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><p>Contact Me!</p></button>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

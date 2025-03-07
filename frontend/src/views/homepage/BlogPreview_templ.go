@@ -31,7 +31,7 @@ func BlogPreview() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-[700px] xl:h-[800px] pb-8 pt-[calc(56px)] lg:pt-[56px] xl:pb-32 xl:pt-0 xl:px-20 flex justify-end\"><div class=\"h-full w-full xl:w-[calc(100%-150px)] rounded-3xl bg-grey-50 relative py-6 px-6 md:py-14 md:px-8 xl:py-20 xl:px-10\"><div class=\"absolute left-8 -top-14 xl:top-1/2 xl:-translate-y-1/2 xl:left-0 xl:-translate-x-[150px] z-10 w-32 \n\t\t\t\t\t\tsm:w-44 md:w-52 xl:w-auto xl:h-3/4 xl:max-h-96 aspect-square\"><div class=\"bg-white h-full rounded-2xl md:rounded-3xl xl:rounded-3xl shadow-lg \"></div></div><div class=\"xl:ml-[246px] h-full box-border flex gap-10 xl:gap-12 pt-12 sm:pt-20 md:pt-24 xl:pt-0 items-center\"><div id=\"blog-section\" class=\"relative flex-1 h-full overflow-scroll snap-y snap-mandatory hide-scrollbar\"><div class=\"absolute h-[300%] flex flex-col\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"h-[420px] mb-40 mt-32\"><div class=\"text-5xl mb-4\">Blog</div><div class=\"h-full rounded-[40px] flex items-center gap-6\"><div id=\"blog-section\" class=\"relative flex-1 h-full overflow-scroll snap-y snap-mandatory hide-scrollbar\"><div class=\"absolute h-[300%] flex flex-col *:my-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -69,7 +69,7 @@ func BlogPreview() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -98,27 +98,27 @@ func blog(date, title, entry string) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"h-1/3  flex flex-col justify-between pb-0.5 pt-4 md:py-10 xl:py-10 snap-center\"><div class=\"flex flex-col gap-4 text-lg\"><p class=\"text-grey-500\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"h-1/3  flex flex-col justify-start gap-4 pb-0.5 pt-8 md:py-10 xl:py-10 snap-center \n\t\t\t bg-main-50 rounded-3xl overflow-hidden px-8 border-2 border-main-800\"><div class=\"flex flex-col text-md md:text-lg\"><p class=\"text-grey-500\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(date)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 41, Col: 34}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 40, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><p class=\"text-3xl\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><p class=\"text-xl md:text-3xl mb-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 42, Col: 30}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 41, Col: 46}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -131,7 +131,7 @@ func blog(date, title, entry string) templ.Component {
 		var templ_7745c5c3_Var5 string
 		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(entry)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 43, Col: 13}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 42, Col: 13}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
@@ -192,35 +192,42 @@ func indicator(id string) templ.Component {
 			templ_7745c5c3_Var7 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		var templ_7745c5c3_Var8 = []any{
+			"w-3 rounded-md cursor-pointer border border-second-500 hover:bg-second-500 transition-all duration-300",
+			templ.KV("bg-second-500 h-8", id == "indicator-1"),
+			templ.KV("bg-second-25  h-4", id != "indicator-1"),
+		}
+		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var8...)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div id=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var8 string
-		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(id)
+		var templ_7745c5c3_Var9 string
+		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(id)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 53, Col: 9}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 54, Col: 9}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		if id == "indicator-1" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, " class=\"bg-main-500 h-8 w-3 rounded-md cursor-pointer hover:bg-main-300 transition-all duration-300\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, " class=\"bg-main-100 h-4 w-3 rounded-md cursor-pointer hover:bg-main-300 transition-all duration-300\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\" class=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "></div>")
+		var templ_7745c5c3_Var10 string
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var8).String())
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/BlogPreview.templ`, Line: 1, Col: 0}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
