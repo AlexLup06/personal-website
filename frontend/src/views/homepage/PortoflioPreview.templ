@@ -3,7 +3,7 @@ package homepage
 import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ PortoflioPreview() {
-	<div class="mt-32">
+	<div class="mt-24">
 		<div class="text-5xl mb-6">
 			Featured Projects
 		</div>
@@ -35,8 +35,8 @@ templ PortoflioPreview() {
 		</div>
 		@components.Lg() {
 			<span>Portfolio</span>
-			<div class="h-6 aspect-square rotate-180 stroke-[2]">
-				@components.LeftArrow()
+			<div class="h-6 aspect-square stroke-[2]">
+				@components.RightArrow()
 			</div>
 		}
 	</div>
@@ -46,13 +46,24 @@ templ ProjectCard(name string, badges []string, description string, imgSrc strin
 	<div
 		tabindex="0"
 		class={ "flex flex-col cursor-pointer bg-main-50 border-main-800 rounded-3xl overflow-hidden transition",
-				"border-2 hover:scale-[1.01]",
+				"border-2 group",
 		style }
 	>
 		<div class="flex flex-col h-full md:p-10 lg:p-6 lg:pt-4">
 			<div class="flex h-full flex-col">
-				<h2 class="text-2xl font-medium mb-1">{ name }</h2>
-				<p class="text-md mb-4">
+				<div class="flex justify-between mb-1 items-baseline">
+					<h2 class="text-2xl font-medium">{ name }</h2>
+					<div
+						class=" stroke-2 group-hover:text-second-25 group-hover:bg-second-400 
+								hover:bg-second-25 hover:text-second-400 hover:outline-2 outline-second-400 transition 
+								px-1 pt-1 pb-[3px] rounded-lg text-second-400"
+					>
+						<div class="w-7">
+							@components.ArrowTopRight()
+						</div>
+					</div>
+				</div>
+				<p class="text-md mb-2">
 					{ description }
 				</p>
 				<div class="flex flex-row flex-wrap -translate-x-1 mt-auto">

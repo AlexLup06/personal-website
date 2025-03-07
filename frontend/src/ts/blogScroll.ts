@@ -91,14 +91,14 @@ function handleBlogScroll(blogSection: HTMLDivElement, indicators: NodeListOf<HT
 function addHighlight(indicator: HTMLDivElement) {
     indicator.classList.add("bg-second-500")
     indicator.classList.add("h-8")
-    indicator.classList.remove("bg-second-25")
+    indicator.classList.remove("bg-second-50")
     indicator.classList.remove("h-4")
 }
 
 function removeHighlight(indicator: HTMLDivElement) {
     indicator.classList.remove("bg-second-500")
     indicator.classList.remove("h-8")
-    indicator.classList.add("bg-second-25")
+    indicator.classList.add("bg-second-50")
     indicator.classList.add("h-4")
 }
 

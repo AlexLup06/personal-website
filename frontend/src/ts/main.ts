@@ -3,6 +3,7 @@ import "./slidingCards"
 import "./blogScroll"
 import "./blogPage"
 import "./navigation"
+import "./techStack"
 
 declare global {
     interface Window {

@@ -104,7 +104,7 @@ func homepage() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto mb-10 pt-32\"><div class=\"flex justify-between\"><div class=\"w-[460px]\"><p class=\"text-7xl mb-4\">Alex Lupatsiy</p><p class=\"text-3xl\">I Solve Problems,</p><p class=\"text-3xl mb-6\">Even The Difficult Ones!</p><p class=\"text-xl mb-2\">Hey, I am a Full-Stack Developer based in Germany. I ship products in   AI   Health   and currently I am finishing my Master's Degree. </p><p class=\"text-xl\">When I am not shipping products I like to hit some golf balls in a hole.</p></div><div class=\"rounded-full w-80 h-80 bg-main-50 border-4 border-main-800\"></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto mb-10 pt-32\"><div class=\"flex justify-between mb-40\"><div class=\"w-[460px]\"><p class=\"text-7xl mb-8\">Alex Lupatsiy</p><p class=\"text-3xl\">&gt; I Solve Problems,</p><p class=\"text-3xl mb-8\">&nbsp; &nbsp;Even The Difficult Ones!</p><p class=\"text-xl mb-1\">Hey, I am a Full-Stack Developer based in Germany. I ship products in   AI   Health   and currently I am finishing my Master's Degree. </p><p class=\"text-xl\">When I am not shipping products I like to hit some golf balls into a hole.</p></div><div class=\"rounded-full w-72 h-72 bg-main-50 border-4 border-main-800\"></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -3,13 +3,12 @@ package homepage
 import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ BlogPreview() {
-	<div class="h-[420px] mb-40 mt-32">
-		<div class="text-5xl mb-4">
-			Blog
+	<div class="mb-20 mt-24">
+		<div class="text-5xl mb-6">
+			Thoughts & Musings
 		</div>
-		<div class="h-full rounded-[40px] flex items-center gap-6">
-			// <div class="bg-main-800 rounded-2xl md:rounded-3xl xl:rounded-3xl w-72 h-72"></div>
-			<div id="blog-section" class="relative flex-1 h-full overflow-scroll snap-y snap-mandatory hide-scrollbar">
+		<div class="h-full flex items-center gap-4 border-2 border-main-800 rounded-[40px] px-10 py-6 bg-main-50">
+			<div id="blog-section" class="h-96 relative flex-1 overflow-scroll snap-y snap-mandatory hide-scrollbar">
 				<div class="absolute h-[300%] flex flex-col *:my-4">
 					@blog("10. October 2024",
 						"Should I only do hard things?",
@@ -22,7 +21,7 @@ templ BlogPreview() {
 						"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.")
 				</div>
 			</div>
-			<div id="indicator-section" class="flex flex-col gap-1">
+			<div id="indicator-section" class="flex flex-col gap-1 p-1 rounded-xl border-2 bg-second-25 border-second-500">
 				@indicator("indicator-1")
 				@indicator("indicator-2")
 				@indicator("indicator-3")
@@ -34,7 +33,7 @@ templ BlogPreview() {
 templ blog(date, title, entry string) {
 	<div
 		class="h-1/3  flex flex-col justify-start gap-4 pb-0.5 pt-8 md:py-10 xl:py-10 snap-center 
-			 bg-main-50 rounded-3xl overflow-hidden px-8 border-2 border-main-800"
+			 bg-second-25 rounded-[40px] overflow-hidden px-8 border-2 border-second-500"
 	>
 		<div class="flex flex-col text-md md:text-lg">
 			<p class="text-grey-500">{ date }</p>
@@ -53,9 +52,9 @@ templ indicator(id string) {
 	<div
 		id={ id }
 		class={
-			"w-3 rounded-md cursor-pointer border border-second-500 hover:bg-second-500 transition-all duration-300",
+			"w-3 rounded-md cursor-pointer border-2 border-second-500 hover:bg-second-500 transition-all duration-300",
 			templ.KV("bg-second-500 h-8", id == "indicator-1"),
-			templ.KV("bg-second-25  h-4", id != "indicator-1"),
+			templ.KV("bg-second-50  h-4", id != "indicator-1"),
 		}
 	></div>
 }
