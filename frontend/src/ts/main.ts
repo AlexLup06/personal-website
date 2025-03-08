@@ -1,5 +1,3 @@
-import "./parallax"
-import "./slidingCards"
 import "./blogScroll"
 import "./blogPage"
 import "./navigation"

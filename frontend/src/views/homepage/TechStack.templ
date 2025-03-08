@@ -68,7 +68,13 @@ templ BestTech(name string, icon templ.Component, side string) {
 		if side=="right" && name!="Go" {
 			{ name }
 		}
-		<div class={ "h-5 md:h-7 flex items-center",templ.KV("h-6 md:h-7",name=="Go") }>
+		<div
+			class={
+				"flex items-center",
+				templ.KV("h-3.5 md:h-4.5", name == "Go"),
+				templ.KV("h-5 md:h-7", name != "Go"),
+			}
+		>
 			@icon
 		</div>
 		if side=="left" && name!="Go" {
