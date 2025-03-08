@@ -39,7 +39,7 @@ func PortoflioPreview() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"mb-3 lg:mb-4 flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-4\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"mb-3 lg:mb-4 flex flex-col md:grid md:grid-cols-2 gap-x-4 gap-y-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -108,7 +108,7 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div tabindex=\"0\" class=\"not-md:nth-last-[-n+1]:hidden cursor-pointer bg-main-50 outline-main-800 rounded-3xl overflow-hidden transition\n\t\t\t\toutline-2 group focus:outline-3 hover:outline-3 focus:outline-third-500 hover:outline-third-500 \n\t\t\t\tp-6 md:p-6 lg:p-8 md:min-h-60 grid grid-rows-subgrid [grid-row:span_3]\"><div class=\"flex justify-between mb-1 items-baseline\"><h2 class=\"text-2xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div tabindex=\"0\" class=\"not-md:nth-last-[-n+1]:hidden cursor-pointer bg-main-50 outline-main-800 rounded-3xl overflow-hidden transition\n\t\t\t\toutline-2 group focus:outline-3 hover:outline-3 focus:outline-third-500 hover:outline-third-500 \n\t\t\t\tp-6 md:p-6 lg:p-8 grid grid-rows-subgrid [grid-row:span_3]\"><div class=\"flex justify-between mb-1 items-baseline\"><h2 class=\"text-2xl font-medium\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -129,7 +129,7 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div></div></div><p class=\"text-md mb\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div></div></div><p class=\"text-md not-md:mb-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
