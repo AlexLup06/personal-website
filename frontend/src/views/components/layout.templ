@@ -5,3 +5,23 @@ templ Section(styles ...string) {
 		{ children... }
 	</section>
 }
+
+templ SectionHeader(name string) {
+	<div class="text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-6">
+		{ name }
+	</div>
+}
+
+templ LinkToOtherPageSection(discription, buttonText string) {
+	<div class="p-3  border-second-400 bg-second-25 rounded-3xl w-fit flex items-center gap-4">
+		<p class="text-lg md:text-xl text-second-400 ml-2">
+			{ discription }
+		</p>
+		@Lg() {
+			<span>{ buttonText }</span>
+			<div class="h-6 aspect-square stroke-[2]">
+				@RightArrow()
+			</div>
+		}
+	</div>
+}

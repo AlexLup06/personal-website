@@ -3,37 +3,29 @@ package homepage
 import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ TechStack() {
-	<div class="">
-		<div class="text-5xl mb-6">
-			Tools & Techonolgies
-		</div>
-	</div>
-	<div class="flex gap-2 mb-4">
-		<div class="center px-5 py-2 bg-main-700 text-white rounded-xl text-xl flex gap-2">
-			<div class="h-7">
-				@components.GoLgo()
-			</div>
-		</div>
+	@components.SectionHeader("Tools & Techonolgies")
+	<div class="flex flex-wrap gap-1 md:gap-2 mb-2">
+		@BestTech("Go", components.GoLgo(), "left")
 		@BestTech("HTMX", components.HTMXLogo(), "left")
 		@BestTech("PostgreSQL", components.PostgreSqlogo(), "right")
 		@BestTech("SwiftUI", components.SwiftUILogo(), "right")
 		@BestTech("React", components.ReactLogo(), "right")
 	</div>
-	<div class="mx-auto flex flex-col gap-3">
+	<div class="mx-auto flex flex-col gap-2 md:gap-3">
 		<div
 			id="stack-container"
-			class="h-72 relative overflow-x-scroll snap-mandatory snap-x"
+			class="h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x"
 		>
-			<div class="absolute grid h-full grid-flow-col gap-4">
-				@Card("Frontend",
-					[]string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"},
-					components.Frontend())
+			<div class="absolute grid h-full grid-flow-col gap-2 md:gap-3">
 				@Card("Backend",
 					[]string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"},
 					components.Backend())
 				@Card("Database",
 					[]string{"MySQL", "PostgreSQL", "MongoDB"},
 					components.Database())
+				@Card("Frontend",
+					[]string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"},
+					components.Frontend())
 				@Card("Systems Engineering",
 					[]string{"C/C++", "Rust", "Java", "Docker", "bash"},
 					components.SystemsEngineering())
@@ -45,7 +37,7 @@ templ TechStack() {
 					components.Other())
 			</div>
 		</div>
-		<div class="flex gap-3 ml-auto mr-4 cursor-pointer border-2 border-second-400 p-1 rounded-3xl bg-second-25">
+		<div class="flex gap-2 md:gap-3 ml-auto mr-4 cursor-pointer border-2 border-second-400 p-1 rounded-3xl bg-second-25">
 			@Button("left-button") {
 				@components.LeftArrow()
 			}
@@ -62,7 +54,7 @@ templ Button(direction string) {
 		id={ direction }
 		class={
 			"bg-second-400 hover:bg-second-25 border-2 border-second-400 text-white hover:text-second-400",
-			"h-8 w-8 stroke-2 text-3xl rounded-full transition cursor-pointer active:scale-90",
+			"h-6 w-6 md:h-8 md:w-8 stroke-2 text-3xl rounded-full transition cursor-pointer active:scale-90",
 			templ.KV("pr-1", direction == "left-button"),
 			templ.KV("pl-1", direction == "right-button"),
 		}
@@ -72,14 +64,14 @@ templ Button(direction string) {
 }
 
 templ BestTech(name string, icon templ.Component, side string) {
-	<div class="center px-5 py-2 bg-main-700 text-white rounded-xl text-xl flex gap-2">
-		if side=="right" {
+	<div class="center px-3 py-1.5 md:px-4 md:py-2 bg-third-300 text-white items-center rounded-xl text-md md:text-lg flex gap-2">
+		if side=="right" && name!="Go" {
 			{ name }
 		}
-		<div class="h-7">
+		<div class={ "h-5 md:h-7 flex items-center",templ.KV("h-6 md:h-7",name=="Go") }>
 			@icon
 		</div>
-		if side=="left" {
+		if side=="left" && name!="Go" {
 			{ name }
 		}
 	</div>
@@ -87,18 +79,18 @@ templ BestTech(name string, icon templ.Component, side string) {
 
 templ Card(title string, techs []string, icon templ.Component) {
 	<div
-		class="snap-start transform w-60 flex flex-col 
+		class="snap-center transform w-52 md:w-60 flex flex-col 
 			   overflow-hidden border-2 bg-main-50 border-main-800 rounded-2xl p-4"
 	>
 		<div class="flex justify-between">
-			<h4 class="text-2xl font-medium mb-2">{ title }</h4>
-			<div class="w-8 stroke-[1.5]">
+			<h4 class="text-xl md:text-2xl font-medium mb-1 md:mb-2">{ title }</h4>
+			<div class="w-8 stroke-[1.5] text-third-500">
 				@icon
 			</div>
 		</div>
-		<ul role="list" class="list-disc marker:text-main-700 pl-4">
+		<ul role="list" class="list-disc marker:text-third-500 pl-4 text-md md:text-lg">
 			for _,tech := range techs {
-				<li class="text-lg">
+				<li>
 					{ tech }
 				</li>
 			}

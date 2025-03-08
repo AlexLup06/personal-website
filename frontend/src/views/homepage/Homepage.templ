@@ -17,77 +17,37 @@ templ Homepage() {
 
 templ homepage() {
 	<div id="body-section">
+		<div class="bg-[#ECF7FB]">
+			@components.Section() {
+				@LandingPage()
+			}
+		</div>
+		// <div
+		// 	class="w-full h-14 my-16 bg-main-50 border-b-2 border-t-2 border-main-800 flex text-main-800
+		// 			items-center justify-around text-xl"
+		// >
+		// 	<div>Robotic</div>
+		// 	<div>Backend</div>
+		// 	<div>Frontend</div>
+		// 	<div>Full-Stack</div>
+		// 	<div>Database</div>
+		// 	<div>Machine Learning</div>
+		// </div>
 		@components.Section() {
-			<div class="max-w-4xl mx-auto mb-10 pt-32">
-				<div class="flex justify-between mb-40">
-					<div class="w-[460px]">
-						<p class="text-7xl mb-8">Alex Lupatsiy</p>
-						<p class="text-3xl">&gt; I Solve Problems,</p>
-						<p class="text-3xl mb-8">&nbsp; &nbsp;Even The Difficult Ones!</p>
-						<p class="text-xl mb-1">
-							Hey, I am a Full-Stack Developer based in Germany. I ship products in   AI   Health   and currently I am finishing my Master's Degree. 
-						</p>
-						<p class="text-xl">
-							When I am not shipping products I like to hit some golf balls into a hole.
-						</p>
-					</div>
-					<div class="rounded-full w-72 h-72 bg-main-50 border-4 border-main-800"></div>
-				</div>
-				// <div
-				// 	class="w-full h-14 my-16 bg-main-50 border-b-2 border-t-2 border-main-800 flex text-main-800
-				// 			items-center justify-around text-xl"
-				// >
-				// 	<div>Robotic</div>
-				// 	<div>Backend</div>
-				// 	<div>Frontend</div>
-				// 	<div>Full-Stack</div>
-				// 	<div>Database</div>
-				// 	<div>Machine Learning</div>
-				// </div>
+			<div class="max-w-4xl mx-auto mb-10">
 				@TechStack()
 				@PortoflioPreview()
 				@BlogPreview()
 			</div>
 		}
 	</div>
-	// <div id="body-section">
-	// 	@components.Section() {
-	// 		@LandingPage()
-	// 	}
-	// 	@components.Section() {
-	// 		@TechStack()
-	// 	}
-	// 	<div class="my-20 md:my-24 text-main-800">
-	// 		<svg viewBox="0 0 3000 200" class="w-full translate-y-1">
-	// 			<path d="M 3000,100 C 2100,0 900,200 0,100 L 0,200 L 3000,200 Z" fill="#9ee9d6"></path>
-	// 		</svg>
-	// 		<div class="flex justify-center bg-main-200">
-	// 			<h2 class="text-2xl md:text-3xl lg:text-4xl text-center w-full py-12">
-	// 				Powered by these tools, I bring ideas to life through innovative apps.
-	// 			</h2>
-	// 		</div>
-	// 		<svg viewBox="0 0 3000 200" class="w-full">
-	// 			<path d="M 3000,100 C 2100,-50 900,250 0,100 L 0,0 L 3000,0 Z" fill="#9ee9d6"></path>
-	// 		</svg>
-	// 	</div>
-	// 	@components.Section() {
-	// 		@PortoflioPreview()
-	// 	}
-	// 	<div class="my-20 md:my-24 text-main-800">
-	// 		<svg viewBox="0 0 3000 200" class="w-full translate-y-1">
-	// 			<path d="M 0,100 C 900,0 2100,200 3000,100 L 3000,200 L 0,200" fill="#9ee9d6"></path>
-	// 		</svg>
-	// 		<div class="flex justify-center bg-main-200">
-	// 			<h2 class="text-2xl md:text-3xl lg:text-4xl text-center w-full py-12">
-	// 				I share my journey and experiences through my blog.
-	// 			</h2>
-	// 		</div>
-	// 		<svg viewBox="0 0 3000 200" class="w-full">
-	// 			<path d="M 0,100 C 900,0 2100,300 3000,100 L 3000,0 L 0,0 Z" fill="#9ee9d6"></path>
-	// 		</svg>
-	// 	</div>
-	// 	@components.Section() {
-	// 		@BlogPreview()
-	// 	}
-	// </div>
+}
+
+templ Highlight(name string) {
+	<span
+		class="border-[2px] border-third-500 text-third-500 rounded-xl bg-third-25 px-2.5 not-last:mr-1
+				hover:bg-third-500 hover:text-third-25 transition"
+	>
+		{ name }
+	</span>
 }

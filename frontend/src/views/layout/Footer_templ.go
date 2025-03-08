@@ -31,7 +31,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"md:h-[400px] w-full flex flex-col md:flex-row gap-3 md:gap-4 text-xl md:text-2xl lg:text-3xl pb-4 sm:pb-8 px-4 sm:px-8\"><div class=\"h-full bg-second-25 border-2 border-second-700 w-full md:w-1/2 rounded-xl md:rounded-2xl p-10 md:p-14\"><div class=\"flex gap-6 items-center mb-6 md:mb-10\"><img class=\"w-12\" src=\"/public/images/memoji.png\"><p>Alex Lupatsiy</p></div><div id=\"footer-navlinks\" class=\"flex flex-col gap-2 md:gap-4 text-xl md:text-2xl lg:text-4xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"md:h-[400px] w-full flex flex-col md:flex-row gap-2 md:gap-3 text-xl md:text-2xl lg:text-3xl pb-4 sm:pb-8 px-4 sm:px-8\"><div class=\"h-full bg-third-25  border-third-700 w-full md:w-1/2 rounded-2xl md:rounded-2xl p-10 md:p-14\"><div class=\"flex gap-6 items-center mb-6 md:mb-10\"><img class=\"w-10 md:w-12\" src=\"/public/images/memoji.png\"><p class=\"text-2xl\">Alex Lupatsiy</p></div><div id=\"footer-navlinks\" class=\"flex flex-col gap-2 md:gap-3 text-2xl md:text-2xl lg:text-4xl font-medium\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -47,7 +47,7 @@ func Footer() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div></div><div class=\"md:h-full flex flex-col gap-3 md:gap-4 w-full md:w-1/2\"><div class=\"md:h-1/2 bg-second-25 border-2 border-second-700 rounded-xl md:rounded-2xl p-10 md:p-14 flex gap-2 md:gap-4 justify-between items-center\"><p>Let's build experiences!</p><div></div></div><div class=\"md:h-1/2 flex gap-3 md:gap-4\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div></div><div class=\"md:h-full flex flex-col gap-2 md:gap-3 w-full md:w-1/2\"><div class=\"md:h-1/2 bg-third-25  border-third-700 rounded-2xl md:rounded-2xl\n\t\t\t\t\t\tp-10 md:p-14 flex gap-2 md:gap-3 justify-between items-center text-2xl\"><p>Let's build experiences!</p></div><div class=\"md:h-1/2 flex gap-2 md:gap-3\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -146,14 +146,14 @@ func navLinkFooter(name string, link string) templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<a class=\" relative cursor-pointer w-fit \n\t\t\t\tafter:w-0 after:h-1 after:block after:absolute after:border-b-2 md:after:border-b-4 md:after:translate-y-0.5 \n\t\t\t\tafter:border-black  after:transition-all after:duration-300\n\t\t\t\thover:after:w-full\" id=\"footer-links\" data-footerpath=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<a class=\" relative cursor-pointer w-fit \n\t\t\t\tafter:w-0 after:block after:absolute after:border-b-[2.5px] md:after:border-b-4 md:after:translate-y-0.5 \n\t\t\t\tafter:border-black  after:transition-all after:duration-300\n\t\t\t\thover:after:w-full\" id=\"footer-links\" data-footerpath=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(link)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Footer.templ`, Line: 53, Col: 24}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Footer.templ`, Line: 47, Col: 24}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -166,7 +166,7 @@ func navLinkFooter(name string, link string) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(link)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Footer.templ`, Line: 54, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Footer.templ`, Line: 48, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
@@ -188,7 +188,7 @@ func navLinkFooter(name string, link string) templ.Component {
 		var templ_7745c5c3_Var9 string
 		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Footer.templ`, Line: 60, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Footer.templ`, Line: 54, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
@@ -223,7 +223,7 @@ func socialLinkFooter(link string) templ.Component {
 			templ_7745c5c3_Var10 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<div class=\"w-1/3 bg-second-25 border-2 border-second-700 flex justify-center items-center rounded-xl md:rounded-2xl p-6\"><a href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<div class=\"w-1/3 bg-third-25  border-third-700 flex justify-center items-center rounded-2xl md:rounded-2xl p-6\"><a href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
