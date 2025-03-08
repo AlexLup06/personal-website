@@ -203,7 +203,7 @@ func indicator(id string) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		var templ_7745c5c3_Var7 = []any{
-			"w-3 rounded-md cursor-pointer border-2 border-second-500 hover:bg-second-500 transition-all active:scale-75",
+			"w-3 rounded-md cursor-pointer border-2 border-second-500 hover:bg-second-500 transition-all duration-300 active:scale-75",
 			templ.KV("bg-second-500 h-8", id == "indicator-1"),
 			templ.KV("bg-second-50  h-4", id != "indicator-1"),
 		}
