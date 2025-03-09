@@ -1,22 +1,19 @@
 package backend
 
 import (
+	"fmt"
 	"os"
 
+	"alexlupatsiy.com/personal-website/backend/handlers"
+	"alexlupatsiy.com/personal-website/backend/helpers"
 	"alexlupatsiy.com/personal-website/backend/middleware"
 	"alexlupatsiy.com/personal-website/frontend/src/views"
 	"alexlupatsiy.com/personal-website/frontend/src/views/blog"
 	"alexlupatsiy.com/personal-website/frontend/src/views/homepage"
 	"alexlupatsiy.com/personal-website/frontend/src/views/portfolio"
-	"github.com/a-h/templ"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 )
-
-func render(c *gin.Context, status int, template templ.Component) error {
-	c.Status(status)
-	return template.Render(c, c.Writer)
-}
 
 func Router() *gin.Engine {
 	env := os.Getenv("ENV")
@@ -32,6 +29,12 @@ func Router() *gin.Engine {
 		staticBasePath = "./frontend/public"
 	}
 
+	var blogMetadata map[string]blog.BlogType
+	blogMetadata, err := handlers.LoadBlogMetadata()
+	if err != nil {
+		fmt.Printf("Error reading blog metadata: %v\n", err)
+	}
+
 	r := gin.Default()
 	static := r.Group("/", middleware.ServeGzippedFiles(isProductionMode))
 	{
@@ -43,21 +46,17 @@ func Router() *gin.Engine {
 	r.Use(middleware.CheckHTMXRequest(), middleware.SetGlobalValues())
 	r.Use(gzip.Gzip(gzip.DefaultCompression))
 
-	r.GET("/", func(c *gin.Context) {
-		render(c, 200, homepage.Homepage())
-	})
-
-	r.GET("/portfolio", func(c *gin.Context) {
-		render(c, 200, portfolio.Portfolio())
-	})
-
-	r.GET("/blog", func(c *gin.Context) {
-		render(c, 200, blog.Blog())
-	})
+	r.GET("/", func(c *gin.Context) { helpers.Render(c, 200, homepage.Homepage()) })
+	r.GET("/portfolio", func(c *gin.Context) { helpers.Render(c, 200, portfolio.Portfolio()) })
+	blogRouter := r.Group("/blog")
+	{
+		blogRouter.GET("/", func(c *gin.Context) { helpers.Render(c, 200, blog.BlockLandingPage(blogMetadata)) })
+		blogRouter.GET("/:name", func(ctx *gin.Context) { handlers.BlogHandler(ctx, blogMetadata) })
+	}
 
 	if !isProductionMode {
 		r.GET("/test", func(c *gin.Context) {
-			render(c, 200, views.Test())
+			helpers.Render(c, 200, views.Test())
 		})
 	}
 	return r

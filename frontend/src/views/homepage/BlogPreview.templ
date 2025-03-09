@@ -3,7 +3,7 @@ package homepage
 import "alexlupatsiy.com/personal-website/frontend/src/views/components"
 
 templ BlogPreview() {
-	<div class="mb-14 lg:mb-24 mt-14 lg:mt-24">
+	<div class="pb-24 lg:pb-32 mt-14 lg:mt-24">
 		@components.SectionHeader("Thoughts & Musings")
 		<div class="h-full  border-third-600 rounded-4xl px-4 py-2 md:px-10 md:py-6 bg-third-25 mb-3 lg:mb-4">
 			<div class="flex items-center gap-4">
@@ -43,9 +43,9 @@ templ blog(date, title, entry string) {
 					<p class="text-xl md:text-3xl mb-2">{ title }</p>
 				</div>
 				<div
-					class=" stroke-2 group-hover:text-third-25 group-hover:bg-third-500 hover:outline-third-500
-								hover:bg-third-25 hover:text-third-500 hover:outline-2 outline-third-500
-								transition duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer"
+					class=" stroke-2 group-hover:text-third-500  outline-third-500
+								hover:bg-third-500 hover:text-white group-hover:outline-2 
+								transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer"
 				>
 					<button class="w-7 h-7 cursor-pointer">
 						@components.ArrowTopRight()

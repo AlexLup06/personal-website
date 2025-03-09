@@ -29,7 +29,7 @@ func LandingPage() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-4xl mx-auto mb-14 pt-28 md:pt-32 pb-14 md:pb-20 lg:pb-40\"><div class=\"flex flex-col-reverse md:flex-row md:justify-between gap-4\"><div class=\"max-w-md\"><p class=\"text-4xl md:text-5xl lg:text-7xl mb-4 lg:mb-8 text-third-800\">Alex Lupatsiy</p><div class=\"text-2xl md:text-3xl mb-4 lg:mb-8 text-third-700 font-medium\"><p>&gt; I Solve Problems,</p><p>&nbsp; &nbsp;Even The Difficult Ones!</p></div><div class=\"text-main-900 text-lg lg:text-xl leading-7.5\"><p class=\"mb-3\">Hey, I am a Full-Stack Developer based in Germany. I ship products in  <span class=\"mx-0.5\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-4xl mx-auto pt-28 md:pt-32\"><div class=\"flex flex-col-reverse md:flex-row md:justify-between gap-4\"><div class=\"max-w-md\"><p class=\"text-4xl md:text-5xl lg:text-7xl mb-4 lg:mb-8 text-third-800\">Alex Lupatsiy</p><div class=\"text-2xl md:text-3xl mb-4 lg:mb-8 text-third-700 font-medium\"><p>&gt; I Solve Problems,</p><p>&nbsp; &nbsp;Even The Difficult Ones!</p></div><div class=\"text-main-900 text-lg lg:text-xl leading-6.5 md:leading-7.5\"><p class=\"mb-3\">Hey, I am a Full-Stack Developer based in Germany. I ship products in  <span class=\"mx-0.5\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -46,6 +46,48 @@ func LandingPage() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span> and currently I am finishing my Master's Degree. </p><p class=\"\">When I am not shipping products I like to hit golf balls into a ⛳️.</p></div><div></div></div><div class=\"rounded-full w-40 md:w-60 lg:72 aspect-square h-fit bg-main-100 border-3 lg:border-4 border-main-800\"></div></div></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return nil
+	})
+}
+
+func Highlight(name string) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var2 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var2 == nil {
+			templ_7745c5c3_Var2 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<span class=\"border-[2px] border-third-500 text-third-500 rounded-xl bg-third-25 px-2.5 not-last:mr-1\n\t\t\t\thover:bg-third-500 hover:text-third-25 transition\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var3 string
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/LandingPage.templ`, Line: 38, Col: 8}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

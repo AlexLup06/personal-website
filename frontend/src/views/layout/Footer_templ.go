@@ -31,7 +31,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"md:h-[400px] w-full flex flex-col md:flex-row gap-2 md:gap-3 text-xl md:text-2xl lg:text-3xl pb-4 sm:pb-8 px-4 sm:px-8\"><div class=\"h-full bg-third-25  border-third-700 w-full md:w-1/2 rounded-2xl md:rounded-2xl p-10 md:p-14\"><div class=\"flex gap-6 items-center mb-6 md:mb-10\"><img class=\"w-10 md:w-12\" src=\"/public/images/memoji.png\"><p class=\"text-2xl\">Alex Lupatsiy</p></div><div id=\"footer-navlinks\" class=\"flex flex-col gap-2 md:gap-3 text-2xl md:text-2xl lg:text-4xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"md:h-[400px] w-full flex flex-col md:flex-row gap-2 md:gap-3 text-xl md:text-2xl lg:text-3xl pb-4 sm:pb-8 px-4 sm:px-8 bg-white\"><div class=\"h-full bg-third-25 w-full md:w-1/2 rounded-2xl md:rounded-2xl p-10 md:p-14\"><div class=\"flex gap-6 items-center mb-6 md:mb-10\"><img class=\"w-10 md:w-12\" src=\"/public/images/memoji.png\"><p class=\"text-2xl\">Alex Lupatsiy</p></div><div id=\"footer-navlinks\" class=\"flex flex-col gap-2 md:gap-3 text-2xl md:text-2xl lg:text-4xl font-medium\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

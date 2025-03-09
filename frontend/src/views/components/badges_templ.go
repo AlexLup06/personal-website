@@ -29,7 +29,7 @@ func Badge(name string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<p class=\"flex flex-row items-center justify-center px-3 py-1.5 text-md \n\t\t\t  rounded-2xl bg-third-25 border-2 border-third-500  text-third-500\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<p class=\"flex flex-row items-center justify-center px-3 py-1.5 text-md \n\t\t\t  rounded-xl bg-third-300 border-third-500  text-white\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

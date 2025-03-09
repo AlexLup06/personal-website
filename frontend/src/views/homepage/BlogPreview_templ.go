@@ -31,7 +31,7 @@ func BlogPreview() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"mb-14 lg:mb-24 mt-14 lg:mt-24\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"pb-24 lg:pb-32 mt-14 lg:mt-24\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -140,7 +140,7 @@ func blog(date, title, entry string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p></div><div class=\" stroke-2 group-hover:text-third-25 group-hover:bg-third-500 hover:outline-third-500\n\t\t\t\t\t\t\t\thover:bg-third-25 hover:text-third-500 hover:outline-2 outline-third-500\n\t\t\t\t\t\t\t\ttransition duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><button class=\"w-7 h-7 cursor-pointer\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p></div><div class=\" stroke-2 group-hover:text-third-500  outline-third-500\n\t\t\t\t\t\t\t\thover:bg-third-500 hover:text-white group-hover:outline-2 \n\t\t\t\t\t\t\t\ttransition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><button class=\"w-7 h-7 cursor-pointer\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

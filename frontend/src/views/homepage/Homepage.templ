@@ -6,48 +6,32 @@ import (
 )
 
 templ Homepage() {
-	if ctx.Value("HX-Request")==nil {
-		@layout.Layout() {
-			@homepage()
-		}
-	} else {
-		@homepage()
-	}
-}
-
-templ homepage() {
-	<div id="body-section">
-		<div class="bg-[#ECF7FB]">
-			@components.Section() {
-				@LandingPage()
+	@layout.PartialRender() {
+		<div id="body-section">
+			<div class="fixed left-0 -top-40 h-52 bg-background w-screen -z-1"></div>
+			<div class="bg-background relative pb-14 lg:pb-24">
+				@components.Section() {
+					@LandingPage()
+				}
+			</div>
+			// <div
+			// 	class="w-full h-14 my-16 bg-main-50 border-b-2 border-t-2 border-main-800 flex text-main-800
+			// 			items-center justify-around text-xl"
+			// >
+			// 	<div>Robotic</div>
+			// 	<div>Backend</div>
+			// 	<div>Frontend</div>
+			// 	<div>Full-Stack</div>
+			// 	<div>Database</div>
+			// 	<div>Machine Learning</div>
+			// </div>
+			@components.Section("bg-white") {
+				<div class="max-w-4xl mx-auto mt-20">
+					@TechStack()
+					@PortoflioPreview()
+					@BlogPreview()
+				</div>
 			}
 		</div>
-		// <div
-		// 	class="w-full h-14 my-16 bg-main-50 border-b-2 border-t-2 border-main-800 flex text-main-800
-		// 			items-center justify-around text-xl"
-		// >
-		// 	<div>Robotic</div>
-		// 	<div>Backend</div>
-		// 	<div>Frontend</div>
-		// 	<div>Full-Stack</div>
-		// 	<div>Database</div>
-		// 	<div>Machine Learning</div>
-		// </div>
-		@components.Section() {
-			<div class="max-w-4xl mx-auto mb-10">
-				@TechStack()
-				@PortoflioPreview()
-				@BlogPreview()
-			</div>
-		}
-	</div>
-}
-
-templ Highlight(name string) {
-	<span
-		class="border-[2px] border-third-500 text-third-500 rounded-xl bg-third-25 px-2.5 not-last:mr-1
-				hover:bg-third-500 hover:text-third-25 transition"
-	>
-		{ name }
-	</span>
+	}
 }

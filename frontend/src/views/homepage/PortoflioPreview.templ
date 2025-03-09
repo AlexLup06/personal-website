@@ -37,9 +37,9 @@ templ ProjectCard(name string, badges []string, description string) {
 		<div class="flex justify-between mb-1 items-baseline">
 			<h2 class="text-2xl font-medium">{ name }</h2>
 			<div
-				class=" stroke-2 group-hover:text-third-25 group-hover:bg-third-500 hover:outline-third-500
-								hover:bg-third-25 hover:text-third-500 hover:outline-2 outline-third-500
-								transition duration-300 px-1 pt-1 pb-[3px] rounded-lg text-third25"
+				class=" stroke-2 group-hover:text-third-500  outline-third-500
+								hover:bg-third-500 hover:text-white group-hover:outline-2 
+								transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer"
 			>
 				<div class="w-7">
 					@components.ArrowTopRight()

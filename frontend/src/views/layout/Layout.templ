@@ -50,3 +50,13 @@ templ Layout() {
 		</body>
 	</html>
 }
+
+templ PartialRender() {
+	if ctx.Value("HX-Request")=="true" {
+		{ children... }
+	} else {
+		@Layout() {
+			{ children... }
+		}
+	}
+}
