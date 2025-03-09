@@ -29,7 +29,7 @@ func LandingPage() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-4xl mx-auto pt-28 md:pt-32\"><div class=\"flex flex-col-reverse md:flex-row md:justify-between gap-4\"><div class=\"max-w-md\"><p class=\"text-4xl md:text-5xl lg:text-7xl mb-4 lg:mb-8 text-third-800\">Alex Lupatsiy</p><div class=\"text-2xl md:text-3xl mb-4 lg:mb-8 text-third-700 font-medium\"><p>&gt; I Solve Problems,</p><p>&nbsp; &nbsp;Even The Difficult Ones!</p></div><div class=\"text-main-900 text-lg lg:text-xl leading-6.5 md:leading-7.5\"><p class=\"mb-3\">Hey, I am a Full-Stack Developer based in Germany. I ship products in  <span class=\"mx-0.5\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-4xl mx-auto\"><div class=\"flex flex-col-reverse md:flex-row md:justify-between gap-4\"><div class=\"max-w-md\"><p class=\"text-4xl md:text-5xl lg:text-7xl mb-4 lg:mb-8 text-third-800\">Alex Lupatsiy</p><div class=\"text-2xl md:text-3xl mb-4 lg:mb-8 text-third-700 font-medium\"><p>&gt; I Solve Problems,</p><p>&nbsp; &nbsp;Even The Difficult Ones!</p></div><div class=\"text-main-900 text-lg lg:text-xl leading-6.5 md:leading-7.5\"><p class=\"mb-3\">Hey, I am a Full-Stack Developer based in Germany. I ship products in  <span class=\"mx-0.5\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

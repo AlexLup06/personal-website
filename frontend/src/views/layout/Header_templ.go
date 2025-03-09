@@ -34,7 +34,7 @@ func Header() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header class=\"h-nav-height absolute z-50 flex justify-between md:justify-normal \n\t\t\t\titems-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4\"><img class=\"w-10 md:w-12 md:mr-20\" id=\"logo\" hx-get=\"/\" hx-target=\"#body-section\" hx-swap=\"outerHTML\" hx-replace-url=\"true\" src=\"/public/images/memoji.png\"><ul id=\"navbar\" class=\"flex md:flex-1  items-center gap-6 sm:gap-10 text-md sm:text-xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header class=\"h-nav-height-sm md:h-nav-height-lg absolute z-50 flex justify-between md:justify-normal \n\t\t\t\titems-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4 bg-white\"><img class=\"w-10 md:w-12 md:mr-20\" id=\"logo\" hx-get=\"/\" hx-target=\"#body-section\" hx-swap=\"outerHTML\" hx-replace-url=\"true\" src=\"/public/images/memoji.png\"><ul id=\"navbar\" class=\"flex md:flex-1  items-center gap-6 sm:gap-10 text-md sm:text-xl font-medium\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

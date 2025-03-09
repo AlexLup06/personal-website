@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        "nav-height": "96px"
+        "nav-height-lg": "96px",
+        "nav-height-sm": "80px"
       },
       screens: {
         'xs': '480px',

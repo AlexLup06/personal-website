@@ -1,9 +1,10 @@
 window.htmx.onLoad(() => {
     const leftButton = document.getElementById("left-button") as HTMLButtonElement
     const rightButton = document.getElementById("right-button") as HTMLButtonElement
-    const container = document.getElementById("stack-container") as HTMLDivElement
+    const stackContainer = document.getElementById("stack-container") as HTMLDivElement
+    const scrollContainer = document.getElementById("scroll-stack-container") as HTMLDivElement
 
-    if (leftButton == null || rightButton == null || container == null) {
+    if (leftButton == null || rightButton == null || stackContainer == null) {
         return
     }
 
@@ -13,27 +14,34 @@ window.htmx.onLoad(() => {
     rightButton.addEventListener("click", () => handleRightClick())
 
     function handleLeftClick() {
-        if (container.scrollLeft - 240 < 0) {
-            container.scrollTo({
+        if (scrollContainer.scrollLeft - 240 < 0) {
+            scrollContainer.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: "smooth",
             })
         } else {
-            container.scrollBy({ left: -scrollAmount, behavior: "smooth" })
+            scrollContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" })
         }
     }
 
     function handleRightClick() {
-        const containerWidth = container.getBoundingClientRect().width
-        if (container.scrollLeft + 240 > containerWidth) {
-            container.scrollTo({
+        const stackContainerWidth = stackContainer.getBoundingClientRect().width
+        console.log("conteiner width: ", stackContainerWidth)
+        console.log("scroll left in stackContainer: ", scrollContainer.scrollLeft)
+
+        if (scrollContainer.scrollLeft == 0) {
+            scrollContainer.scrollBy({ left: 100, behavior: "smooth" })
+        }
+
+        if (scrollContainer.scrollLeft + 240 > stackContainerWidth) {
+            scrollContainer.scrollTo({
                 top: 0,
-                left: containerWidth,
+                left: stackContainerWidth,
                 behavior: "smooth",
             })
         } else {
-            container.scrollBy({ left: scrollAmount, behavior: "smooth" })
+            scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" })
         }
     }
 

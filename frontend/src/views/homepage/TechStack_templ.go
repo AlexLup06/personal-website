@@ -59,7 +59,7 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><div class=\"mx-auto flex flex-col gap-2 md:gap-3\"><div id=\"stack-container\" class=\"h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x\"><div class=\"absolute grid h-full grid-flow-col gap-2 md:gap-3\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><div class=\"mx-auto flex flex-col gap-2 md:gap-3\"><div id=\"scroll-stack-container\" class=\"h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x\"><div id=\"stack-container\" class=\"absolute grid h-full grid-flow-col gap-2 md:gap-3\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -99,7 +99,7 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></div><div class=\"flex gap-2 md:gap-3 ml-auto mr-4 cursor-pointer border-2 border-second-400 p-1 rounded-3xl bg-second-25\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></div><div class=\"flex gap-2 md:gap-3 ml-auto mr-4 border-2 border-second-400 p-1 rounded-3xl bg-second-25\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -197,7 +197,7 @@ func Button(direction string) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(direction)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 54, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 57, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -261,7 +261,7 @@ func BestTech(name string, icon templ.Component, side string) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 69, Col: 9}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 72, Col: 9}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -306,7 +306,7 @@ func BestTech(name string, icon templ.Component, side string) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 81, Col: 9}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 84, Col: 9}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -349,7 +349,7 @@ func Card(title string, techs []string, icon templ.Component) templ.Component {
 		var templ_7745c5c3_Var14 string
 		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 92, Col: 67}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 95, Col: 67}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {
@@ -375,7 +375,7 @@ func Card(title string, techs []string, icon templ.Component) templ.Component {
 			var templ_7745c5c3_Var15 string
 			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(tech)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 100, Col: 11}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/TechStack.templ`, Line: 103, Col: 11}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {

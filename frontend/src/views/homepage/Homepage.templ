@@ -8,8 +8,7 @@ import (
 templ Homepage() {
 	@layout.PartialRender() {
 		<div id="body-section">
-			<div class="fixed left-0 -top-40 h-52 bg-background w-screen -z-1"></div>
-			<div class="bg-background relative pb-14 lg:pb-24">
+			<div class="bg-background relative mt-nav-height-sm md:mt-nav-height-lg pt-12 pb-20 md:py-24">
 				@components.Section() {
 					@LandingPage()
 				}

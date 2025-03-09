@@ -13,10 +13,13 @@ templ TechStack() {
 	</div>
 	<div class="mx-auto flex flex-col gap-2 md:gap-3">
 		<div
-			id="stack-container"
+			id="scroll-stack-container"
 			class="h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x"
 		>
-			<div class="absolute grid h-full grid-flow-col gap-2 md:gap-3">
+			<div
+				id="stack-container"
+				class="absolute grid h-full grid-flow-col gap-2 md:gap-3"
+			>
 				@Card("Backend",
 					[]string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"},
 					components.Backend())
@@ -37,7 +40,7 @@ templ TechStack() {
 					components.Other())
 			</div>
 		</div>
-		<div class="flex gap-2 md:gap-3 ml-auto mr-4 cursor-pointer border-2 border-second-400 p-1 rounded-3xl bg-second-25">
+		<div class="flex gap-2 md:gap-3 ml-auto mr-4 border-2 border-second-400 p-1 rounded-3xl bg-second-25">
 			@Button("left-button") {
 				@components.LeftArrow()
 			}
