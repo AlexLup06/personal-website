@@ -11,7 +11,6 @@ window.htmx.onLoad(function () {
 
     indicators.forEach((indicator) => {
         indicator.addEventListener("click", (event: any) => {
-            console.log(event.target.id)
             switch (event.target.id) {
                 case "indicator-1": {
                     addHighlight(indicators[0])
@@ -54,10 +53,8 @@ window.htmx.onLoad(function () {
     const blogObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                console.log("in")
                 blogSection.addEventListener('scroll', () => handleBlogScroll(blogSection, indicators));
             } else {
-                console.log("out")
                 blogSection.removeEventListener('scroll', () => handleBlogScroll(blogSection, indicators));
             }
         });

@@ -13,8 +13,6 @@ window.htmx.onLoad(() => {
     const scrollAmount = stackElementWidth
     const gap = Number(window.getComputedStyle(stackContainer).gap.slice(0, -2))
 
-    console.log(gap)
-
     if (!gap) {
         return
     }
