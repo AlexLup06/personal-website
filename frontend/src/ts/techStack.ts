@@ -9,12 +9,29 @@ window.htmx.onLoad(() => {
         return
     }
 
-    const scrollAmount = stackElement.getBoundingClientRect().width
+    const stackElementWidth = stackElement.getBoundingClientRect().width
+    const scrollAmount = stackElementWidth
+    const gap = Number(window.getComputedStyle(stackContainer).gap.slice(0, -2))
+
+    console.log(gap)
+
+    if (!gap) {
+        return
+    }
+
 
     leftButton.addEventListener("click", () => handleLeftClick())
     rightButton.addEventListener("click", () => handleRightClick())
 
     function handleLeftClick() {
+        const stackContainerWidth = stackContainer.getBoundingClientRect().width
+        const scrollContainerWidth = scrollContainer.getBoundingClientRect().width
+
+        if (stackContainerWidth - scrollContainerWidth == scrollContainer.scrollLeft) {
+            scrollContainer.scrollBy({ left: -stackElementWidth / 2 - gap, behavior: "smooth" })
+            return
+        }
+
         if (scrollContainer.scrollLeft - scrollAmount < 0) {
             scrollContainer.scrollTo({
                 top: 0,
@@ -22,7 +39,7 @@ window.htmx.onLoad(() => {
                 behavior: "smooth",
             })
         } else {
-            scrollContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" })
+            scrollContainer.scrollBy({ left: -scrollAmount - gap, behavior: "smooth" })
         }
     }
 
@@ -30,9 +47,11 @@ window.htmx.onLoad(() => {
         const stackContainerWidth = stackContainer.getBoundingClientRect().width
 
         if (scrollContainer.scrollLeft == 0) {
-            scrollContainer.scrollBy({ left: 100, behavior: "smooth" })
+            scrollContainer.scrollBy({ left: stackElementWidth / 2 + gap, behavior: "smooth" })
             return
         }
+
+
 
         if (scrollContainer.scrollLeft + scrollAmount > stackContainerWidth) {
             scrollContainer.scrollTo({
@@ -41,8 +60,9 @@ window.htmx.onLoad(() => {
                 behavior: "smooth",
             })
         } else {
-            scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" })
+            scrollContainer.scrollBy({ left: scrollAmount + gap, behavior: "smooth" })
         }
+
     }
 
 })
