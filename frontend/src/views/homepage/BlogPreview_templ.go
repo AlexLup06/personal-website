@@ -31,7 +31,7 @@ func BlogPreview() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"pb-24 lg:pb-32 mt-14 lg:mt-24\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"pb-20 lg:pb-24 mt-14 lg:mt-24\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -114,7 +114,7 @@ func blog(date, title, entry string) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"h-1/3 group cursor-pointer flex flex-col justify-start gap-4 mx-1 pb-0.5 pt-8 md:py-10 xl:py-10 snap-center \n\t\t\t bg-main-50 rounded-2xl px-8 outline-2 outline-main-700 hover:outline-3 hover:outline-third-500\"><div class=\"flex flex-col text-md md:text-lg\"><div class=\"flex justify-between\"><div><p class=\"text-grey-500\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"h-1/3 group cursor-pointer flex flex-col justify-start gap-4 mx-1 pb-0.5 pt-8 md:py-10 xl:py-10 snap-center \n\t\t\t bg-main-50 rounded-3xl px-8 outline-3 outline-third-500\"><div class=\"flex flex-col text-md md:text-lg\"><div class=\"flex justify-between\"><div><p class=\"text-grey-500\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

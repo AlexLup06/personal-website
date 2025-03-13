@@ -16,7 +16,7 @@ templ BlockLandingPage(blogMetadata map[string]BlogType) {
 	@layout.PartialRender() {
 		<div id="body-section">
 			@components.Section() {
-				<div class="max-w-4xl mx-auto mb-10 pt-32">
+				<div class="max-w-4xl mx-auto mb-10 mt-8">
 					<div class="gap-2 md:gap-3 flex flex-col">
 						<h1 class="text-5xl md:text-7xl">Blog</h1>
 						<h2 class="text-xl md:text-3xl">Discover my shower thoughts and experiences.</h2>
@@ -29,7 +29,6 @@ templ BlockLandingPage(blogMetadata map[string]BlogType) {
 					>
 						<div class="hidden lg:flex flex-row flex-wrap gap-1.5">
 							@searchBar()
-							// @filter()
 							@filter("All", true)
 							@filter("Technology", false)
 							@filter("Philosohpy", false)
@@ -39,51 +38,13 @@ templ BlockLandingPage(blogMetadata map[string]BlogType) {
 						</div>
 						<div class="lg:hidden flex flex-row flex-wrap gap-2">
 							@searchBar()
-							// @filter()
 							@filterDrop("Filter", true)
 						</div>
 					</div>
 					<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-2">
-						@blogEntry("Why I am Always Right.",
-							"January 24th 2025",
-							"A deep dive into the art of being right—always. Is it logic, luck, or just sheer genius? Let's settle the debate once and for all.",
-							[]string{"Technology", "Philosohpy"})
-						@blogEntry("Are We Losing Our Minds?",
-							"February 12th 2025",
-							"From endless distractions to shrinking attention spans, are we collectively spiraling into madness? A philosophical take on modern cognition.",
-							[]string{"Philosohpy"})
-						@blogEntry("Is Europe Done?",
-							"March 3rd 2024",
-							"With economic shifts, political turmoil, and social challenges, is Europe still a powerhouse, or is its golden age behind us?",
-							[]string{"Economics"})
-						@blogEntry("I Can Conquer The World.",
-							"August 25th 2023",
-							"A moment of shower-induced confidence turned into a reflection on ambition, power, and the absurdity of it all.",
-							[]string{"Shower Thoughts"})
-						@blogEntry("You Eat Way Too Much!",
-							"June 1st 2023",
-							"Portion sizes, mindless snacking, and indulgence—why do we eat so much, and what does it say about us?",
-							[]string{"Shower Thoughts", "Experiences"})
-						@blogEntry("Why I am Always Right.",
-							"January 24th 2025",
-							"A deep dive into the art of being right—always. Is it logic, luck, or just sheer genius? Let's settle the debate once and for all.",
-							[]string{"Technology", "Philosohpy"})
-						@blogEntry("Are We Losing Our Minds?",
-							"February 12th 2025",
-							"From endless distractions to shrinking attention spans, are we collectively spiraling into madness? A philosophical take on modern cognition.",
-							[]string{"Philosohpy"})
-						@blogEntry("Is Europe Done?",
-							"March 3rd 2024",
-							"With economic shifts, political turmoil, and social challenges, is Europe still a powerhouse, or is its golden age behind us?",
-							[]string{"Economics"})
-						@blogEntry("I Can Conquer The World.",
-							"August 25th 2023",
-							"A moment of shower-induced confidence turned into a reflection on ambition, power, and the absurdity of it all.",
-							[]string{"Shower Thoughts"})
-						@blogEntry("You Eat Way Too Much!",
-							"June 1st 2023",
-							"Portion sizes, mindless snacking, and indulgence—why do we eat so much, and what does it say about us?",
-							[]string{"Shower Thoughts", "Experiences"})
+						for _,value := range blogMetadata {
+							@blogEntry(value.Title, value.Date, value.Intro, value.Slug, []string{"Technology", "Philosohpy"})
+						}
 					</div>
 				</div>
 			}
@@ -125,8 +86,15 @@ templ filterDrop(name string, active bool) {
 	</div>
 }
 
-templ blogEntry(title, date, preview string, badges []string) {
-	<div tabindex="0" class="rounded-2xl overflow-hidden hover:scale-[1.01] hover:outline-2 outline-third-500 cursor-pointer transition">
+templ blogEntry(title, date, preview, slug string, badges []string) {
+	<div
+		tabindex="0"
+		class="rounded-2xl overflow-hidden hover:scale-[1.01] hover:outline-2 outline-third-500 cursor-pointer transition"
+		hx-get={ "/blog/" + slug }
+		hx-target="#body-section"
+		hx-swap="outerHTML show:window:top"
+		hx-push-url="true"
+	>
 		<div class="bg-grey-100 w-full aspect-[16/11] rounded-2xl overflow-hidden"></div>
 		<div class="px-2.5 pb-2">
 			<div class="mt-3 mb-2 flex flex-row flex-wrap gap-1">

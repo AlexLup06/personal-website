@@ -9,7 +9,7 @@ templ Blog(title, date, intro, content string) {
 	@layout.PartialRender() {
 		<div id="body-section">
 			@components.Section() {
-				<div class="max-w-4xl mx-auto mb-10 pt-32">
+				<div class="max-w-4xl mx-auto mt-8 mb-20 blog">
 					@templ.Raw(content)
 				</div>
 			}

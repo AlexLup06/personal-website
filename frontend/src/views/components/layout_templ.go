@@ -126,7 +126,7 @@ func LinkToOtherPageSection(discription, buttonText string) templ.Component {
 			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"p-3  border-second-400 bg-second-25 rounded-3xl w-fit flex items-center gap-4\"><p class=\"text-lg md:text-xl text-second-400 ml-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"p-3  border-second-400 bg-second-25 rounded-3xl md:rounded-3xl w-fit flex items-center gap-4\"><p class=\"text-lg md:text-xl text-second-400 ml-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -168,7 +168,7 @@ func LinkToOtherPageSection(discription, buttonText string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</span><div class=\"h-6 aspect-square stroke-[2]\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</span><div class=\"h-4.5 md:h-6 aspect-square stroke-[2]\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -3,17 +3,8 @@ window.htmx.onLoad(() => {
     const rightButton = document.getElementById("right-button") as HTMLButtonElement
     const stackContainer = document.getElementById("stack-container") as HTMLDivElement
     const scrollContainer = document.getElementById("scroll-stack-container") as HTMLDivElement
-    const stackElement = stackContainer.children[0] as HTMLDivElement
 
     if (leftButton == null || rightButton == null || stackContainer == null) {
-        return
-    }
-
-    const stackElementWidth = stackElement.getBoundingClientRect().width
-    const scrollAmount = stackElementWidth
-    const gap = Number(window.getComputedStyle(stackContainer).gap.slice(0, -2))
-
-    if (!gap) {
         return
     }
 
@@ -22,14 +13,28 @@ window.htmx.onLoad(() => {
     rightButton.addEventListener("click", () => handleRightClick())
 
     function handleLeftClick() {
-        const stackContainerWidth = stackContainer.getBoundingClientRect().width
+        const stackElement = stackContainer.children[0] as HTMLDivElement
+        const stackElementWidth = stackElement.getBoundingClientRect().width
         const scrollContainerWidth = scrollContainer.getBoundingClientRect().width
 
-        if (stackContainerWidth - scrollContainerWidth == scrollContainer.scrollLeft) {
-            scrollContainer.scrollBy({ left: -stackElementWidth / 2 - gap, behavior: "smooth" })
+        const scrollAmount = stackElementWidth
+        const gap = Number(window.getComputedStyle(stackContainer).gap.slice(0, -2))
+
+        const isAtFarRight = scrollContainer.scrollWidth - scrollContainer.clientWidth == scrollContainer.scrollLeft
+        const isSmallContainer = stackElementWidth * 2 + gap > scrollContainerWidth
+
+        if (isSmallContainer && isAtFarRight) {
+            console.log("left click")
+            const partialWidth = scrollContainerWidth - stackElementWidth - gap
+            const scrollAmount = stackElementWidth - partialWidth / 2
+            scrollContainer.scrollBy({ left: -scrollAmount - gap / 2, behavior: "smooth" })
             return
         }
 
+        if (isAtFarRight) {
+            scrollContainer.scrollBy({ left: -scrollAmount / 2 - gap, behavior: "smooth" })
+            return
+        }
         if (scrollContainer.scrollLeft - scrollAmount < 0) {
             scrollContainer.scrollTo({
                 top: 0,
@@ -42,19 +47,39 @@ window.htmx.onLoad(() => {
     }
 
     function handleRightClick() {
-        const stackContainerWidth = stackContainer.getBoundingClientRect().width
+        const stackElement = stackContainer.children[0] as HTMLDivElement
+        const stackElementWidth = stackElement.getBoundingClientRect().width
+        const scrollAmount = stackElementWidth
+        const scrollContainerWidth = scrollContainer.getBoundingClientRect().width
+        const gap = Number(window.getComputedStyle(stackContainer).gap.slice(0, -2))
+
+        const isAtFarLeft = scrollContainer.scrollLeft == 0
+        const isSmallContainer = stackElementWidth * 2 + gap > scrollContainerWidth
+
+
+        if (isSmallContainer && isAtFarLeft) {
+            /*
+            358
+            200 8 150 -> scroll 125
+            75 8 200 8 75
+            */
+            const partialWidth = scrollContainerWidth - stackElementWidth - gap
+            const scrollAmountSmall = stackElementWidth - partialWidth / 2
+            scrollContainer.scrollBy({ left: scrollAmountSmall + gap / 2, behavior: "smooth" })
+            return
+        }
 
         if (scrollContainer.scrollLeft == 0) {
-            scrollContainer.scrollBy({ left: stackElementWidth / 2 + gap, behavior: "smooth" })
+            console.log("scroll amount: ", scrollAmount / 2 + gap)
+            scrollContainer.scrollBy({ left: scrollAmount / 2 + gap, behavior: "smooth" })
             return
         }
 
 
-
-        if (scrollContainer.scrollLeft + scrollAmount > stackContainerWidth) {
+        if (scrollContainer.scrollLeft + scrollAmount > scrollContainer.scrollWidth - scrollContainer.clientWidth) {
             scrollContainer.scrollTo({
                 top: 0,
-                left: stackContainerWidth,
+                left: scrollContainer.scrollWidth - scrollContainer.clientWidth,
                 behavior: "smooth",
             })
         } else {
@@ -62,5 +87,4 @@ window.htmx.onLoad(() => {
         }
 
     }
-
 })

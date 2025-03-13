@@ -69,7 +69,7 @@ func BlockLandingPage(blogMetadata map[string]BlogType) templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto mb-10 pt-32\"><div class=\"gap-2 md:gap-3 flex flex-col\"><h1 class=\"text-5xl md:text-7xl\">Blog</h1><h2 class=\"text-xl md:text-3xl\">Discover my shower thoughts and experiences.</h2></div><div id=\"search-and-filter\" data-stickyactive=\"false\" class=\"z-40 my-4 md:my-6 w-full sticky top-[-1px] bg-white items-center border-second-400 transition-all\n\t\t\t\t\t\t\tdata-[stickyactive=&#39;true&#39;]:py-4 lg:data-[stickyactive=&#39;true&#39;]:py-5 data-[stickyactive=&#39;true&#39;]:border-b-2 \"><div class=\"hidden lg:flex flex-row flex-wrap gap-1.5\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto mb-10 mt-8\"><div class=\"gap-2 md:gap-3 flex flex-col\"><h1 class=\"text-5xl md:text-7xl\">Blog</h1><h2 class=\"text-xl md:text-3xl\">Discover my shower thoughts and experiences.</h2></div><div id=\"search-and-filter\" data-stickyactive=\"false\" class=\"z-40 my-4 md:my-6 w-full sticky top-[-1px] bg-white items-center border-second-400 transition-all\n\t\t\t\t\t\t\tdata-[stickyactive=&#39;true&#39;]:py-4 lg:data-[stickyactive=&#39;true&#39;]:py-5 data-[stickyactive=&#39;true&#39;]:border-b-2 \"><div class=\"hidden lg:flex flex-row flex-wrap gap-1.5\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -117,75 +117,11 @@ func BlockLandingPage(blogMetadata map[string]BlogType) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = blogEntry("Why I am Always Right.",
-					"January 24th 2025",
-					"A deep dive into the art of being right—always. Is it logic, luck, or just sheer genius? Let's settle the debate once and for all.",
-					[]string{"Technology", "Philosohpy"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("Are We Losing Our Minds?",
-					"February 12th 2025",
-					"From endless distractions to shrinking attention spans, are we collectively spiraling into madness? A philosophical take on modern cognition.",
-					[]string{"Philosohpy"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("Is Europe Done?",
-					"March 3rd 2024",
-					"With economic shifts, political turmoil, and social challenges, is Europe still a powerhouse, or is its golden age behind us?",
-					[]string{"Economics"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("I Can Conquer The World.",
-					"August 25th 2023",
-					"A moment of shower-induced confidence turned into a reflection on ambition, power, and the absurdity of it all.",
-					[]string{"Shower Thoughts"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("You Eat Way Too Much!",
-					"June 1st 2023",
-					"Portion sizes, mindless snacking, and indulgence—why do we eat so much, and what does it say about us?",
-					[]string{"Shower Thoughts", "Experiences"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("Why I am Always Right.",
-					"January 24th 2025",
-					"A deep dive into the art of being right—always. Is it logic, luck, or just sheer genius? Let's settle the debate once and for all.",
-					[]string{"Technology", "Philosohpy"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("Are We Losing Our Minds?",
-					"February 12th 2025",
-					"From endless distractions to shrinking attention spans, are we collectively spiraling into madness? A philosophical take on modern cognition.",
-					[]string{"Philosohpy"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("Is Europe Done?",
-					"March 3rd 2024",
-					"With economic shifts, political turmoil, and social challenges, is Europe still a powerhouse, or is its golden age behind us?",
-					[]string{"Economics"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("I Can Conquer The World.",
-					"August 25th 2023",
-					"A moment of shower-induced confidence turned into a reflection on ambition, power, and the absurdity of it all.",
-					[]string{"Shower Thoughts"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = blogEntry("You Eat Way Too Much!",
-					"June 1st 2023",
-					"Portion sizes, mindless snacking, and indulgence—why do we eat so much, and what does it say about us?",
-					[]string{"Shower Thoughts", "Experiences"}).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
+				for _, value := range blogMetadata {
+					templ_7745c5c3_Err = blogEntry(value.Title, value.Date, value.Intro, value.Slug, []string{"Technology", "Philosohpy"}).Render(ctx, templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
 				}
 				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div></div>")
 				if templ_7745c5c3_Err != nil {
@@ -277,7 +213,7 @@ func filter(name string, active bool) templ.Component {
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 103, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 64, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
@@ -348,7 +284,7 @@ func filterDrop(name string, active bool) templ.Component {
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 124, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 85, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
@@ -362,7 +298,7 @@ func filterDrop(name string, active bool) templ.Component {
 	})
 }
 
-func blogEntry(title, date, preview string, badges []string) templ.Component {
+func blogEntry(title, date, preview, slug string, badges []string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -383,7 +319,20 @@ func blogEntry(title, date, preview string, badges []string) templ.Component {
 			templ_7745c5c3_Var12 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<div tabindex=\"0\" class=\"rounded-2xl overflow-hidden hover:scale-[1.01] hover:outline-2 outline-third-500 cursor-pointer transition\"><div class=\"bg-grey-100 w-full aspect-[16/11] rounded-2xl overflow-hidden\"></div><div class=\"px-2.5 pb-2\"><div class=\"mt-3 mb-2 flex flex-row flex-wrap gap-1\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<div tabindex=\"0\" class=\"rounded-2xl overflow-hidden hover:scale-[1.01] hover:outline-2 outline-third-500 cursor-pointer transition\" hx-get=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var13 string
+		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs("/blog/" + slug)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 93, Col: 26}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "\" hx-target=\"#body-section\" hx-swap=\"outerHTML show:window:top\" hx-push-url=\"true\"><div class=\"bg-grey-100 w-full aspect-[16/11] rounded-2xl overflow-hidden\"></div><div class=\"px-2.5 pb-2\"><div class=\"mt-3 mb-2 flex flex-row flex-wrap gap-1\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -393,46 +342,46 @@ func blogEntry(title, date, preview string, badges []string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</div><p class=\"text-grey-500\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var13 string
-		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(date)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 138, Col: 10}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p><p class=\"text-xl font-medium mt-1\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</div><p class=\"text-grey-500\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var14 string
-		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(title)
+		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(date)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 141, Col: 11}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 106, Col: 10}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p><p class=\"mt-1\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p><p class=\"text-xl font-medium mt-1\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var15 string
-		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(preview)
+		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 144, Col: 13}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 109, Col: 11}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p class=\"mt-1\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var16 string
+		templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(preview)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 112, Col: 13}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</p></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -456,25 +405,25 @@ func BlogBadge(name string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var16 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var16 == nil {
-			templ_7745c5c3_Var16 = templ.NopComponent
+		templ_7745c5c3_Var17 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var17 == nil {
+			templ_7745c5c3_Var17 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<div class=\"bg-third-300 text-white px-2.5 py-1 text-sm rounded-xl\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<div class=\"bg-third-300 text-white px-2.5 py-1 text-sm rounded-xl\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var17 string
-		templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		var templ_7745c5c3_Var18 string
+		templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 152, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 120, Col: 8}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

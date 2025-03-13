@@ -342,7 +342,7 @@ func Card(title string, techs []string, icon templ.Component) templ.Component {
 			templ_7745c5c3_Var13 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"snap-center transform w-52 md:w-60 flex flex-col \n\t\t\t   overflow-hidden border-2 bg-main-50 border-main-800 rounded-2xl p-4\"><div class=\"flex justify-between\"><h4 class=\"text-xl md:text-2xl font-medium mb-1 md:mb-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"snap-center transform w-52 md:w-60 flex flex-col \n\t\t\t   overflow-hidden border-2 bg-main-50 border-third-500 rounded-2xl p-4\"><div class=\"flex justify-between\"><h4 class=\"text-xl md:text-2xl font-medium mb-1 md:mb-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

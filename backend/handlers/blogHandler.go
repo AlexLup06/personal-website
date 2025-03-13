@@ -15,7 +15,7 @@ import (
 const pathToRoot = "./"
 
 func BlogHandler(ctx *gin.Context, blogMetadata map[string]blog.BlogType) {
-	slug := ctx.Param("blog")
+	slug := ctx.Param("slug")
 
 	// Check if blog exists
 	blogData, exists := blogMetadata[slug]
@@ -25,7 +25,7 @@ func BlogHandler(ctx *gin.Context, blogMetadata map[string]blog.BlogType) {
 	}
 
 	// Read blog content from HTML file
-	contentPath := filepath.Join(pathToRoot+"frontend/src/views/blog/blog-html", slug+".html")
+	contentPath := filepath.Join(pathToRoot+"blog-html", slug+".html")
 	content, err := os.ReadFile(contentPath)
 	if err != nil {
 		ctx.String(http.StatusInternalServerError, "Error reading blog content")
@@ -37,7 +37,7 @@ func BlogHandler(ctx *gin.Context, blogMetadata map[string]blog.BlogType) {
 }
 
 func LoadBlogMetadata() (map[string]blog.BlogType, error) {
-	metadataPath := filepath.Join(pathToRoot+"blog-generator", "blogMetadata.json")
+	metadataPath := filepath.Join(pathToRoot+"blog-html", "blogMetadata.json")
 	data, err := os.ReadFile(metadataPath)
 	if err != nil {
 		fmt.Println("Error reading blog metadata:", err)

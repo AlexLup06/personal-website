@@ -3,11 +3,12 @@ package layout
 import (
 	"alexlupatsiy.com/personal-website/frontend/src/views/components"
 	"context"
+	"strings"
 )
 
 templ Header() {
 	<header
-		class="h-nav-height-sm md:h-nav-height-lg absolute z-50 flex justify-between md:justify-normal 
+		class="h-nav-height-sm md:h-nav-height-lg z-50 flex justify-between md:justify-normal 
 				items-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4 bg-white"
 	>
 		<img
@@ -61,11 +62,17 @@ templ Header() {
 	</header>
 }
 
-func isActive(c context.Context, link string) string {
-	path := c.Value("fullPath").(string)
-	if path == link {
+func isActive(ctx context.Context, link string) string {
+	path := ctx.Value("fullPath").(string)
+
+	if path != link && link == "/" {
+		return "false"
+	}
+
+	if strings.HasPrefix(path, link) {
 		return "true"
 	}
+
 	return "false"
 }
 

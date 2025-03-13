@@ -62,7 +62,7 @@ func Portfolio() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"gap-2 md:gap-2 flex flex-col pt-32 mb-10\"><h1 class=\"text-5xl md:text-7xl\">Portfolio</h1><h2 class=\"text-xl md:text-3xl\">Check out my Projects.</h2></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto mb-10 mt-8\"><div class=\"gap-2 md:gap-2 flex flex-col mt-8 mb-10\"><h1 class=\"text-5xl md:text-7xl\">Portfolio</h1><h2 class=\"text-xl md:text-3xl\">Check out my Projects.</h2></div></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

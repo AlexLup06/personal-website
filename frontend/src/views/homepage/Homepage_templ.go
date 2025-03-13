@@ -46,7 +46,7 @@ func Homepage() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"body-section\"><div class=\"bg-background relative mt-nav-height-sm md:mt-nav-height-lg pt-12 pb-20 md:py-24\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"body-section\"><div class=\"bg-background relative pt-12 pb-20 md:py-24\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

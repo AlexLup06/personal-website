@@ -13,13 +13,13 @@ templ SectionHeader(name string) {
 }
 
 templ LinkToOtherPageSection(discription, buttonText string) {
-	<div class="p-3  border-second-400 bg-second-25 rounded-3xl w-fit flex items-center gap-4">
+	<div class="p-3  border-second-400 bg-second-25 rounded-3xl md:rounded-3xl w-fit flex items-center gap-4">
 		<p class="text-lg md:text-xl text-second-400 ml-2">
 			{ discription }
 		</p>
 		@Lg() {
 			<span>{ buttonText }</span>
-			<div class="h-6 aspect-square stroke-[2]">
+			<div class="h-4.5 md:h-6 aspect-square stroke-[2]">
 				@RightArrow()
 			</div>
 		}

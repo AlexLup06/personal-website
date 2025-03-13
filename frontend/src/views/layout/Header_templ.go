@@ -11,6 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import (
 	"alexlupatsiy.com/personal-website/frontend/src/views/components"
 	"context"
+	"strings"
 )
 
 func Header() templ.Component {
@@ -34,7 +35,7 @@ func Header() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header class=\"h-nav-height-sm md:h-nav-height-lg absolute z-50 flex justify-between md:justify-normal \n\t\t\t\titems-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4 bg-white\"><img class=\"w-10 md:w-12 md:mr-20\" id=\"logo\" hx-get=\"/\" hx-target=\"#body-section\" hx-swap=\"outerHTML\" hx-replace-url=\"true\" src=\"/public/images/memoji.png\"><ul id=\"navbar\" class=\"flex md:flex-1  items-center gap-6 sm:gap-10 text-md sm:text-xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header class=\"h-nav-height-sm md:h-nav-height-lg z-50 flex justify-between md:justify-normal \n\t\t\t\titems-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4 bg-white\"><img class=\"w-10 md:w-12 md:mr-20\" id=\"logo\" hx-get=\"/\" hx-target=\"#body-section\" hx-swap=\"outerHTML\" hx-replace-url=\"true\" src=\"/public/images/memoji.png\"><ul id=\"navbar\" class=\"flex md:flex-1  items-center gap-6 sm:gap-10 text-md sm:text-xl font-medium\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -198,11 +199,17 @@ func Header() templ.Component {
 	})
 }
 
-func isActive(c context.Context, link string) string {
-	path := c.Value("fullPath").(string)
-	if path == link {
+func isActive(ctx context.Context, link string) string {
+	path := ctx.Value("fullPath").(string)
+
+	if path != link && link == "/" {
+		return "false"
+	}
+
+	if strings.HasPrefix(path, link) {
 		return "true"
 	}
+
 	return "false"
 }
 
@@ -234,7 +241,7 @@ func navLinkHeader(link string, text string) templ.Component {
 		var templ_7745c5c3_Var9 string
 		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(isActive(ctx, link))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 81, Col: 40}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 88, Col: 40}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
@@ -247,7 +254,7 @@ func navLinkHeader(link string, text string) templ.Component {
 		var templ_7745c5c3_Var10 string
 		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(link)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 82, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 89, Col: 19}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
@@ -260,7 +267,7 @@ func navLinkHeader(link string, text string) templ.Component {
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 83, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 90, Col: 19}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
@@ -273,7 +280,7 @@ func navLinkHeader(link string, text string) templ.Component {
 		var templ_7745c5c3_Var12 string
 		templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(link)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 84, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 91, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 		if templ_7745c5c3_Err != nil {
@@ -295,7 +302,7 @@ func navLinkHeader(link string, text string) templ.Component {
 		var templ_7745c5c3_Var14 string
 		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 90, Col: 9}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Header.templ`, Line: 97, Col: 9}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {

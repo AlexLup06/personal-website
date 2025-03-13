@@ -29,7 +29,7 @@ func Lg() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button class=\"px-4 py-2 rounded-2xl active:scale-95 hover:bg-second-25 text-white hover:text-second-500 \n\t\t\t\toutline-2 outline-second-400 transition cursor-pointer\n\t\t\t  bg-second-400 flex items-center gap-2 w-fit text-lg\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button class=\"px-3.5 py-1.5 md:px-4 md:py-2 rounded-2xl md:rounded-2xl active:scale-95 hover:bg-second-25 text-white hover:text-second-500 \n\t\t\t\toutline-2 outline-second-400 transition cursor-pointer\n\t\t\t  bg-second-400 flex items-center gap-1 md:gap-2 w-fit text-md md:text-lg\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

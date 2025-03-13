@@ -50,8 +50,8 @@ func Router() *gin.Engine {
 	r.GET("/portfolio", func(c *gin.Context) { helpers.Render(c, 200, portfolio.Portfolio()) })
 	blogRouter := r.Group("/blog")
 	{
-		blogRouter.GET("/", func(c *gin.Context) { helpers.Render(c, 200, blog.BlockLandingPage(blogMetadata)) })
-		blogRouter.GET("/:name", func(ctx *gin.Context) { handlers.BlogHandler(ctx, blogMetadata) })
+		blogRouter.GET("", func(c *gin.Context) { helpers.Render(c, 200, blog.BlockLandingPage(blogMetadata)) })
+		blogRouter.GET("/:slug", func(ctx *gin.Context) { handlers.BlogHandler(ctx, blogMetadata) })
 	}
 
 	if !isProductionMode {
