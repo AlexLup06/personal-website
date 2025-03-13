@@ -1,22 +1,32 @@
 {
   "blogs": [
     {
+      "title": "What is up",
+      "date": "2025-10-03",
+      "intro": "I don't know",
+      "slug": "2025-10-03_What-is-up",
+      "tags": [
+        "Meditations"
+      ]
+    },
+    {
       "title": "The Power of Consistency: The Key to Long-Term Success",
       "date": "2025-12-03",
       "intro": "Success isn’t about luck or talent—it’s about showing up every day. Small, consistent actions lead to big results over time. Here’s why consistency matters and how to make it work for you.",
-      "slug": "2025-12-03_The-Power-of-Consistency:-The-Key-to-Long-Term-Success"
+      "slug": "2025-12-03_The-Power-of-Consistency:-The-Key-to-Long-Term-Success",
+      "tags": [
+        "Shower Thoughts"
+      ]
     },
     {
       "title": "Web Accessibility",
       "date": "2022-03-04",
       "intro": "Web accessibility ensures that websites can be used by everyone, including people with disabilities. While semantic HTML provides built-in accessibility,",
-      "slug": "2022-03-04_Web-Accessibility"
-    },
-    {
-      "title": "What is up",
-      "date": "2025-10-03",
-      "intro": "I don't know",
-      "slug": "2025-10-03_What-is-up"
+      "slug": "2022-03-04_Web-Accessibility",
+      "tags": [
+        "Philosophy",
+        "Shower Thoughts"
+      ]
     }
   ]
 }

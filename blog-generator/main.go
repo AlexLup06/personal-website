@@ -15,6 +15,14 @@ import (
 	"github.com/yuin/goldmark/parser"
 )
 
+type BlogMetadata struct {
+	Title string   `json:"title"`
+	Date  string   `json:"date"`
+	Intro string   `json:"intro"`
+	Slug  string   `json:"slug"`
+	Tags  []string `json:"tags"`
+}
+
 const pathToRoot string = "../"
 const pathToBlogs string = pathToRoot + "blogs"
 
@@ -28,10 +36,9 @@ func mdToHTML(md []byte) []byte {
 	var buf bytes.Buffer
 	err := mdConverter.Convert(md, &buf)
 	if err != nil {
-		return nil // Return nil if conversion fails (handle error appropriately in your app)
+		return nil
 	}
 	return buf.Bytes()
-	// return nil
 }
 
 func main() {
@@ -47,7 +54,7 @@ func processMarkdown(path string, info os.FileInfo, err error) error {
 		return err
 	}
 
-	if info.IsDir() {
+	if info.IsDir() || info.Name() == "blog-template.md" {
 		return nil
 	}
 
@@ -60,19 +67,18 @@ func processMarkdown(path string, info os.FileInfo, err error) error {
 	scanner := bufio.NewScanner(file)
 
 	var title, date, intro string
+	var tags []string
 	var contentLines []string
 	inContent := false
 
 	for scanner.Scan() {
 		line := scanner.Text()
 
-		// If we encounter an empty line, assume content starts
-		if line == "" {
+		if line == "--start--" {
 			inContent = true
 			continue
 		}
 
-		// If still in metadata, extract values
 		if !inContent {
 			if strings.HasPrefix(line, "Title: ") {
 				title = strings.TrimPrefix(line, "Title: ")
@@ -80,9 +86,11 @@ func processMarkdown(path string, info os.FileInfo, err error) error {
 				date = strings.TrimPrefix(line, "Date: ")
 			} else if strings.HasPrefix(line, "Intro: ") {
 				intro = strings.TrimPrefix(line, "Intro: ")
+			} else if strings.HasPrefix(line, "Tags: ") {
+				tagsString := strings.TrimPrefix(line, "Tags: ")
+				tags = strings.Split(tagsString, ",")
 			}
 		} else {
-			// Collect the remaining lines as blog content
 			contentLines = append(contentLines, line)
 		}
 	}
@@ -91,17 +99,14 @@ func processMarkdown(path string, info os.FileInfo, err error) error {
 		return err
 	}
 
-	// Join the content lines into a single string
 	content := strings.Join(contentLines, "\n")
-
-	// generate slug
 	slug := generateSlug(title, date)
-
 	blogMetadata := BlogMetadata{
 		Title: title,
 		Date:  date,
 		Intro: intro,
 		Slug:  slug,
+		Tags:  tags,
 	}
 
 	// append Metadata to project-root/blog-generator/blogMetadata.json
@@ -122,13 +127,6 @@ func processMarkdown(path string, info os.FileInfo, err error) error {
 	err = writeToFile(pathToRoot+"blog-html/"+slug+".html", html)
 
 	return nil
-}
-
-type BlogMetadata struct {
-	Title string `json:"title"`
-	Date  string `json:"date"`
-	Intro string `json:"intro"`
-	Slug  string `json:"slug"`
 }
 
 func loadBlogMetadata() (map[string]BlogMetadata, error) {
@@ -162,7 +160,6 @@ func generateSlug(title, date string) string {
 func writeBlogMetadata(blogMetadata map[string]BlogMetadata) error {
 	metadataPath := filepath.Join(pathToRoot+"blog-html", "blogMetadata.json")
 
-	// Convert the map back to JSON structure
 	var blogs struct {
 		Blogs []BlogMetadata `json:"blogs"`
 	}
@@ -171,14 +168,12 @@ func writeBlogMetadata(blogMetadata map[string]BlogMetadata) error {
 		blogs.Blogs = append(blogs.Blogs, b)
 	}
 
-	// Marshal to JSON with indentation
 	jsonData, err := json.MarshalIndent(blogs, "", "  ")
 	if err != nil {
 		fmt.Println("Error encoding JSON:", err)
 		return err
 	}
 
-	// Overwrite the file with the new content
 	err = os.WriteFile(metadataPath, jsonData, 0644)
 	if err != nil {
 		fmt.Println("Error writing blog metadata:", err)
@@ -189,7 +184,6 @@ func writeBlogMetadata(blogMetadata map[string]BlogMetadata) error {
 }
 
 func writeToFile(filepath string, data []byte) error {
-	// os.WriteFile automatically creates or overwrites the file
 	err := os.WriteFile(filepath, data, 0644)
 	if err != nil {
 		fmt.Println("Error writing to file:", err)

@@ -21,20 +21,15 @@ window.htmx.onLoad(() => {
         const gap = Number(window.getComputedStyle(stackContainer).gap.slice(0, -2))
 
         const isAtFarRight = scrollContainer.scrollWidth - scrollContainer.clientWidth == scrollContainer.scrollLeft
-        const isSmallContainer = stackElementWidth * 2 + gap > scrollContainerWidth
-
-        if (isSmallContainer && isAtFarRight) {
-            console.log("left click")
-            const partialWidth = scrollContainerWidth - stackElementWidth - gap
-            const scrollAmount = stackElementWidth - partialWidth / 2
-            scrollContainer.scrollBy({ left: -scrollAmount - gap / 2, behavior: "smooth" })
-            return
-        }
 
         if (isAtFarRight) {
-            scrollContainer.scrollBy({ left: -scrollAmount / 2 - gap, behavior: "smooth" })
+            const fullElements = Math.floor(scrollContainerWidth / stackElementWidth)
+            const partialWidthInside = scrollContainerWidth - fullElements * stackElementWidth - fullElements * gap
+            const partialWidthOutisde = stackElementWidth - partialWidthInside
+            scrollContainer.scrollBy({ left: -partialWidthOutisde, behavior: "smooth" })
             return
         }
+
         if (scrollContainer.scrollLeft - scrollAmount < 0) {
             scrollContainer.scrollTo({
                 top: 0,
@@ -50,31 +45,7 @@ window.htmx.onLoad(() => {
         const stackElement = stackContainer.children[0] as HTMLDivElement
         const stackElementWidth = stackElement.getBoundingClientRect().width
         const scrollAmount = stackElementWidth
-        const scrollContainerWidth = scrollContainer.getBoundingClientRect().width
         const gap = Number(window.getComputedStyle(stackContainer).gap.slice(0, -2))
-
-        const isAtFarLeft = scrollContainer.scrollLeft == 0
-        const isSmallContainer = stackElementWidth * 2 + gap > scrollContainerWidth
-
-
-        if (isSmallContainer && isAtFarLeft) {
-            /*
-            358
-            200 8 150 -> scroll 125
-            75 8 200 8 75
-            */
-            const partialWidth = scrollContainerWidth - stackElementWidth - gap
-            const scrollAmountSmall = stackElementWidth - partialWidth / 2
-            scrollContainer.scrollBy({ left: scrollAmountSmall + gap / 2, behavior: "smooth" })
-            return
-        }
-
-        if (scrollContainer.scrollLeft == 0) {
-            console.log("scroll amount: ", scrollAmount / 2 + gap)
-            scrollContainer.scrollBy({ left: scrollAmount / 2 + gap, behavior: "smooth" })
-            return
-        }
-
 
         if (scrollContainer.scrollLeft + scrollAmount > scrollContainer.scrollWidth - scrollContainer.clientWidth) {
             scrollContainer.scrollTo({

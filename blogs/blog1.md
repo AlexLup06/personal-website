@@ -1,6 +1,9 @@
 Title: Web Accessibility
 Date: 2022-03-04
 Intro: Web accessibility ensures that websites can be used by everyone, including people with disabilities. While semantic HTML provides built-in accessibility,
+Tags: Philosophy,Shower Thoughts
+
+--start--
 
 # Making the Web Accessible with ARIA 🚀
 

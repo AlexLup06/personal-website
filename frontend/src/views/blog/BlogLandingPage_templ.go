@@ -11,13 +11,16 @@ import templruntime "github.com/a-h/templ/runtime"
 import (
 	"alexlupatsiy.com/personal-website/frontend/src/views/components"
 	"alexlupatsiy.com/personal-website/frontend/src/views/layout"
+	"fmt"
+	"time"
 )
 
 type BlogType struct {
-	Title string `json:"title"`
-	Date  string `json:"date"`
-	Intro string `json:"intro"`
-	Slug  string `json:"slug"`
+	Title string   `json:"title"`
+	Date  string   `json:"date"`
+	Intro string   `json:"intro"`
+	Slug  string   `json:"slug"`
+	Tags  []string `json:"tags"`
 }
 
 func BlockLandingPage(blogMetadata map[string]BlogType) templ.Component {
@@ -118,7 +121,7 @@ func BlockLandingPage(blogMetadata map[string]BlogType) templ.Component {
 					return templ_7745c5c3_Err
 				}
 				for _, value := range blogMetadata {
-					templ_7745c5c3_Err = blogEntry(value.Title, value.Date, value.Intro, value.Slug, []string{"Technology", "Philosohpy"}).Render(ctx, templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = blogEntry(value.Title, value.Date, value.Intro, value.Slug, value.Tags).Render(ctx, templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -213,7 +216,7 @@ func filter(name string, active bool) templ.Component {
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 64, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 67, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
@@ -284,7 +287,7 @@ func filterDrop(name string, active bool) templ.Component {
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 85, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 88, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
@@ -296,6 +299,17 @@ func filterDrop(name string, active bool) templ.Component {
 		}
 		return nil
 	})
+}
+
+func parseDate(dateString string) string {
+	parsedTime, err := time.Parse("2006-01-02", dateString)
+	if err != nil {
+		fmt.Println("Error parsing date:", err)
+		return ""
+	}
+
+	formattedDate := parsedTime.Format("2. January 2006")
+	return formattedDate
 }
 
 func blogEntry(title, date, preview, slug string, badges []string) templ.Component {
@@ -319,14 +333,14 @@ func blogEntry(title, date, preview, slug string, badges []string) templ.Compone
 			templ_7745c5c3_Var12 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<div tabindex=\"0\" class=\"rounded-2xl overflow-hidden hover:scale-[1.01] hover:outline-2 outline-third-500 cursor-pointer transition\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<div tabindex=\"0\" class=\"group rounded-2xl overflow-hidden  hover:outline-3 focus:outline-3 outline-third-500 cursor-pointer relative\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var13 string
 		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs("/blog/" + slug)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 93, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 107, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 		if templ_7745c5c3_Err != nil {
@@ -347,35 +361,35 @@ func blogEntry(title, date, preview, slug string, badges []string) templ.Compone
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var14 string
-		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(date)
+		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(parseDate(date))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 106, Col: 10}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 131, Col: 21}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p><p class=\"text-xl font-medium mt-1\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p><p class=\"text-xl font-medium mt-0.5\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var15 string
 		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 109, Col: 11}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 134, Col: 11}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p class=\"mt-1\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p class=\"mt-0.5\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var16 string
 		templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(preview)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 112, Col: 13}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 137, Col: 13}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 		if templ_7745c5c3_Err != nil {
@@ -417,7 +431,7 @@ func BlogBadge(name string) templ.Component {
 		var templ_7745c5c3_Var18 string
 		templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 120, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/blog/BlogLandingPage.templ`, Line: 145, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 		if templ_7745c5c3_Err != nil {
