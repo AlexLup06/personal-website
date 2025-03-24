@@ -172,7 +172,7 @@ func navLinkFooter(name string, link string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" hx-target=\"#body-section\" hx-swap=\"outerHTML show:window:top\" hx-replace-url=\"true\" href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" hx-target=\"#body-section\" hx-swap=\"outerHTML\" hx-on::after-request=\"window.scrollTo({top: 0, behavior: &#39;smooth&#39;})\" hx-replace-url=\"true\" href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -188,7 +188,7 @@ func navLinkFooter(name string, link string) templ.Component {
 		var templ_7745c5c3_Var9 string
 		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Footer.templ`, Line: 54, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/layout/Footer.templ`, Line: 55, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {

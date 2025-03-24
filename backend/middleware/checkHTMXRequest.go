@@ -1,14 +1,19 @@
 package middleware
 
 import (
+	"alexlupatsiy.com/personal-website/backend/helpers"
 	"github.com/gin-gonic/gin"
 )
 
 func CheckHTMXRequest() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		if c.GetHeader("HX-Request") == "true" {
-			c.Set("HX-Request", "true")
+	return func(ctx *gin.Context) {
+		if ctx.GetHeader("HX-Request") == "true" {
+			helpers.SetKV(ctx, "HX-Request", "true")
 		}
-		c.Next()
+
+		if ctx.GetHeader("X-Blog") == "true" {
+			helpers.SetKV(ctx, "X-Blog", "true")
+		}
+		ctx.Next()
 	}
 }

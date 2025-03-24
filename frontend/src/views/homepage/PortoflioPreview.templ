@@ -23,7 +23,7 @@ templ PortoflioPreview() {
 				"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
 			)
 		</div>
-		@components.LinkToOtherPageSection("Check out all projects!", "Portfolio")
+		@components.LinkToOtherPageSection("Check out all projects!", "Portfolio", "/portfolio")
 	</div>
 }
 
@@ -37,9 +37,9 @@ templ ProjectCard(name string, badges []string, description string) {
 		<div class="flex justify-between mb-1 items-baseline">
 			<h2 class="text-2xl font-medium">{ name }</h2>
 			<div
-				class=" stroke-2 group-hover:text-third-500  outline-third-500
-								hover:bg-third-500 hover:text-white group-hover:outline-2 
-								transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer"
+				class="stroke-2 group-hover:text-white group-hover:outline-third-500 hover:bg-transparent
+							group-hover:bg-third-500 hover:text-third-500 outline-2 outline-transparent
+							transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer"
 			>
 				<div class="w-7">
 					@components.ArrowTopRight()

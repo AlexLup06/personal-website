@@ -1,63 +1,57 @@
 package backend
 
 import (
+	"context"
 	"fmt"
-	"os"
 
+	"alexlupatsiy.com/personal-website/backend/config"
 	"alexlupatsiy.com/personal-website/backend/handlers"
-	"alexlupatsiy.com/personal-website/backend/helpers"
 	"alexlupatsiy.com/personal-website/backend/middleware"
-	"alexlupatsiy.com/personal-website/frontend/src/views"
-	"alexlupatsiy.com/personal-website/frontend/src/views/blog"
-	"alexlupatsiy.com/personal-website/frontend/src/views/homepage"
-	"alexlupatsiy.com/personal-website/frontend/src/views/portfolio"
+	"alexlupatsiy.com/personal-website/backend/services"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
+	"github.com/sethvargo/go-envconfig"
 )
 
-func Router() *gin.Engine {
-	env := os.Getenv("ENV")
-	isProductionMode := env == "production"
-	if isProductionMode {
+func Router() error {
+	cfg := config.Config{}
+	if err := envconfig.Process(context.Background(), &cfg); err != nil {
+		return fmt.Errorf("can't inject env variables: %w", err)
+	}
+
+	if !cfg.DevMode {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	var staticBasePath string
-	if isProductionMode {
-		staticBasePath = "/root/public"
-	} else {
-		staticBasePath = "./frontend/public"
-	}
+	// services
+	blogService := services.NewBlogService()
 
-	var blogMetadata map[string]blog.BlogType
-	blogMetadata, err := handlers.LoadBlogMetadata()
-	if err != nil {
-		fmt.Printf("Error reading blog metadata: %v\n", err)
-	}
+	// handlers
+	router := gin.Default()
+	staticHandler := handlers.NewStaticHandler(router)
+	homeHandler := handlers.NewHomeHandler(router, blogService)
+	portfolioHandler := handlers.NewPortfolioHandler(router)
+	blogHandler := handlers.NewBlogHandler(router, blogService)
 
-	r := gin.Default()
-	static := r.Group("/", middleware.ServeGzippedFiles(isProductionMode))
-	{
-		static.GET("/js/*filepath", middleware.ServeStaticFiles("./frontend/src/js"))
-		static.GET("/css/*filepath", middleware.ServeStaticFiles("./frontend/src/css"))
-		static.GET("/public/*filepath", middleware.ServeStaticFiles(staticBasePath))
-	}
+	// static
+	staticHandler.Routes(cfg.DevMode)
 
-	r.Use(middleware.CheckHTMXRequest(), middleware.SetGlobalValues())
-	r.Use(gzip.Gzip(gzip.DefaultCompression))
+	// middleware
+	gzipMiddleware := gzip.Gzip(gzip.DefaultCompression)
+	checkHTMXMiddleware := middleware.CheckHTMXRequest()
+	globalValuesMiddleware := middleware.SetGlobalValues()
 
-	r.GET("/", func(c *gin.Context) { helpers.Render(c, 200, homepage.Homepage()) })
-	r.GET("/portfolio", func(c *gin.Context) { helpers.Render(c, 200, portfolio.Portfolio()) })
-	blogRouter := r.Group("/blog")
-	{
-		blogRouter.GET("", func(c *gin.Context) { helpers.Render(c, 200, blog.BlockLandingPage(blogMetadata)) })
-		blogRouter.GET("/:slug", func(ctx *gin.Context) { handlers.BlogHandler(ctx, blogMetadata) })
-	}
+	router.Use(gzipMiddleware)
+	router.Use(checkHTMXMiddleware)
+	router.Use(globalValuesMiddleware)
 
-	if !isProductionMode {
-		r.GET("/test", func(c *gin.Context) {
-			helpers.Render(c, 200, views.Test())
-		})
+	// Routes
+	homeHandler.Routes()
+	portfolioHandler.Routes()
+	blogHandler.Routes()
+
+	if err := router.Run(":8080"); err != nil {
+		return err
 	}
-	return r
+	return nil
 }

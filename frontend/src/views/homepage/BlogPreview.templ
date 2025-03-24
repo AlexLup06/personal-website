@@ -1,23 +1,21 @@
 package homepage
 
-import "alexlupatsiy.com/personal-website/frontend/src/views/components"
+import (
+	"alexlupatsiy.com/personal-website/backend/helpers"
+	"alexlupatsiy.com/personal-website/backend/services"
+	"alexlupatsiy.com/personal-website/frontend/src/views/components"
+)
 
-templ BlogPreview() {
+templ BlogPreview(showcasedBlogs []services.BlogType) {
 	<div class="pb-20 lg:pb-24 mt-14 lg:mt-24">
 		@components.SectionHeader("Thoughts & Musings")
-		<div class="h-full  border-third-600 rounded-4xl px-4 py-2 md:px-10 md:py-6 bg-third-25 mb-3 lg:mb-4">
+		<div class="h-full rounded-4xl px-4 py-2 md:px-10 md:py-6 bg-third-25 mb-3 lg:mb-4">
 			<div class="flex items-center gap-4">
 				<div id="blog-section" class="h-[500px] xs:h-96 relative flex-1 overflow-scroll px-1 snap-y snap-mandatory hide-scrollbar">
 					<div class="absolute h-[300%] flex flex-col *:my-4">
-						@blog("10. October 2024",
-							"Should I only do hard things?",
-							"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.")
-						@blog("26. Dezember 2024",
-							"My Opinion is better than yours!",
-							"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.")
-						@blog("20. Januar 2025",
-							"What about relationships?",
-							"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.")
+						for _,showcasedBlog:=range showcasedBlogs {
+							@blog(helpers.ParseDate(showcasedBlog.Date), showcasedBlog.Title, showcasedBlog.Intro, showcasedBlog.Slug)
+						}
 					</div>
 				</div>
 				<div id="indicator-section" class="flex flex-col gap-1 p-1 rounded-xl border-2 bg-second-25 border-second-500">
@@ -27,14 +25,18 @@ templ BlogPreview() {
 				</div>
 			</div>
 		</div>
-		@components.LinkToOtherPageSection("Check out all my Writing!", "Blogs")
+		@components.LinkToOtherPageSection("Check out all my Writing!", "Blogs", "/blog")
 	</div>
 }
 
-templ blog(date, title, entry string) {
+templ blog(date, title, entry, slug string) {
 	<div
 		class="h-1/3 group cursor-pointer flex flex-col justify-start gap-4 mx-1 pb-0.5 pt-8 md:py-10 xl:py-10 snap-center 
 			 bg-main-50 rounded-3xl px-8 outline-3 outline-third-500"
+		hx-get={ "/blog/" + slug }
+		hx-target="#body-section"
+		hx-swap="outerHTML show:window:top"
+		hx-push-url="true"
 	>
 		<div class="flex flex-col text-md md:text-lg">
 			<div class="flex justify-between">
@@ -43,9 +45,9 @@ templ blog(date, title, entry string) {
 					<p class="text-xl md:text-3xl mb-2">{ title }</p>
 				</div>
 				<div
-					class=" stroke-2 group-hover:text-third-500  outline-third-500
-								hover:bg-third-500 hover:text-white group-hover:outline-2 
-								transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer"
+					class="stroke-2 group-hover:text-white group-hover:outline-third-500 hover:bg-transparent
+							group-hover:bg-third-500 hover:text-third-500 outline-2 outline-transparent
+							transition-colors duration-300 rounded-lg pl-1 pt-1 min-w-9 min-h-9 w-9 h-9 cursor-pointer"
 				>
 					<button class="w-7 h-7 cursor-pointer">
 						@components.ArrowTopRight()

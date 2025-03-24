@@ -17,10 +17,24 @@ templ Layout() {
 			<link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-touch-icon.png"/>
 			<link rel="manifest" href="/public/favicon/site.webmanifest"/>
 			<link rel="preload" href="/public/fonts/FunnelSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
+			<link rel="preload" href="/public/fonts/Nunito-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
+			<link rel="preload" href="/public/fonts/Roboto-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
 			<style>
 				@font-face {
 					font-family: 'FunnelSans';
 					src: url('/public/fonts/FunnelSans-VariableFont_wght.ttf') format('opentype');
+					font-display: swap;
+				}
+
+				@font-face {
+					font-family: 'Nunito';
+					src: url('/public/fonts/Nunito-VariableFont_wght.ttf') format('opentype');
+					font-display: swap;
+				}
+
+				@font-face {
+					font-family: 'Roboto';
+					src: url('/public/fonts/Roboto-VariableFont_wght.ttf') format('opentype');
 					font-display: swap;
 				}
 				body {

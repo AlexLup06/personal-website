@@ -89,6 +89,10 @@ func processMarkdown(path string, info os.FileInfo, err error) error {
 			} else if strings.HasPrefix(line, "Tags: ") {
 				tagsString := strings.TrimPrefix(line, "Tags: ")
 				tags = strings.Split(tagsString, ",")
+				for i, tag := range tags {
+					tags[i] = strings.ToLower(tag)
+					tags[i] = strings.ReplaceAll(tags[i], " ", "-")
+				}
 			}
 		} else {
 			contentLines = append(contentLines, line)

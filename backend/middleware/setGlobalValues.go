@@ -1,10 +1,13 @@
 package middleware
 
-import "github.com/gin-gonic/gin"
+import (
+	"alexlupatsiy.com/personal-website/backend/helpers"
+	"github.com/gin-gonic/gin"
+)
 
 func SetGlobalValues() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		c.Set("fullPath", c.FullPath())
-		c.Next()
+	return func(ctx *gin.Context) {
+		helpers.SetKV(ctx, "fullPath", ctx.FullPath())
+		ctx.Next()
 	}
 }

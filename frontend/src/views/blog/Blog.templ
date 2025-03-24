@@ -1,6 +1,7 @@
 package blog
 
 import (
+	"alexlupatsiy.com/personal-website/backend/helpers"
 	"alexlupatsiy.com/personal-website/frontend/src/views/components"
 	"alexlupatsiy.com/personal-website/frontend/src/views/layout"
 )
@@ -9,8 +10,22 @@ templ Blog(title, date, intro, content string) {
 	@layout.PartialRender() {
 		<div id="body-section">
 			@components.Section() {
-				<div class="max-w-4xl mx-auto mt-8 mb-20 blog">
-					@templ.Raw(content)
+				<div class="max-w-4xl mx-auto mb-20">
+					<div class="flex gap-3 mb-10 border-y-2 border-grey-200 py-2.5">
+						<a href="/blog" class="hover:underline text-grey-600 hover:text-black transition">
+							Blog 
+						</a>
+						<span>
+							>
+						</span>
+						<span class="overflow-hidden text-ellipsis text-nowrap w-60 underline">{ title }</span>
+					</div>
+					<div class="mb-1">
+						{ helpers.ParseDate(date) }
+					</div>
+					<div class="blog">
+						@templ.Raw(content)
+					</div>
 				</div>
 			}
 		</div>

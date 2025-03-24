@@ -47,7 +47,8 @@ templ navLinkFooter(name string, link string) {
 		data-footerpath={ link }
 		hx-get={ link }
 		hx-target="#body-section"
-		hx-swap="outerHTML show:window:top"
+		hx-swap="outerHTML"
+		hx-on::after-request="window.scrollTo({top: 0, behavior: 'smooth'})"
 		hx-replace-url="true"
 		href={ templ.SafeURL(link) }
 	>

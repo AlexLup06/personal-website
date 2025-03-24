@@ -12,8 +12,14 @@ templ SectionHeader(name string) {
 	</div>
 }
 
-templ LinkToOtherPageSection(discription, buttonText string) {
-	<div class="p-3  border-second-400 bg-second-25 rounded-3xl md:rounded-3xl w-fit flex items-center gap-4">
+templ LinkToOtherPageSection(discription, buttonText, link string) {
+	<div
+		class="p-3  border-second-400 bg-second-25 rounded-3xl md:rounded-3xl w-fit flex items-center gap-4"
+		hx-get={ link }
+		hx-target="#body-section"
+		hx-swap="show:window:top"
+		hx-push-url="true"
+	>
 		<p class="text-lg md:text-xl text-second-400 ml-2">
 			{ discription }
 		</p>

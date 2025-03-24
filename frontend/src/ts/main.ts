@@ -9,6 +9,10 @@ declare global {
     }
 }
 
+window.htmx.config.allowNestedOobSwaps = false; // Disable nested OOB swaps
+window.htmx.config.defaultSwapStyle = "outerHTML" // Disable nested OOB swaps
+// window.htmx.config.historyCacheSize = 0
+
 const socialsDropdown = document.getElementById("socials-dd")!;
 document.addEventListener("click", function (event: any) {
     // Check if the click was outside the element

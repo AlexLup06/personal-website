@@ -1,0 +1,86 @@
+package blog
+
+import (
+	"alexlupatsiy.com/personal-website/backend/helpers"
+	"alexlupatsiy.com/personal-website/backend/services"
+	"context"
+	"slices"
+	"strings"
+)
+
+templ BlogCards(blogMetadata []services.BlogType) {
+	<div id="blog-cards" hx-swap-oob="outerHTML:#blog-cards">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-2">
+			for _,value := range blogMetadata {
+				@BlogCard(value.Title, value.Date, value.Intro, value.Slug, value.Tags)
+			}
+		</div>
+		if len(blogMetadata)==0 {
+			<div class="text-2xl py-4">
+				It looks like your Search couldn't find any Blogs :(
+			</div>
+		}
+	</div>
+}
+
+templ BlogCard(title, date, preview, slug string, badges []string) {
+	<div
+		tabindex="0"
+		class="group rounded-2xl overflow-hidden outline-3 transition focus:outline-3 hover:outline-third-500 outline-transparent cursor-pointer relative"
+		hx-get={ "/blog/" + slug }
+		hx-target="#body-section"
+		hx-swap="outerHTML show:window:top"
+		hx-push-url="true"
+	>
+		<div class="bg-grey-100 w-full aspect-[16/11] rounded-2xl overflow-hidden"></div>
+		<div class="px-2.5 pb-2">
+			<div class="mt-3 mb-2 flex flex-row flex-wrap gap-1">
+				for _,badge:= range badges {
+					@blogBadge(badge)
+				}
+			</div>
+			<p class="text-grey-500">
+				{ helpers.ParseDate(date) }
+			</p>
+			<p class="text-xl font-medium mt-0.5">
+				{ title }
+			</p>
+			<p class="mt-0.5">
+				{ preview }
+			</p>
+		</div>
+	</div>
+}
+
+func FormatBadge(name string) string {
+	return strings.ReplaceAll(name, "-", " ")
+}
+
+func isActive(ctx context.Context, name string) bool {
+	filter, ok := ctx.Value(helpers.FILTER_KEY).([]string)
+
+	if !ok {
+		return false
+	}
+
+	if len(filter) == 0 {
+		return true
+	}
+
+	if slices.Contains(filter, name) {
+		return true
+	}
+	return false
+}
+
+templ blogBadge(name string) {
+	<div
+		class={
+			"border-2 border-third-400 px-2.5 py-1 text-sm rounded-xl capitalize transition-colors ",
+			templ.KV("bg-third-400 text-white", isActive(ctx, name)),
+			templ.KV("bg-white text-third-400", !isActive(ctx, name)),
+		}
+	>
+		{ FormatBadge(name) }
+	</div>
+}

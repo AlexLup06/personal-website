@@ -9,6 +9,15 @@ window.htmx.onLoad(function () {
     const indicatorSection = document.getElementById("indicator-section") as HTMLDivElement
     const indicators = indicatorSection.childNodes as NodeListOf<HTMLDivElement>
 
+    addHighlight(indicators[0])
+    removeHighlight(indicators[1])
+    removeHighlight(indicators[2])
+    blogSection.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+    })
+
     indicators.forEach((indicator) => {
         indicator.addEventListener("click", (event: any) => {
             switch (event.target.id) {

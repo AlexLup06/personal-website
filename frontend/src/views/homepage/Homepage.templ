@@ -1,11 +1,12 @@
 package homepage
 
 import (
+	"alexlupatsiy.com/personal-website/backend/services"
 	"alexlupatsiy.com/personal-website/frontend/src/views/components"
 	"alexlupatsiy.com/personal-website/frontend/src/views/layout"
 )
 
-templ Homepage() {
+templ Homepage(showcasedBlogs []services.BlogType) {
 	@layout.PartialRender() {
 		<div id="body-section">
 			<div class="bg-background relative pt-12 pb-20 md:py-24">
@@ -28,7 +29,7 @@ templ Homepage() {
 				<div class="max-w-4xl mx-auto mt-20">
 					@TechStack()
 					@PortoflioPreview()
-					@BlogPreview()
+					@BlogPreview(showcasedBlogs)
 				</div>
 			}
 		</div>

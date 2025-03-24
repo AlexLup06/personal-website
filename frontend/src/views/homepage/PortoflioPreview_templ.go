@@ -75,7 +75,7 @@ func PortoflioPreview() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.LinkToOtherPageSection("Check out all projects!", "Portfolio").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.LinkToOtherPageSection("Check out all projects!", "Portfolio", "/portfolio").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -121,7 +121,7 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</h2><div class=\" stroke-2 group-hover:text-third-500  outline-third-500\n\t\t\t\t\t\t\t\thover:bg-third-500 hover:text-white group-hover:outline-2 \n\t\t\t\t\t\t\t\ttransition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><div class=\"w-7\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</h2><div class=\"stroke-2 group-hover:text-white group-hover:outline-third-500 hover:bg-transparent\n\t\t\t\t\t\t\tgroup-hover:bg-third-500 hover:text-third-500 outline-2 outline-transparent\n\t\t\t\t\t\t\ttransition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><div class=\"w-7\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,0 +1,104 @@
+package blog
+
+import (
+	"alexlupatsiy.com/personal-website/backend/helpers"
+	"context"
+	"encoding/json"
+	"fmt"
+	"slices"
+)
+
+templ FilterBar() {
+	<div id="filter-bar" hx-swap-oob="outerHTML:#filter-bar">
+		<div class="hidden lg:flex flex-row flex-wrap gap-1.5">
+			@searchBar()
+			@filter("all")
+			@filter("technology")
+			@filter("philosophy")
+			@filter("economics")
+			@filter("shower-thoughts")
+			@filter("meditations")
+		</div>
+		<div class="lg:hidden flex flex-row flex-wrap gap-2">
+			@searchBar()
+			@filterDrop("Filter", true)
+		</div>
+	</div>
+}
+
+func isFilterActive(ctx context.Context, filterName string) bool {
+	filter, ok := ctx.Value(helpers.FILTER_KEY).([]string)
+
+	if !ok {
+		return false
+	}
+
+	if len(filter) == 0 && filterName == "all" {
+		return true
+	}
+
+	if slices.Contains(filter, filterName) {
+		return true
+	}
+
+	return false
+}
+
+func createHxVal(ctx context.Context, name string) string {
+	categories, _ := ctx.Value(helpers.FILTER_KEY).([]string)
+	hxVals := []string{}
+	if !slices.Contains(categories, name) {
+		hxVals = []string{name}
+	}
+
+	for _, category := range categories {
+		if category != name {
+			hxVals = append(hxVals, category)
+		}
+	}
+
+	fmt.Println("hx vals for '", name, "'' are: ", hxVals)
+
+	data := map[string][]string{"filter": hxVals}
+	jsonData, _ := json.Marshal(data)
+	return string(jsonData)
+}
+
+templ filter(name string) {
+	<div
+		class={
+			" px-3.5 rounded-xl text-sm  cursor-pointer transition content-center border-2 border-second-400 active:scale-90 capitalize " +
+				"hover:bg-second-100 hover:border-second-100 hover:text-second-500",
+			templ.KV("bg-second-400 text-white hover:border-second-400", isFilterActive(ctx, name)),
+			templ.KV("bg-second-25 text-second-400", !isFilterActive(ctx, name)),
+		}
+		tabindex="0"
+		hx-get="/blog"
+		hx-target="#body-section"
+		hx-vals={ createHxVal(ctx, name) }
+		hx-headers={ fmt.Sprintf(`"X-Blog":"true"`) }
+	>
+		{ FormatBadge(name) }
+	</div>
+}
+
+templ searchBar() {
+	<div class="flex h-8 items-center border-2 bg-second-25 border-second-400 rounded-xl overflow-hidden flex-1 min-w-32 max-w-96 md:min-w-52">
+		<input
+			type="text"
+			placeholder="Search..."
+			class="w-full px-4 py-2 outline-none bg-second-25"
+		/>
+		<button class="px-4 py-2 bg-blue-500 text-white hover:bg-second-400 cursor-pointer transition">
+			🔍
+		</button>
+	</div>
+}
+
+templ filterDrop(name string, active bool) {
+	<div
+		class="px-3.5 rounded-xl text-sm  cursor-pointer transition bg-second-400 text-main-50 hover:bg-second-400 py-1.5"
+	>
+		{ name }
+	</div>
+}

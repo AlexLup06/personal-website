@@ -7,14 +7,11 @@
 
 .hide-scrollbar {
     -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
     scrollbar-width: none;
-    /* Firefox */
 }
 
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
-    /* Safari and Chrome */
 }
 
 .center {
@@ -23,30 +20,14 @@
     align-items: center;
 }
 
-.btn-grad {
-    --grad-color: linear-gradient(to right, #4CB8C4 0%, #3CD3AD 51%, #4CB8C4 100%);
-    background-image: var(--grad-color);
-    transition: 0.4s;
-    background-size: 200% auto;
-    color: white;
-}
-
-.btn-grad:hover {
-    background-position: right center;
-}
-
-.gradient-text {
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-
 /*Blog css*/
-/* Blog Container */
 
-/* Blog Header */
+.blog strong {
+    @apply font-semibold;
+}
+
 .blog h1 {
-    @apply mb-5 font-bold text-grey-900 text-4xl;
+    @apply mb-5 font-medium text-grey-900 text-4xl;
 }
 
 /* Blog Subheadings */
@@ -68,7 +49,7 @@
 .blog a {
     color: #0077cc;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: medium;
     transition: color 0.3s ease-in-out;
 }
 
@@ -181,7 +162,7 @@
 
 .blog caption {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: medium;
     margin-bottom: 10px;
     color: #444;
 }
