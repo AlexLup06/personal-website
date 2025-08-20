@@ -45,7 +45,7 @@ func LandingPage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span> and currently I am finishing my Master's Degree. </p><p class=\"\">When I am not shipping products I like to hit golf balls into a ⛳️.</p></div><div></div></div><div class=\"rounded-full w-40 md:w-60 lg:72 aspect-square h-fit bg-main-100 border-3 lg:border-4 border-main-800\"></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span> and currently I am finishing my Master's Degree. </p><p class=\"\">When I am not shipping products I like to hit golf balls into a ⛳️.</p></div><div></div></div><div class=\"rounded-full w-40 overflow-hidden md:w-60 lg:72 aspect-square h-fit bg-main-100 border-3 lg:border-4 border-main-800\"><img class=\"A portrait of me\" id=\"logo\" src=\"/public/images/me-full.jpg\"></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -81,7 +81,7 @@ func Highlight(name string) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/LandingPage.templ`, Line: 38, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `frontend/src/views/homepage/LandingPage.templ`, Line: 44, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

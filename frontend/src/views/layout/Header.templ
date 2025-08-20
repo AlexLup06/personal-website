@@ -37,10 +37,10 @@ templ Header() {
 			}
 		</ul>
 		<div id="socials-dd" x-data="{open:false}" @click.outside="open = false" id="socials-dd" class="md:hidden relative">
-			<button @click="open = !open" class="text-3xl md:text-4xl p-2">
+			<button @click="open = !open" class="cursor-pointer text-3xl md:text-4xl p-2">
 				&commat;
 			</button>
-			<div class="right-1/2 translate-x-1/2 absolute top-[calc(100%+4px)]">
+			<div class="z-50 right-1/2 translate-x-1/2 absolute top-[calc(100%+4px)]">
 				<ul
 					x-cloak
 					x-show="open"

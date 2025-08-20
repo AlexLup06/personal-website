@@ -121,7 +121,7 @@ func Header() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</ul><div id=\"socials-dd\" x-data=\"{open:false}\" @click.outside=\"open = false\" id=\"socials-dd\" class=\"md:hidden relative\"><button @click=\"open = !open\" class=\"text-3xl md:text-4xl p-2\">&commat;</button><div class=\"right-1/2 translate-x-1/2 absolute top-[calc(100%+4px)]\"><ul x-cloak x-show=\"open\" x-transition.duration.300ms class=\"rounded-lg z-[1] flex flex-col gap-2 p-1 shadow bg-third-25 outline-2 outline-third-500\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</ul><div id=\"socials-dd\" x-data=\"{open:false}\" @click.outside=\"open = false\" id=\"socials-dd\" class=\"md:hidden relative\"><button @click=\"open = !open\" class=\"cursor-pointer text-3xl md:text-4xl p-2\">&commat;</button><div class=\"z-50 right-1/2 translate-x-1/2 absolute top-[calc(100%+4px)]\"><ul x-cloak x-show=\"open\" x-transition.duration.300ms class=\"rounded-lg z-[1] flex flex-col gap-2 p-1 shadow bg-third-25 outline-2 outline-third-500\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

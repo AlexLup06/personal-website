@@ -43,7 +43,7 @@ func BlogPreview(showcasedBlogs []services.BlogType) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"h-full rounded-4xl px-4 py-2 md:px-10 md:py-6 bg-third-25 mb-3 lg:mb-4\"><div class=\"flex items-center gap-4\"><div id=\"blog-section\" class=\"h-[500px] xs:h-96 relative flex-1 overflow-scroll px-1 snap-y snap-mandatory hide-scrollbar\"><div class=\"absolute h-[300%] flex flex-col *:my-4\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"h-full rounded-4xl px-4 py-2 md:px-10 md:py-6 border-2 border-third-500 bg-third-25 mb-3 lg:mb-4\"><div class=\"flex items-center gap-4\"><div id=\"blog-section\" class=\"h-[500px] xs:h-96 relative flex-1 overflow-scroll px-1 snap-y snap-mandatory hide-scrollbar\"><div class=\"absolute h-[300%] flex flex-col *:my-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -106,7 +106,7 @@ func blog(date, title, entry, slug string) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"h-1/3 group cursor-pointer flex flex-col justify-start gap-4 mx-1 pb-0.5 pt-8 md:py-10 xl:py-10 snap-center \n\t\t\t bg-main-50 rounded-3xl px-8 outline-3 outline-third-500\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"h-1/3 group cursor-pointer flex flex-col justify-start gap-4 mx-1 pb-0.5 pt-8 md:py-10 xl:py-10 snap-center \n\t\t\t bg-main-50 rounded-3xl px-8 outline-2 outline-third-500\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
