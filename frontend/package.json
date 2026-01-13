@@ -2,10 +2,11 @@
   "name": "presonal-website",
   "version": "1.0.0",
   "scripts": {
-    "prod:webpack": "npx webpack build --mode production",
-    "dev:webpack": "npx webpack --mode development --watch",
-    "dev:tailwind": "npx tailwindcss -i ./src/css/style.css -o ./src/css/tailwind.css --watch",
-    "dev:all": "concurrently \"npm run dev:tailwind\" \"npm run dev:webpack\""
+    "dev:webpack": "webpack --mode development --watch",
+    "dev:tailwind": "tailwindcss -i ./src/styles/style.css -o ./dist/app.css --watch",
+    "build": "npm run build:webpack && npm run build:tailwind",
+    "build:webpack": "rm -rf dist && webpack --mode production",
+    "build:tailwind": "tailwindcss -i ./src/styles/style.css -o ./dist/app.css --minify"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

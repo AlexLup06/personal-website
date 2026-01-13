@@ -1,0 +1,106 @@
+package layout
+
+import (
+	"alexlupatsiy.com/personal-website/internal/helpers"
+	"alexlupatsiy.com/personal-website/internal/http/templates/components"
+	"context"
+)
+
+templ Header() {
+	<header
+		class="h-nav-height-sm md:h-nav-height-lg z-50 flex justify-between md:justify-normal 
+				items-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4 bg-white"
+	>
+		<img
+			class="w-10 md:w-12 md:mr-20"
+			id="logo"
+			hx-get="/"
+			hx-target="#body-section"
+			hx-swap="outerHTML"
+			hx-replace-url="true"
+			src="/static/images/memoji.png"
+		/>
+		<ul id="navbar" class="flex md:flex-1  items-center gap-6 sm:gap-10 text-md sm:text-xl font-medium">
+			@navLinkHeader("/", "HOME")
+			@navLinkHeader("/portfolio", "PORTFOLIO")
+			@navLinkHeader("/blog", "BLOG")
+		</ul>
+		<ul class="hidden md:flex md:gap-4 gap-2">
+			@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+				@components.LinkedIn()
+			}
+			@socialLinkHeader("https://github.com/AlexLup06") {
+				@components.Github()
+			}
+			@socialLinkHeader("/") {
+				@components.Twitter()
+			}
+		</ul>
+		<div id="socials-dd" x-data="{open:false}" @click.outside="open = false" id="socials-dd" class="md:hidden relative">
+			<button @click="open = !open" class="cursor-pointer text-3xl md:text-4xl p-2">
+				&commat;
+			</button>
+			<div class="z-50 right-1/2 translate-x-1/2 absolute top-[calc(100%+4px)]">
+				<ul
+					x-cloak
+					x-show="open"
+					x-transition.duration.300ms
+					class="rounded-lg z-[1] flex flex-col gap-2 p-1 shadow bg-third-25 outline-2 outline-third-500"
+				>
+					@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+						@components.LinkedIn()
+					}
+					@socialLinkHeader("https://github.com/AlexLup06") {
+						@components.Github()
+					}
+					@socialLinkHeader("/") {
+						@components.Twitter()
+					}
+				</ul>
+			</div>
+		</div>
+	</header>
+}
+
+func isActive(ctx context.Context, target string) bool {
+	current, ok := helpers.GetKV[string](ctx, helpers.CtxFullPath)
+	if !ok {
+		return false
+	}
+	return current == target
+}
+
+templ navLinkHeader(link string, text string) {
+	<li>
+		<a
+			class="after:w-0 after:block after:absolute after:text-xl after:border-b-2 sm:after:border-b-[2.5px] 
+					after:border-black  after:transition-all after:duration-300
+					hover:after:w-full
+					data-[linkactive=true]:after:w-full
+					relative cursor-pointer"
+			id="navbar-link"
+			data-linkactive={ isActive(ctx, link) }
+			data-path={ link }
+			data-text={ text }
+			hx-get={ link }
+			hx-target="#body-section"
+			hx-swap="outerHTML"
+			hx-replace-url="true"
+			href={ templ.SafeURL(link) }
+		>
+			{ text }
+		</a>
+	</li>
+}
+
+templ socialLinkHeader(link string) {
+	<li>
+		<a
+			href={ templ.SafeURL(link) }
+			class="flex w-9 h-9 md:w-10 md:h-10 rounded-lg overflow-hidden not-md:bg-third-25"
+			target="blank"
+		>
+			{ children... }
+		</a>
+	</li>
+}

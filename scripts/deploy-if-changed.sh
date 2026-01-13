@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Ensure a directory is provided
-
-# Change to the specified directory
 cd "${PWD}${1}" || { echo "Failed to change directory to $1"; exit 1; }
 
 echo "We are in $(pwd)"

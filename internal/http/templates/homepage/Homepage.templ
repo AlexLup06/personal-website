@@ -1,0 +1,24 @@
+package homepage
+
+import (
+	"alexlupatsiy.com/personal-website/internal/http/templates/components"
+	"alexlupatsiy.com/personal-website/internal/http/templates/layout"
+)
+
+templ Homepage() {
+	@layout.PartialRender() {
+		<div id="body-section">
+			<div class="bg-background relative pt-12 pb-20 md:py-24">
+				@components.Section() {
+					@Introduction()
+				}
+			</div>
+			@components.Section("bg-white") {
+				<div class="max-w-4xl mx-auto mt-20">
+					@PortoflioPreview()
+					@TechStack()
+				</div>
+			}
+		</div>
+	}
+}

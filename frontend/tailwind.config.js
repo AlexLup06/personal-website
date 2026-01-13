@@ -1,5 +1,9 @@
 module.exports = {
-  content: ["./src/views/**/*.templ"],
+  content: [
+    "../internal/http/**/*.templ",
+    "./src/**/*.ts",
+  ],
+
   mode: "jit",
   theme: {
     extend: {

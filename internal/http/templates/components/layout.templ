@@ -1,0 +1,26 @@
+package components
+
+templ Section(styles ...string) {
+	<section class={ "lg:px-20 md:px-12 sm:px-8 px-4", styles }>
+		{ children... }
+	</section>
+}
+
+templ SectionHeader(name string) {
+	<div class="text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-6">
+		{ name }
+	</div>
+}
+
+templ LinkToOtherPageSection(discription, buttonText, link string) {
+	<div
+		class="flex items-center gap-4 cursor-pointer"
+	>
+		<p class="text-lg md:text-xl text-third-500">
+			{ discription }
+		</p>
+		<div class="text-third-500 h-4.5 md:h-6 aspect-square stroke-[2]">
+			@RightArrow()
+		</div>
+	</div>
+}

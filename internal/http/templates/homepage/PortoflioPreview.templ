@@ -1,0 +1,65 @@
+package homepage
+
+import "alexlupatsiy.com/personal-website/internal/http/templates/components"
+
+templ PortoflioPreview() {
+	<div class="mb-14 lg:mb-24">
+		@components.SectionHeader("Featured Projects")
+		<div class="flex flex-col ">
+			// md:grid md:grid-cols-2
+			@ProjectCard("GoFlow",
+				[]string{"Go", "Docker", "HTMX", "Postgres"},
+				"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+			)
+			@Devider()
+			@ProjectCard("NutrInvest",
+				[]string{"Pytorch", "MonogoDB", "React"},
+				"AI-powered app that analyzes food photos to provide nutritional information.",
+			)
+			@Devider()
+			@ProjectCard("GEMS",
+				[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+				"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+			)
+			@Devider()
+			@ProjectCard("GoFlow",
+				[]string{"Go", "Docker", "HTMX", "Postgres"},
+				"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+			)
+			@Devider()
+		</div>
+		@components.LinkToOtherPageSection("Check out all projects!", "Portfolio", "/portfolio")
+	</div>
+}
+
+templ ProjectCard(name string, badges []string, description string) {
+	<div
+		tabindex="0"
+		class="not-md:nth-last-[-n+1]:hidden cursor-pointer transition group flex flex-col"
+	>
+		<div class="flex justify-between items-baseline mb-0.5">
+			<h2 class="text-2xl font-medium">{ name }</h2>
+			<div
+				class="stroke-2 group-hover:text-white group-hover:outline-third-400 hover:bg-transparent
+							group-hover:bg-third-400 hover:text-third-400 outline-2 outline-transparent
+							transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer"
+			>
+				<div class="w-7">
+					@components.ArrowTopRight()
+				</div>
+			</div>
+		</div>
+		<p class="text-md mb-2.5">
+			{ description }
+		</p>
+		<div class="flex flex-row flex-wrap gap-1 mx-1 -translate-x-1 mb-auto">
+			for _,badge :=range badges {
+				@components.Badge(badge)
+			}
+		</div>
+	</div>
+}
+
+templ Devider() {
+	<div class="w-full h-0.5 bg-third-400 rounded-4xl my-4"></div>
+}

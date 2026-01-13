@@ -1,0 +1,78 @@
+package layout
+
+import "alexlupatsiy.com/personal-website/internal/helpers"
+
+templ Layout() {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<title>Alex Lupatsiy - Portfolio and Blog</title>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="description" content="Welcome to My personal website. Explore projects, blogs, and professional background."/>
+			<meta property="og:site_name" content="Alex Lupatsiy"/>
+			<link rel="stylesheet" href="/static/app.css"/>
+			<link rel="icon" href="/static/favicon/favicon.ico"/>
+			<link rel="icon" type="image/png" href="/static/favicon/favicon-96x96.png" sizes="96x96"/>
+			<link rel="icon" type="image/svg+xml" href="/static/favicon/favicon.svg"/>
+			<link rel="shortcut icon" href="/static/favicon/favicon.ico"/>
+			<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png"/>
+			<link rel="manifest" href="/static/favicon/site.webmanifest"/>
+			<link rel="preload" href="/static/fonts/FunnelSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
+			<link rel="preload" href="/static/fonts/Nunito-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
+			<link rel="preload" href="/static/fonts/Roboto-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
+			<style>
+				@font-face {
+					font-family: 'FunnelSans';
+					src: url('/static/fonts/FunnelSans-VariableFont_wght.ttf') format('opentype');
+					font-display: swap;
+				}
+
+				@font-face {
+					font-family: 'Nunito';
+					src: url('/static/fonts/Nunito-VariableFont_wght.ttf') format('opentype');
+					font-display: swap;
+				}
+
+				@font-face {
+					font-family: 'Roboto';
+					src: url('/static/fonts/Roboto-VariableFont_wght.ttf') format('opentype');
+					font-display: swap;
+				}
+				body {
+					font-family: 'FunnelSans', Arial, sans-serif;
+				}
+			</style>
+			<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "Alex Lupatsiy",
+				"url": "https://alexlupatsiy.com",
+				"sameAs": [
+					"https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/",
+					"https://github.com/AlexLup06"
+				]
+			}
+			</script>
+			<script src="/static/htmx.min.js" defer></script>
+			<script src="/static/alpine.min.js" defer></script>
+			<script src="/static/app.js" defer></script>
+		</head>
+		<body class="m-0 h">
+			@Header()
+			{ children... }
+			@Footer()
+		</body>
+	</html>
+}
+
+templ PartialRender() {
+	if helpers.IsHTMX(ctx) {
+		{ children... }
+	} else {
+		@Layout() {
+			{ children... }
+		}
+	}
+}

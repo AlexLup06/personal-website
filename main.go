@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"alexlupatsiy.com/personal-website/backend"
+	backend "alexlupatsiy.com/personal-website/internal"
 )
 
 func main() {

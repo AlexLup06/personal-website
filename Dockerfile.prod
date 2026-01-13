@@ -1,13 +1,38 @@
-FROM golang:1.23-alpine as builder
+FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 
-COPY . .
+RUN apk add --no-cache \
+    git \
+    nodejs \
+    npm \
+    gzip
 
-RUN go mod download && \
-    go install github.com/a-h/templ/cmd/templ@v0.3.819 && \
-    templ generate && \
-    go build -o bin/main main.go
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY frontend/package.json frontend/package-lock.json ./frontend/
+RUN cd frontend && npm install
+
+COPY . .
+RUN cd frontend && npm run prod:build
+
+RUN gzip -k -f frontend/src/styles/app.css \
+    && gzip -k -f frontend/src/js/bundle.js \
+    && gzip -k -f frontend/src/js/htmx.min.js \
+    && gzip -k -f frontend/src/js/alpine.min.js \
+    && mkdir -p frontend/public \
+    && mv frontend/src/styles/tailwind.css.gz frontend/public/tailwind.css.gz \
+    && mv frontend/src/js/bundle.js.gz frontend/public/bundle.js.gz \
+    && mv frontend/src/js/htmx.min.js.gz frontend/public/htmx.min.js.gz \
+    && mv frontend/src/js/alpine.min.js.gz frontend/public/alpine.min.js.gz
+
+RUN cd blog-generator && go run main.go
+
+RUN go install github.com/a-h/templ/cmd/templ@v0.3.819 \
+    && templ generate \
+    && go build -o bin/main main.go
+
 
 FROM alpine:latest
 
