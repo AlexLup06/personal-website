@@ -22,7 +22,7 @@ func RegisterStatic(r chi.Router, cfg StaticConfig) {
 		)
 	} else {
 		// PROD: single immutable dir
-		fs = http.Dir("./internal/http/static")
+		fs = http.Dir("./static")
 	}
 
 	r.Handle(

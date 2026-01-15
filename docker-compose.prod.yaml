@@ -9,7 +9,7 @@ services:
       - DEV_MODE=false
       - ENV=prod
       - HTTP_ADDR=:8080
-      - LOG_LEVEL=LevelWarn
+      - LOG_LEVEL=warn
 
   caddy:
     image: caddy:2.7-alpine

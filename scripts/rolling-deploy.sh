@@ -10,18 +10,18 @@ BUILD_VERSION=$(git rev-parse HEAD)
 echo "$(date): Releasing new server version. $BUILD_VERSION"
 
 echo "$(date): Running build..."
-sudo docker compose -f docker-compose.prod.yml rm -f
-sudo docker compose -f docker-compose.prod.yml build
+sudo docker compose -f docker-compose.prod.yaml rm -f
+sudo docker compose -f docker-compose.prod.yaml build
 
 OLD_CONTAINER=$(sudo docker ps -aqf "name=server")
 echo "$(date): Scaling server up..."
-sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=2 --no-recreate server
+sudo docker compose -f docker-compose.prod.yaml up -d --no-deps --scale server=2 --no-recreate server
 
 sleep 30
 
 echo "$(date): Scaling old server down..."
 sudo docker container rm -f $OLD_CONTAINER
-sudo docker compose -f docker-compose.prod.yml up -d --no-deps --scale server=1 --no-recreate server --remove-orphans
+sudo docker compose -f docker-compose.prod.yaml up -d --no-deps --scale server=1 --no-recreate server --remove-orphans
 
 echo "$(date): Reloading caddy..."
 CADDY_CONTAINER=$(sudo docker ps -aqf "name=caddy")

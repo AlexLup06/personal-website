@@ -21,11 +21,11 @@ if [ "$LOCAL" = "$REMOTE" ]; then
 elif [ "$LOCAL" = "$BASE" ]; then
     BUILD_VERSION=$(git rev-parse HEAD)
     echo "$(date): Changes detected, deploying new version: $BUILD_VERSION"
-    ./scripts/deploy.sh "$1"
+    ./scripts/rolling-deploy.sh "$1"
 elif [ "$REMOTE" = "$BASE" ]; then
     echo "$(date): Local changes detected, stashing"
     git stash
-    ./scripts/deploy.sh "$1"
+    ./scripts/rolling-deploy.sh "$1"
 else
     echo "$(date): Git is diverged, this is unexpected."
 fi
