@@ -1,5 +1,5 @@
-import "./navigation"
-import "./techStack"
+import "./navigation";
+import "./techStack";
 
 declare global {
   interface Window {

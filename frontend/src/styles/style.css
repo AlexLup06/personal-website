@@ -18,7 +18,7 @@
   --color-black: #000000;
 
   /* background */
-  --color-background: #ECF7FB;
+  --color-background: #ecf7fb;
   --color-background-light: #f6f7f8;
   --color-background-dark: #111821;
 
@@ -28,7 +28,7 @@
   --color-main-200: #9ee9d6;
   --color-main-300: #77e0c6;
   --color-main-400: #50d7b5;
-  --color-main-500: #3CD3AD;
+  --color-main-500: #3cd3ad;
   --color-main-600: #30a98a;
   --color-main-700: #247f68;
   --color-main-800: #185445;
@@ -78,28 +78,28 @@
   display: none !important;
 }
 
-.btn-loading>.btn-spinner {
+.btn-loading > .btn-spinner {
   opacity: 0;
   pointer-events: none;
 }
 
-.btn-loading>.btn-label {
+.btn-loading > .btn-label {
   visibility: visible;
 }
 
-.btn-loading.htmx-request>.btn-label {
+.btn-loading.htmx-request > .btn-label {
   visibility: hidden;
 }
 
-.btn-loading.htmx-request>.btn-spinner {
+.btn-loading.htmx-request > .btn-spinner {
   opacity: 1;
 }
 
-.htmx-request .btn-loading>.btn-label {
+.htmx-request .btn-loading > .btn-label {
   visibility: hidden;
 }
 
-.htmx-request .btn-loading>.btn-spinner {
+.htmx-request .btn-loading > .btn-spinner {
   opacity: 1;
 }
 
