@@ -63,47 +63,41 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"mx-auto flex flex-col gap-2 md:gap-3\"><div id=\"scroll-stack-container\" class=\"h-60 md:h-80 relative overflow-x-scroll snap-mandatory snap-x\"><div id=\"stack-container\" class=\"absolute grid h-full grid-flow-col gap-2 md:gap-3\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"mx-auto flex flex-col gap-2 md:gap-3\"><div id=\"scroll-stack-container\" class=\"h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x\"><div id=\"stack-container\" class=\"absolute grid h-full grid-flow-col gap-2 md:gap-3\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Card("Backend",
-			[]string{"Go", "Node.js", "Express", "Gin Web Framework", "Python", "NextJs", "Flask"},
+		templ_7745c5c3_Err = Card("Cloud & Infrastructure",
+			[]string{"Docker", "Kubernetes", "Terraform", "GCP", "CI/CD"},
+			components.SettingsIcon()).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Card("Go Backend",
+			[]string{"Go", "gRPC", "REST APIs", "RBAC", "JWT"},
 			components.Backend()).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = Card("Database",
-			[]string{"MySQL", "PostgreSQL", "MongoDB"},
+			[]string{"PostgreSQL", "MySQL", "Redis", "Indexing", "Query Optimization"},
 			components.Database()).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Card("Frontend",
-			[]string{"HTML", "CSS", "TypeScript", "React", "TailwindCSS", "HTMX", "SwiftUI"},
-			components.Frontend()).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = Card("Systems Engineering",
-			[]string{"C/C++", "Rust", "Java", "Docker", "bash"},
+		templ_7745c5c3_Err = Card("Monitoring",
+			[]string{"Prometheus", "Grafana", "Monitoring", "Load Testing (k6)", "Scalability"},
 			components.SystemsEngineering()).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Card("Machine Learning",
-			[]string{"Pytorch", "TensorFlow"},
-			components.MachineLearning()).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = Card("Other",
-			[]string{"OMNeT++", "LLVM", "Matlab"},
+		templ_7745c5c3_Err = Card("Systems & Research",
+			[]string{"C++", "Java", "Python", "OMNeT++", "LoRa / SX1262"},
 			components.Other()).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div><div class=\"flex gap-2 md:gap-2.5 ml-auto mr-4 p-1.5 rounded-3xl bg-grey-200\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div><div class=\"flex gap-2 md:gap-2.5 ml-auto mr-4 p-1.5 rounded-3xl bg-third-25 border border-third-100\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -129,7 +123,7 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"w-0.5 my-1 bg-grey-800 rounded\"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"w-px my-1 bg-third-100 rounded\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -200,7 +194,7 @@ func Button(direction string) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(direction)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 59, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 56, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -264,7 +258,7 @@ func BestTech(name string, icon templ.Component, side string) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 74, Col: 9}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 71, Col: 9}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -308,7 +302,7 @@ func BestTech(name string, icon templ.Component, side string) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 86, Col: 9}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 83, Col: 9}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -344,20 +338,20 @@ func Card(title string, techs []string, icon templ.Component) templ.Component {
 			templ_7745c5c3_Var13 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"snap-start transform w-52 md:w-60 flex flex-col overflow-hidden bg-third-25 rounded-3xl px-8 py-4\"><div class=\"flex justify-between\"><h4 class=\"text-xl md:text-2xl font-medium mb-1 md:mb-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"snap-start transform w-52 md:w-60 flex flex-col overflow-hidden bg-third-25 border border-third-200 rounded-3xl px-8 py-4\"><div class=\"flex justify-between text-third-800\"><h4 class=\"text-xl md:text-2xl font-medium mb-1 md:mb-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var14 string
 		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 97, Col: 67}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 94, Col: 67}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</h4><div class=\"w-8 stroke-[1.5] text-third-500\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</h4><div class=\"min-w-8 w-8 stroke-[1.5]\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -377,7 +371,7 @@ func Card(title string, techs []string, icon templ.Component) templ.Component {
 			var templ_7745c5c3_Var15 string
 			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(tech)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 105, Col: 11}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 102, Col: 11}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {

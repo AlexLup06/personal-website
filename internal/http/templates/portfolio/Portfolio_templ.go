@@ -153,7 +153,7 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div tabindex=\"0\" class=\"cursor-pointer bg-third-25 hover:bg-third-50 outline-third-50 rounded-3xl overflow-hidden transition outline-2 group focus:outline-3 hover:outline-2 focus:outline-third-500 hover:outline-third-500 p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]\"><div class=\"flex justify-between mb-1 items-baseline\"><h2 class=\"text-2xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div tabindex=\"0\" class=\"cursor-pointer bg-third-25 hover:bg-third-50 outline-third-200 rounded-3xl overflow-hidden transition outline group focus:outline hover:outline focus:outline-third-500 hover:outline-third-500 p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]\"><div class=\"flex justify-between mb-1 items-baseline\"><h2 class=\"text-2xl font-medium\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

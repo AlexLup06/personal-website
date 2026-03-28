@@ -29,11 +29,15 @@ func Introduction() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-4xl mx-auto\"><div class=\"flex flex-col-reverse md:flex-row md:justify-between gap-4 text-white\"><div class=\"max-w-md\"><p class=\"text-4xl md:text-5xl lg:text-7xl mb-4 lg:mb-8 hird-800\">Alex Lupatsiy</p><div class=\"text-2xl md:text-3xl mb-4 lg:mb-8 hird-700 font-medium\"><p>&gt; I Solve Problems,</p><p>&nbsp; &nbsp;Even The Difficult Ones!</p></div><div class=\"text-lg lg:text-xl leading-6.5 md:leading-7.5\"><p class=\"mb-3\">Hey, I am a Full-Stack Developer based in Germany. I ship products in  <span class=\"mx-0.5\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-4xl mx-auto\"><div class=\"flex flex-col-reverse md:flex-row md:justify-between gap-4 text-white\"><div class=\"max-w-md md:max-w-lg lg:max-w-xl\"><p class=\"text-4xl md:text-5xl lg:text-7xl mb-4 lg:mb-8 hird-800\">Alex Lupatsiy</p><div class=\"text-2xl md:text-3xl mb-4 lg:mb-8 hird-700 font-medium\"><p>&gt; I solve problems,</p><p>&nbsp; &nbsp;Even the annoying ones!</p></div><div class=\"text-lg lg:text-xl leading-6.5 md:leading-7.5\"><p class=\"mb-3\">Hey, I am a Backend & Infrastructure Engineer based in Germany. I love working on  <span class=\"mx-0.5 my-0.5 flex flex-wrap gap-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Highlight("AI").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Highlight("Distributed Systems").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Highlight("Security").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -41,11 +45,7 @@ func Introduction() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Highlight("Health").Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span> and currently I am finishing my Master's Degree. </p><p class=\"\">When I am not shipping products I like to hit golf balls into a ⛳️.</p></div><div></div></div><div class=\"rounded-3xl w-40 overflow-hidden md:w-60 lg:72 h-fit\"><img class=\"A portrait of me\" id=\"logo\" src=\"/static/photo.jpg\"></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span> - and I am currently building  <a href=\"https://docs.authara.org\" class=\"underline hover:text-third-100 transition\" target=\"_blank\" rel=\"noopener noreferrer\">Authara</a>.</p><p class=\"\">When I am not building systems, I’m probably hitting golf balls into a ⛳️.</p></div><div></div></div><div class=\"rounded-3xl overflow-hidden w-48 lg:w-56 h-fit\"><img class=\"A portrait of me\" id=\"logo\" src=\"/static/photo.jpg\"></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -74,14 +74,14 @@ func Highlight(name string) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<span class=\"border-third-500 text-third-500 rounded-xl bg-third-25 px-2.5 not-last:mr-1 hover:bg-third-500 hover:hird-25 transition\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<span class=\"text-white rounded-2xl bg-[#006A9B] px-3 py-px transition whitespace-nowrap\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/Introduction.templ`, Line: 44, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/Introduction.templ`, Line: 51, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
