@@ -1,0 +1,52 @@
+package portfolio
+
+import "github.com/alexlup06/personal-website/internal/http/templates/components/button"
+
+templ Header(name string) {
+	<div class="text-white bg-third-500 py-14 mb-6 md:mb-10">
+		<div class="max-w-2xl mx-auto gap-2 md:gap-2 flex flex-col">
+			<div>
+				@button.Back()
+			</div>
+			<h1 class="text-5xl md:text-7xl mb-1">{ name }</h1>
+			<div class="flex gap-2">
+				@Highlight("Go")
+				@Highlight("Authentication")
+				@Highlight("OSS")
+				@Highlight("Infrastructure")
+			</div>
+			<div class="text-white flex gap-4">
+				<a
+					href="https://github.com/authara-org/authara"
+					class="underline cursor-pointer hover:text-third-50 transition"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Github/Authara
+				</a>
+				<a
+					href="https://docs.authara.org"
+					class="underline cursor-pointer hover:text-third-50 transition"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Docs/Authara
+				</a>
+			</div>
+		</div>
+	</div>
+}
+
+templ BodySection() {
+	<div class="max-w-2xl mx-auto">
+		{ children... }
+	</div>
+}
+
+templ Highlight(name string) {
+	<span
+		class=" text-white rounded-2xl bg-[#006A9B] px-4 py-1 transition whitespace-nowrap"
+	>
+		{ name }
+	</span>
+}

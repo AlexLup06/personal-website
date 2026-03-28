@@ -47,10 +47,12 @@ func PortoflioPreview() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ProjectCard("Authara",
-			[]string{"Go", "Docker", "HTMX", "Postgres"},
-			"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
-		).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ProjectCard(ProjectCardConfig{
+			Name:        "Authara",
+			Link:        "/portfolio/authara",
+			Badges:      []string{"Go", "Docker", "HTMX", "Postgres"},
+			Description: "A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -58,10 +60,13 @@ func PortoflioPreview() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ProjectCard("MessageIO",
-			[]string{"Pytorch", "MonogoDB", "React"},
-			"AI-powered app that analyzes food photos to provide nutritional information.",
-		).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ProjectCard(ProjectCardConfig{
+			Name: "MessageIO",
+			Link: "/portfolio/authara",
+
+			Badges:      []string{"Pytorch", "MonogoDB", "React"},
+			Description: "AI-powered app that analyzes food photos to provide nutritional information.",
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -69,10 +74,13 @@ func PortoflioPreview() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ProjectCard("GoShipyard",
-			[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-			"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-		).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ProjectCard(ProjectCardConfig{
+			Name: "GoShipyard",
+			Link: "/portfolio/authara",
+
+			Badges:      []string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+			Description: "A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -96,7 +104,14 @@ func PortoflioPreview() templ.Component {
 	})
 }
 
-func ProjectCard(name string, badges []string, description string) templ.Component {
+type ProjectCardConfig struct {
+	Name        string
+	Link        string
+	Badges      []string
+	Description string
+}
+
+func ProjectCard(cfg ProjectCardConfig) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -117,20 +132,33 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div tabindex=\"0\" class=\"not-md:nth-last-[-n+1]:hidden cursor-pointer transition group flex flex-col px-4 py-5 hover:bg-third-25\"><div class=\"flex justify-between items-baseline mb-1.5\"><h2 class=\"text-2xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div tabindex=\"0\" class=\"not-md:nth-last-[-n+1]:hidden cursor-pointer transition group flex flex-col px-4 py-5 hover:bg-third-25\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
-		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(templ.SafeURL(cfg.Link))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/PortoflioPreview.templ`, Line: 37, Col: 42}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/PortoflioPreview.templ`, Line: 50, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</h2><div class=\"stroke-2 group-hover:text-white group-hover:outline-third-400 hover:bg-transparent group-hover:bg-third-400 hover:text-third-400 outline-2 outline-transparent transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><div class=\"w-7\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" hx-target=\"#body-section\" hx-swap=\"innerHTML\" hx-on::after-request=\"window.scrollTo({top: 0, behavior: 'smooth'})\" hx-replace-url=\"true\" hx-push-url=\"true\"><div class=\"flex justify-between items-baseline mb-1.5\"><h2 class=\"text-2xl font-medium\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var4 string
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(cfg.Name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/PortoflioPreview.templ`, Line: 58, Col: 46}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</h2><div class=\"stroke-2 group-hover:text-white group-hover:outline-third-400 hover:bg-transparent group-hover:bg-third-400 hover:text-third-400 outline-2 outline-transparent transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><div class=\"w-7\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -138,30 +166,30 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div></div></div><p class=\"text-md mb-3\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</div></div></div><p class=\"text-md mb-3\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(description)
+		var templ_7745c5c3_Var5 string
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(cfg.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/PortoflioPreview.templ`, Line: 49, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/PortoflioPreview.templ`, Line: 70, Col: 20}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p><div class=\"flex flex-row flex-wrap gap-1 mx-1 -translate-x-1 mb-auto\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for _, badge := range badges {
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p><div class=\"flex flex-row flex-wrap gap-1 mx-1 -translate-x-1 mb-auto\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		for _, badge := range cfg.Badges {
 			templ_7745c5c3_Err = components.Badge(badge).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -185,12 +213,12 @@ func Devider() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var5 == nil {
-			templ_7745c5c3_Var5 = templ.NopComponent
+		templ_7745c5c3_Var6 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var6 == nil {
+			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"w-full h-px bg-third-200\"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<div class=\"w-full h-px bg-third-200\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

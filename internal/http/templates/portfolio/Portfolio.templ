@@ -7,56 +7,69 @@ import (
 
 templ Portfolio() {
 	@templates.PartialRender() {
-		<div id="body-section">
-			<div class="text-white bg-third-500 py-14 mb-6 md:mb-10">
-				<div class="max-w-4xl mx-auto gap-2 md:gap-2 flex flex-col">
-					<h1 class="text-5xl md:text-7xl">Portfolio</h1>
-					<h2 class="text-xl md:text-3xl">Check out my Projects.</h2>
+		<div class="text-white bg-third-500 py-14 mb-6 md:mb-10">
+			<div class="max-w-4xl mx-auto gap-2 md:gap-2 flex flex-col">
+				<h1 class="text-5xl md:text-7xl">Portfolio</h1>
+				<h2 class="text-xl md:text-3xl">Check out my Projects.</h2>
+			</div>
+		</div>
+		@components.Section() {
+			<div class="max-w-4xl mx-auto my-16">
+				<div class="mb-3 lg:mb-4 flex flex-col md:grid md:grid-cols-2 gap-x-4 gap-y-4">
+					@ProjectCard(ProjectCardCfg{
+						Name:        "Authara",
+						Link:        "/portfolio/authara",
+						Badges:      []string{"Go", "Docker", "HTMX", "Postgres"},
+						Description: "A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+					})
+					// @ProjectCard("MessageIO",
+					// 	[]string{"Pytorch", "MonogoDB", "React"},
+					// 	"AI-powered app that analyzes food photos to provide nutritional information.",
+					// )
+					// @ProjectCard("GoShipyard",
+					// 	[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+					// 	"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+					// )
+					// @ProjectCard("GEMS",
+					// 	[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+					// 	"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+					// )
+					// @ProjectCard("NutriInvest",
+					// 	[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+					// 	"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+					// )
+					// @ProjectCard("LoRANet",
+					// 	[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+					// 	"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+					// )
 				</div>
 			</div>
-			@components.Section() {
-				<div class="max-w-4xl mx-auto my-16">
-					<div class="mb-3 lg:mb-4 flex flex-col md:grid md:grid-cols-2 gap-x-4 gap-y-4">
-						@ProjectCard("Authara",
-							[]string{"Go", "Docker", "HTMX", "Postgres"},
-							"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
-						)
-						@ProjectCard("MessageIO",
-							[]string{"Pytorch", "MonogoDB", "React"},
-							"AI-powered app that analyzes food photos to provide nutritional information.",
-						)
-						@ProjectCard("GoShipyard",
-							[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-							"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-						)
-						@ProjectCard("GEMS",
-							[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-							"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-						)
-						@ProjectCard("NutriInvest",
-							[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-							"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-						)
-						@ProjectCard("LoRANet",
-							[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-							"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-						)
-					</div>
-				</div>
-			}
-		</div>
+		}
 	}
 }
 
-templ ProjectCard(name string, badges []string, description string) {
+type ProjectCardCfg struct {
+	Name        string
+	Link        string
+	Badges      []string
+	Description string
+}
+
+templ ProjectCard(cfg ProjectCardCfg) {
 	<div
 		tabindex="0"
 		class="cursor-pointer bg-third-25 hover:bg-third-50 outline-third-200 rounded-3xl overflow-hidden transition
 				outline group focus:outline hover:outline focus:outline-third-500 hover:outline-third-500 
 				p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]"
+		hx-get={ templ.SafeURL(cfg.Link) }
+		hx-target="#body-section"
+		hx-swap="innerHTML"
+		hx-on::after-request="window.scrollTo({top: 0, behavior: 'smooth'})"
+		hx-replace-url="true"
+		hx-push-url="true"
 	>
 		<div class="flex justify-between mb-1 items-baseline">
-			<h2 class="text-2xl font-medium">{ name }</h2>
+			<h2 class="text-2xl font-medium">{ cfg.Name }</h2>
 			<div
 				class="stroke-2 group-hover:text-white group-hover:outline-third-500 hover:bg-transparent
 							group-hover:bg-third-500 hover:text-third-500 outline-2 outline-transparent
@@ -68,10 +81,10 @@ templ ProjectCard(name string, badges []string, description string) {
 			</div>
 		</div>
 		<p class="text-md not-md:mb-4">
-			{ description }
+			{ cfg.Description }
 		</p>
 		<div class="flex flex-row flex-wrap gap-1.5 mx-1 -translate-x-1 mb-auto">
-			for _,badge :=range badges {
+			for _,badge :=range cfg.Badges {
 				@components.Badge(badge)
 			}
 		</div>

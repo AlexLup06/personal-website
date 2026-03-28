@@ -1,0 +1,62 @@
+package portfolio
+
+import "github.com/alexlup06/personal-website/internal/http/templates"
+
+templ Authara() {
+	@templates.PartialRender() {
+		@Header("Authara")
+		@BodySection() {
+			<div class="space-y-4 mb-20 md:text-lg">
+				<p>
+					<strong>Authara</strong> is an open-source authentication system I’m building,
+					focused on backend and server-rendered applications.
+				</p>
+				<p>
+					The project started out of frustration with how most modern auth solutions are designed.
+					A lot of them assume a SPA-first world and hide critical behavior behind SDKs —
+					token refresh, session handling, redirects, and even security decisions often happen implicitly.
+					That works until you need to understand or control what’s actually going on.
+				</p>
+				<p>
+					Authara takes a different approach.
+					It treats authentication as infrastructure, not as a frontend feature.
+					The system itself owns sessions, refresh logic, CSRF protection, and security invariants,
+					while applications receive explicit, verifiable facts — like user identity and roles —
+					through a minimal SDK.
+				</p>
+				<p>
+					A core design goal is to avoid hidden behavior.
+					There are no background refresh loops, no silent retries, and no implicit redirects
+					that change application state behind the scenes.
+					Everything is explicit and predictable, which makes it much easier to reason about
+					in backend-heavy or SSR environments.
+				</p>
+				<p>
+					The system is also designed to work naturally with architectures that are often
+					second-class citizens in other auth tools:
+					classic server-rendered apps, HTMX-style interactions, and backend-driven UIs.
+					Instead of fighting those patterns, Authara embraces them.
+				</p>
+				<p>
+					From a feature perspective, Authara already supports JWT-based access tokens,
+					session management with refresh, OAuth providers, and webhook-driven events.
+					A verification system based on short-lived challenges (for things like email verification
+					and sensitive actions) is currently evolving as a core building block for more advanced flows.
+				</p>
+				<p>
+					Another important aspect is that Authara is fully self-hostable.
+					It’s meant to be infrastructure you can run yourself, understand completely,
+					and integrate without giving up control over your authentication layer.
+				</p>
+				<p>
+					The project is still evolving, but the direction is clear:
+					build a system that is simple in concept, explicit in behavior,
+					and flexible enough to support real-world backend applications without surprises.
+				</p>
+				<p>
+					If you’re interested, you can find the project on GitHub and follow along as it develops.
+				</p>
+			</div>
+		}
+	}
+}

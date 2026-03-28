@@ -18,7 +18,7 @@ templ LinkToOtherPageSection(discription, buttonText, link string) {
 		class="flex items-center gap-4 cursor-pointer text-third-600 hover:text-third-200 w-fit"
 		hx-get={ link }
 		hx-target="#body-section"
-		hx-swap="outerHTML"
+		hx-swap="innerHTML"
 		hx-on::after-settle="window.scrollTo({top: 0, behavior: 'smooth'})"
 		hx-replace-url="true"
 	>

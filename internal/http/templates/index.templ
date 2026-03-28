@@ -34,9 +34,11 @@ templ Layout() {
 			<script src={ ui.Static(ctx, "app.js") } defer></script>
 		</head>
 		<body class="m-0 bg-background-light">
-			<main id="body">
+			<main id="body" class="min-h-screen flex flex-col">
 				@layout.Header()
-				{ children... }
+				<div id="body-section" class="flex-1">
+					{ children... }
+				</div>
 				@layout.Footer()
 			</main>
 			@toast.ToastWrapper()

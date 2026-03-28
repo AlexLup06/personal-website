@@ -46,7 +46,7 @@ func Portfolio() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"body-section\"><div class=\"text-white bg-third-500 py-14 mb-6 md:mb-10\"><div class=\"max-w-4xl mx-auto gap-2 md:gap-2 flex flex-col\"><h1 class=\"text-5xl md:text-7xl\">Portfolio</h1><h2 class=\"text-xl md:text-3xl\">Check out my Projects.</h2></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"text-white bg-third-500 py-14 mb-6 md:mb-10\"><div class=\"max-w-4xl mx-auto gap-2 md:gap-2 flex flex-col\"><h1 class=\"text-5xl md:text-7xl\">Portfolio</h1><h2 class=\"text-xl md:text-3xl\">Check out my Projects.</h2></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -66,45 +66,12 @@ func Portfolio() templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = ProjectCard("Authara",
-					[]string{"Go", "Docker", "HTMX", "Postgres"},
-					"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
-				).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = ProjectCard("MessageIO",
-					[]string{"Pytorch", "MonogoDB", "React"},
-					"AI-powered app that analyzes food photos to provide nutritional information.",
-				).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = ProjectCard("GoShipyard",
-					[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-					"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-				).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = ProjectCard("GEMS",
-					[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-					"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-				).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = ProjectCard("NutriInvest",
-					[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-					"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-				).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = ProjectCard("LoRANet",
-					[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-					"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-				).Render(ctx, templ_7745c5c3_Buffer)
+				templ_7745c5c3_Err = ProjectCard(ProjectCardCfg{
+					Name:        "Authara",
+					Link:        "/portfolio/authara",
+					Badges:      []string{"Go", "Docker", "HTMX", "Postgres"},
+					Description: "A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+				}).Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -118,10 +85,6 @@ func Portfolio() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
 			return nil
 		})
 		templ_7745c5c3_Err = templates.PartialRender().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
@@ -132,7 +95,14 @@ func Portfolio() templ.Component {
 	})
 }
 
-func ProjectCard(name string, badges []string, description string) templ.Component {
+type ProjectCardCfg struct {
+	Name        string
+	Link        string
+	Badges      []string
+	Description string
+}
+
+func ProjectCard(cfg ProjectCardCfg) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -153,16 +123,29 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div tabindex=\"0\" class=\"cursor-pointer bg-third-25 hover:bg-third-50 outline-third-200 rounded-3xl overflow-hidden transition outline group focus:outline hover:outline focus:outline-third-500 hover:outline-third-500 p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]\"><div class=\"flex justify-between mb-1 items-baseline\"><h2 class=\"text-2xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div tabindex=\"0\" class=\"cursor-pointer bg-third-25 hover:bg-third-50 outline-third-200 rounded-3xl overflow-hidden transition outline group focus:outline hover:outline focus:outline-third-500 hover:outline-third-500 p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var5 string
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(templ.SafeURL(cfg.Link))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 59, Col: 42}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 64, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\" hx-target=\"#body-section\" hx-swap=\"innerHTML\" hx-on::after-request=\"window.scrollTo({top: 0, behavior: 'smooth'})\" hx-replace-url=\"true\" hx-push-url=\"true\"><div class=\"flex justify-between mb-1 items-baseline\"><h2 class=\"text-2xl font-medium\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(cfg.Name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 72, Col: 46}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -178,12 +161,12 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var6 string
-		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(description)
+		var templ_7745c5c3_Var7 string
+		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(cfg.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 71, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 84, Col: 20}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -191,7 +174,7 @@ func ProjectCard(name string, badges []string, description string) templ.Compone
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for _, badge := range badges {
+		for _, badge := range cfg.Badges {
 			templ_7745c5c3_Err = components.Badge(badge).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err

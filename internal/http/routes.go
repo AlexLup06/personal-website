@@ -42,6 +42,7 @@ func registerRoutes(r chi.Router, cfg ServerConfig, mw httpmiddleware.Middleware
 
 		r.Route("/portfolio", func(r chi.Router) {
 			r.Get("/", uih.PortfolioPage)
+			r.Get("/{project}", uih.PorjectPage)
 		})
 	})
 

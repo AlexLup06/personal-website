@@ -8,33 +8,54 @@ templ PortoflioPreview() {
 		<div class="flex flex-col mb-6">
 			// md:grid md:grid-cols-2
 			@Devider()
-			@ProjectCard("Authara",
-				[]string{"Go", "Docker", "HTMX", "Postgres"},
-				"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
-			)
+			@ProjectCard(ProjectCardConfig{
+				Name:        "Authara",
+				Link:        "/portfolio/authara",
+				Badges:      []string{"Go", "Docker", "HTMX", "Postgres"},
+				Description: "A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+			})
 			@Devider()
-			@ProjectCard("MessageIO",
-				[]string{"Pytorch", "MonogoDB", "React"},
-				"AI-powered app that analyzes food photos to provide nutritional information.",
-			)
+			@ProjectCard(ProjectCardConfig{
+				Name: "MessageIO",
+				Link: "/portfolio/authara",
+			
+				Badges:      []string{"Pytorch", "MonogoDB", "React"},
+				Description: "AI-powered app that analyzes food photos to provide nutritional information.",
+			})
 			@Devider()
-			@ProjectCard("GoShipyard",
-				[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
-				"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-			)
+			@ProjectCard(ProjectCardConfig{
+				Name: "GoShipyard",
+				Link: "/portfolio/authara",
+			
+				Badges:      []string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+				Description: "A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+			})
 			@Devider()
 		</div>
 		@components.LinkToOtherPageSection("Check out all projects!", "Portfolio", "/portfolio")
 	</div>
 }
 
-templ ProjectCard(name string, badges []string, description string) {
+type ProjectCardConfig struct {
+	Name        string
+	Link        string
+	Badges      []string
+	Description string
+}
+
+templ ProjectCard(cfg ProjectCardConfig) {
 	<div
 		tabindex="0"
 		class="not-md:nth-last-[-n+1]:hidden cursor-pointer transition group flex flex-col px-4 py-5 hover:bg-third-25"
+		hx-get={ templ.SafeURL(cfg.Link) }
+		hx-target="#body-section"
+		hx-swap="innerHTML"
+		hx-on::after-request="window.scrollTo({top: 0, behavior: 'smooth'})"
+		hx-replace-url="true"
+		hx-push-url="true"
 	>
 		<div class="flex justify-between items-baseline mb-1.5">
-			<h2 class="text-2xl font-medium">{ name }</h2>
+			<h2 class="text-2xl font-medium">{ cfg.Name }</h2>
 			<div
 				class="stroke-2 group-hover:text-white group-hover:outline-third-400 hover:bg-transparent
 							group-hover:bg-third-400 hover:text-third-400 outline-2 outline-transparent
@@ -46,10 +67,10 @@ templ ProjectCard(name string, badges []string, description string) {
 			</div>
 		</div>
 		<p class="text-md mb-3">
-			{ description }
+			{ cfg.Description }
 		</p>
 		<div class="flex flex-row flex-wrap gap-1 mx-1 -translate-x-1 mb-auto">
-			for _,badge :=range badges {
+			for _,badge :=range cfg.Badges {
 				@components.Badge(badge)
 			}
 		</div>

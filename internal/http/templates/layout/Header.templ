@@ -16,7 +16,7 @@ templ Header() {
 			id="logo"
 			hx-get="/"
 			hx-target="#body-section"
-			hx-swap="outerHTML"
+			hx-swap="innerHTML"
 			hx-replace-url="true"
 			src="/static/memoji.png"
 		/>
@@ -26,7 +26,7 @@ templ Header() {
 			// @navLinkHeader("/blog", "BLOG")
 		</ul>
 		<ul class="hidden md:flex md:gap-4 gap-2">
-			@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+			@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy") {
 				@components.LinkedIn()
 			}
 			@socialLinkHeader("https://github.com/AlexLup06") {
@@ -47,7 +47,7 @@ templ Header() {
 					x-transition.duration.300ms
 					class="rounded-lg z-1 flex flex-col gap-2 p-1 shadow bg-third-25 outline-2 outline-third-500"
 				>
-					@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+					@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy") {
 						@components.LinkedIn()
 					}
 					@socialLinkHeader("https://github.com/AlexLup06") {
@@ -84,7 +84,7 @@ templ navLinkHeader(link string, text string) {
 			data-text={ text }
 			hx-get={ link }
 			hx-target="#body-section"
-			hx-swap="outerHTML"
+			hx-swap="innerHTML"
 			hx-replace-url="true"
 		>
 			{ text }

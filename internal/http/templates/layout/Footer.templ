@@ -4,12 +4,12 @@ import "github.com/alexlup06/personal-website/internal/http/templates/components
 
 templ Footer() {
 	<div class="md:h-100 text-white w-full flex flex-col md:flex-row gap-2 md:gap-3 text-xl md:text-2xl lg:text-3xl pb-4 sm:pb-8 px-4 sm:px-8">
-		<div class="h-full bg-third-500 w-full md:w-1/2 rounded-2xl md:rounded-3xl p-10 md:p-14">
+		<div class="h-full bg-third-500 w-full md:w-1/2 rounded-3xl md:rounded-3xl p-10 md:p-14">
 			<div class="flex gap-6 items-center mb-6 md:mb-10">
 				<img class="w-10 md:w-12" src="/static/memoji.png"/>
-				<p class="text-2xl md:text-2xl lg:text-4xl font-medium">Alex Lupatsiy</p>
+				<p class="text-2xl md:text-2xl lg:text-3xl font">Alex Lupatsiy</p>
 			</div>
-			<div id="footer-navlinks" class="flex flex-col gap-2 md:gap-3 text-2xl md:text-2xl lg:text-4xl font-medium">
+			<div id="footer-navlinks" class="flex flex-col gap-2 md:gap-3 text-2xl md:text-3xl lg:text-4xl font-medium">
 				@navLinkFooter("Home", "/")
 				@navLinkFooter("Portfolio", "/portfolio")
 				// @navLinkFooter("Blog", "/blog")
@@ -17,13 +17,13 @@ templ Footer() {
 		</div>
 		<div class="md:h-full flex flex-col gap-2 md:gap-3 w-full md:w-1/2">
 			<div
-				class="md:h-1/2 bg-third-500   border-third-700 rounded-2xl md:rounded-3xl
+				class="md:h-1/2 bg-third-500   border-third-700 rounded-3xl md:rounded-3xl
 						p-10 md:p-14 flex gap-2 md:gap-3 justify-center items-center text-2xl"
 			>
-				<p class="font-medium text-2xl md:text-2xl lg:text-4xl">Let's build experiences!</p>
+				<p class="font text-2xl md:text-2xl lg:text-3xl">Let's build experiences!</p>
 			</div>
 			<div class="md:h-1/2 flex gap-2 md:gap-3">
-				@socialLinkFooter("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
+				@socialLinkFooter("https://www.linkedin.com/in/alex-lupatsiy") {
 					@components.LinkedIn()
 				}
 				@socialLinkFooter("https://github.com/AlexLup06") {
@@ -47,9 +47,10 @@ templ navLinkFooter(name string, link string) {
 		data-footerpath={ link }
 		hx-get={ link }
 		hx-target="#body-section"
-		hx-swap="outerHTML"
+		hx-swap="innerHTML"
 		hx-on::after-request="window.scrollTo({top: 0, behavior: 'smooth'})"
 		hx-replace-url="true"
+		hx-push-url="true"
 	>
 		.{ name }
 	</a>
@@ -59,7 +60,7 @@ templ socialLinkFooter(link string) {
 	<div
 		class="has-[a:hover]:bg-third-25 w-1/3 bg-third-500 text-third-25 
 				has-[a:hover]:text-third-500 border-2 border-third-500 flex justify-center 
-				items-center rounded-2xl md:rounded-3xl p-6 transition"
+				items-center rounded-3xl md:rounded-3xl p-6 transition"
 	>
 		<a
 			href={ templ.SafeURL(link) }
