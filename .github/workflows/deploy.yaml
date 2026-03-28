@@ -112,7 +112,7 @@ jobs:
       always() &&
       needs.detect-changes.result == 'success' &&
       needs.detect-changes.outputs.app_changed == 'true' &&
-      (needs.build-and-push-app.result == 'success' || needs.build-and-push-app.result == 'skipped') &&
+      (needs.build-and-push-app.result == 'success' || needs.build-and-push-app.result == 'skipped')
 
     steps:
       - name: Deploy over SSH
