@@ -3,9 +3,6 @@ services:
     image: ghcr.io/alexlup06/personal-website:${APP_IMAGE_TAG}
     env_file:
       - .env
-    depends_on:
-      migrate:
-        condition: service_completed_successfully
     restart: unless-stopped
     expose:
       - "8080"
@@ -17,7 +14,7 @@ services:
       ACME_EMAIL: ${ACME_EMAIL}
     restart: unless-stopped
     depends_on:
-      - gateway
+      - personal-website
     ports:
       - "80:80"
       - "443:443"
