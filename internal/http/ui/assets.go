@@ -1,9 +1,10 @@
 package ui
 
 import (
+	"context"
+
 	"github.com/alexlup06/personal-website/internal/http/kit/httpctx"
 	"github.com/alexlup06/personal-website/internal/http/kit/render"
-	"context"
 )
 
 func Static(ctx context.Context, name string) string {

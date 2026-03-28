@@ -1,8 +1,9 @@
 package meta
 
 import (
-	"github.com/alexlup06/personal-website/internal/http/kit/staticfs"
 	"net/http"
+
+	"github.com/alexlup06/personal-website/internal/http/kit/staticfs"
 
 	"github.com/go-chi/chi/v5"
 )

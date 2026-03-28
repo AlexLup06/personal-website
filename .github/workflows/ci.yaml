@@ -29,16 +29,6 @@ jobs:
 
       - name: Check goimports formatting
         run: |
-          export PATH="$(go env GOPATH)/bin:$PATH"
-          unformatted="$(git ls-files '*.go' ':!**/*_templ.go' | xargs goimports -l)"
-          if [ -n "$unformatted" ]; then
-            echo "These files are not formatted with goimports:"
-            echo "$unformatted"
-            exit 1
-          fi
-
-      - name: Check goimports formatting
-        run: |
           export PATH="$PATH:$(go env GOPATH)/bin"
           files=$(git ls-files '*.go' ':!**/*_templ.go')
           test -z "$(goimports -l $files)"

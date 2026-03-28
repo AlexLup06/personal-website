@@ -1,8 +1,9 @@
 package render
 
 import (
-	"github.com/alexlup06/personal-website/internal/http/kit/httpctx"
 	"net/http"
+
+	"github.com/alexlup06/personal-website/internal/http/kit/httpctx"
 
 	"github.com/a-h/templ"
 )
