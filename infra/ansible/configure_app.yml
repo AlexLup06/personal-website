@@ -1,0 +1,7 @@
+- hosts: app_servers
+  become: false
+  vars:
+    app_slug: "personal-website"
+    deploy_path: "/opt/{{ app_slug }}"
+  roles:
+    - configure_app

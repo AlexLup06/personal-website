@@ -1,15 +1,15 @@
 package layout
 
 import (
-	"alexlupatsiy.com/personal-website/internal/helpers"
-	"alexlupatsiy.com/personal-website/internal/http/templates/components"
 	"context"
+	"github.com/alexlup06/personal-website/internal/http/kit/httpctx"
+	"github.com/alexlup06/personal-website/internal/http/templates/components/components"
 )
 
 templ Header() {
 	<header
 		class="h-nav-height-sm md:h-nav-height-lg z-50 flex justify-between md:justify-normal 
-				items-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4 bg-white"
+				items-center w-full top-0 lg:px-20 md:px-12 sm:px-8 px-4"
 	>
 		<img
 			class="w-10 md:w-12 md:mr-20"
@@ -18,12 +18,12 @@ templ Header() {
 			hx-target="#body-section"
 			hx-swap="outerHTML"
 			hx-replace-url="true"
-			src="/static/images/memoji.png"
+			src="/static/memoji.png"
 		/>
 		<ul id="navbar" class="flex md:flex-1  items-center gap-6 sm:gap-10 text-md sm:text-xl font-medium">
 			@navLinkHeader("/", "HOME")
 			@navLinkHeader("/portfolio", "PORTFOLIO")
-			@navLinkHeader("/blog", "BLOG")
+			// @navLinkHeader("/blog", "BLOG")
 		</ul>
 		<ul class="hidden md:flex md:gap-4 gap-2">
 			@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
@@ -45,7 +45,7 @@ templ Header() {
 					x-cloak
 					x-show="open"
 					x-transition.duration.300ms
-					class="rounded-lg z-[1] flex flex-col gap-2 p-1 shadow bg-third-25 outline-2 outline-third-500"
+					class="rounded-lg z-1 flex flex-col gap-2 p-1 shadow bg-third-25 outline-2 outline-third-500"
 				>
 					@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy-2730b41b5/") {
 						@components.LinkedIn()
@@ -63,7 +63,7 @@ templ Header() {
 }
 
 func isActive(ctx context.Context, target string) bool {
-	current, ok := helpers.GetKV[string](ctx, helpers.CtxFullPath)
+	current, ok := httpctx.FullPath(ctx)
 	if !ok {
 		return false
 	}
@@ -86,7 +86,6 @@ templ navLinkHeader(link string, text string) {
 			hx-target="#body-section"
 			hx-swap="outerHTML"
 			hx-replace-url="true"
-			href={ templ.SafeURL(link) }
 		>
 			{ text }
 		</a>

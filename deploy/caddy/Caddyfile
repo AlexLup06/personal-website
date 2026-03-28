@@ -1,0 +1,11 @@
+{
+	email {$ACME_EMAIL}
+}
+
+{$PUBLIC_HOST} {
+	encode zstd gzip
+
+	handle {
+		reverse_proxy personal-website:8080
+	}
+}

@@ -1,6 +1,6 @@
 package homepage
 
-import "alexlupatsiy.com/personal-website/internal/http/templates/components"
+import "github.com/alexlup06/personal-website/internal/http/templates/components/components"
 
 templ TechStack() {
 	<div class="mb-14 lg:mb-24">
@@ -41,7 +41,7 @@ templ TechStack() {
 						components.Other())
 				</div>
 			</div>
-			<div class="flex gap-2 md:gap-2.5 ml-auto mr-4 p-1.5 rounded-3xl bg-grey-100">
+			<div class="flex gap-2 md:gap-2.5 ml-auto mr-4 p-1.5 rounded-3xl bg-grey-200">
 				@Button("left-button") {
 					@components.LeftArrow()
 				}
@@ -58,7 +58,7 @@ templ Button(direction string) {
 	<button
 		id={ direction }
 		class={
-			"bg-grey-800 hover:bg-second-25 border-2 border-grey-800 text-white hover:text-grey-800",
+			"bg-third-800 hover:bg-second-25 border-2 border-third-800 text-white hover:text-third-800",
 			"h-6 w-6 md:h-8 md:w-8 stroke-2 text-3xl rounded-full transition cursor-pointer active:scale-90",
 			templ.KV("pr-1", direction == "left-button"),
 			templ.KV("pl-1", direction == "right-button"),
@@ -69,7 +69,7 @@ templ Button(direction string) {
 }
 
 templ BestTech(name string, icon templ.Component, side string) {
-	<div class="center px-3 py-1.5 md:px-4 md:py-2 bg-third-300 text-white items-center rounded-2xl text-md md:text-lg flex gap-2 ">
+	<div class="center px-3 py-1.5 md:px-4 md:py-2 bg-third-500 text-white items-center rounded-2xl text-md md:text-lg flex gap-2 ">
 		if side=="right" && name!="Go" {
 			{ name }
 		}

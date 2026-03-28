@@ -7,17 +7,29 @@ import (
 )
 
 type Config struct {
-	Env string `env:"ENV,default=dev"`
-	Dev bool   `env:"DEV_MODE,default=true"`
-
-	HTTP    HTTP
+	Values  Values
 	Logging Logging
 }
 
 func Load() (*Config, error) {
 	var cfg Config
+
 	if err := envconfig.Process(context.Background(), &cfg); err != nil {
 		return nil, err
 	}
+
+	if err := cfg.Values.validate(); err != nil {
+		return nil, err
+	}
+	if err := cfg.Logging.validate(); err != nil {
+		return nil, err
+	}
+
+	cfg.Values.HttpAddr = ":8080"
+
+	if err := cfg.Logging.parse(cfg.Values.AppEnv); err != nil {
+		return nil, err
+	}
+
 	return &cfg, nil
 }

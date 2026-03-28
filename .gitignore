@@ -1,41 +1,77 @@
-# If you prefer the allow list template instead of the deny list, see community template:
-# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
-#
-# Binaries for programs and plugins
+# ==================================================
+# General
+# ==================================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.log
+
+# ==================================================
+# Go
+# ==================================================
+# Binaries
+/bin/
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
 
-# Test binary, built with `go test -c`
+# Test artifacts
 *.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+coverage.out
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
-
-# Go workspace file
+# Go workspace
 go.work
 go.work.sum
 
-# env file
+# ==================================================
+# templ (generated files)
+# ==================================================
+**/*_templ.go
+
+# ==================================================
+# Frontend (Node / Tailwind / Webpack)
+# ==================================================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Build outputs
+frontend/dist/
+dist/
+
+# Cache
+.cache/
+.parcel-cache/
+
+# ==================================================
+# Docker
+# ==================================================
+# Local override files
+docker-compose.override.yml
+
+# ==================================================
+# Environment / Secrets
+# ==================================================
 .env
+.env.*
+!.env.example
+!.env.prod.example
 
-tmp/
+# ==================================================
+# IDEs / Editors
+# ==================================================
+.vscode/
+.idea/
+*.iml
 
-frontend/node_modules/
+# Neovim
+.nvim/
 
-frontend/src/css/tailwind.css
-
-frontend/views/**/*_templ.go
-
-.vscode
-
-*.gz
-
-bin/
-
-frontend/src/js/bundle.js
+# Docs
+.venv/
+site/

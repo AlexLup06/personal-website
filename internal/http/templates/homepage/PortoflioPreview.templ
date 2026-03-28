@@ -1,30 +1,26 @@
 package homepage
 
-import "alexlupatsiy.com/personal-website/internal/http/templates/components"
+import "github.com/alexlup06/personal-website/internal/http/templates/components/components"
 
 templ PortoflioPreview() {
 	<div class="mb-14 lg:mb-24">
 		@components.SectionHeader("Featured Projects")
-		<div class="flex flex-col ">
+		<div class="flex flex-col mb-6">
 			// md:grid md:grid-cols-2
-			@ProjectCard("GoFlow",
+			@Devider()
+			@ProjectCard("Authara",
 				[]string{"Go", "Docker", "HTMX", "Postgres"},
 				"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
 			)
 			@Devider()
-			@ProjectCard("NutrInvest",
+			@ProjectCard("MessageIO",
 				[]string{"Pytorch", "MonogoDB", "React"},
 				"AI-powered app that analyzes food photos to provide nutritional information.",
 			)
 			@Devider()
-			@ProjectCard("GEMS",
+			@ProjectCard("GoShipyard",
 				[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
 				"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
-			)
-			@Devider()
-			@ProjectCard("GoFlow",
-				[]string{"Go", "Docker", "HTMX", "Postgres"},
-				"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
 			)
 			@Devider()
 		</div>
@@ -35,9 +31,9 @@ templ PortoflioPreview() {
 templ ProjectCard(name string, badges []string, description string) {
 	<div
 		tabindex="0"
-		class="not-md:nth-last-[-n+1]:hidden cursor-pointer transition group flex flex-col"
+		class="not-md:nth-last-[-n+1]:hidden cursor-pointer transition group flex flex-col px-4 py-5 hover:bg-third-25"
 	>
-		<div class="flex justify-between items-baseline mb-0.5">
+		<div class="flex justify-between items-baseline mb-1.5">
 			<h2 class="text-2xl font-medium">{ name }</h2>
 			<div
 				class="stroke-2 group-hover:text-white group-hover:outline-third-400 hover:bg-transparent
@@ -49,7 +45,7 @@ templ ProjectCard(name string, badges []string, description string) {
 				</div>
 			</div>
 		</div>
-		<p class="text-md mb-2.5">
+		<p class="text-md mb-3">
 			{ description }
 		</p>
 		<div class="flex flex-row flex-wrap gap-1 mx-1 -translate-x-1 mb-auto">
@@ -61,5 +57,5 @@ templ ProjectCard(name string, badges []string, description string) {
 }
 
 templ Devider() {
-	<div class="w-full h-0.5 bg-third-400 rounded-4xl my-4"></div>
+	<div class="w-full h-px bg-third-50"></div>
 }

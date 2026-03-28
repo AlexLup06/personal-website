@@ -1,4 +1,0 @@
-:3000 {
-	encode zstd gzip
-	reverse_proxy server-dev:8080
-}

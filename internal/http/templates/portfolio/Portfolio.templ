@@ -1,35 +1,45 @@
 package portfolio
 
 import (
-	"alexlupatsiy.com/personal-website/internal/http/templates/components"
-	"alexlupatsiy.com/personal-website/internal/http/templates/layout"
+	"github.com/alexlup06/personal-website/internal/http/templates"
+	"github.com/alexlup06/personal-website/internal/http/templates/components/components"
 )
 
 templ Portfolio() {
-	@layout.PartialRender() {
+	@templates.PartialRender() {
 		<div id="body-section">
+			<div class="text-white bg-third-500 py-14 mb-6 md:mb-10">
+				<div class="max-w-4xl mx-auto gap-2 md:gap-2 flex flex-col">
+					<h1 class="text-5xl md:text-7xl">Portfolio</h1>
+					<h2 class="text-xl md:text-3xl">Check out my Projects.</h2>
+				</div>
+			</div>
 			@components.Section() {
-				<div class="max-w-4xl mx-auto mb-14 mt-8">
-					<div class="gap-2 md:gap-2 flex flex-col mt-8 mb-6 md:mb-10">
-						<h1 class="text-5xl md:text-7xl">Portfolio</h1>
-						<h2 class="text-xl md:text-3xl">Check out my Projects.</h2>
-					</div>
+				<div class="max-w-4xl mx-auto my-16">
 					<div class="mb-3 lg:mb-4 flex flex-col md:grid md:grid-cols-2 gap-x-4 gap-y-4">
-						@ProjectCard("GoFlow",
+						@ProjectCard("Authara",
 							[]string{"Go", "Docker", "HTMX", "Postgres"},
 							"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
 						)
-						@ProjectCard("NutrInvest",
+						@ProjectCard("MessageIO",
 							[]string{"Pytorch", "MonogoDB", "React"},
 							"AI-powered app that analyzes food photos to provide nutritional information.",
+						)
+						@ProjectCard("GoShipyard",
+							[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+							"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
 						)
 						@ProjectCard("GEMS",
 							[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
 							"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
 						)
-						@ProjectCard("GoFlow",
-							[]string{"Go", "Docker", "HTMX", "Postgres"},
-							"A framework to set up full-stack Go applications with CI/CD and production-ready configurations.",
+						@ProjectCard("NutriInvest",
+							[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+							"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
+						)
+						@ProjectCard("LoRANet",
+							[]string{"React", "Postgres", "Go", "Docker", "CI/CD"},
+							"A gamified app that tracks energy consumption, allowing players to compete and build sustainable habits.",
 						)
 					</div>
 				</div>
@@ -41,9 +51,9 @@ templ Portfolio() {
 templ ProjectCard(name string, badges []string, description string) {
 	<div
 		tabindex="0"
-		class="cursor-pointer bg-main-50 outline-third-500 rounded-3xl overflow-hidden transition
-				outline-2 group focus:outline-3 hover:outline-3 focus:outline-third-500 hover:outline-third-500 
-				p-6 md:p-6 lg:p-8 grid grid-rows-subgrid [grid-row:span_3]"
+		class="cursor-pointer bg-third-25 hover:bg-third-50 outline-third-50 rounded-3xl overflow-hidden transition
+				outline-2 group focus:outline-3 hover:outline-2 focus:outline-third-500 hover:outline-third-500 
+				p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]"
 	>
 		<div class="flex justify-between mb-1 items-baseline">
 			<h2 class="text-2xl font-medium">{ name }</h2>

@@ -1,21 +1,30 @@
-import "./ts/blogScroll"
-import "./ts/blogPage"
-import "./ts/navigation"
-import "./ts/techStack"
+import "./navigation"
+import "./techStack"
 
 declare global {
-    interface Window {
-        htmx: any;
-    }
+  interface Window {
+    htmx: any;
+  }
 }
 
 window.htmx.config.allowNestedOobSwaps = false; // Disable nested OOB swaps
-window.htmx.config.defaultSwapStyle = "outerHTML" // Disable nested OOB swaps
+window.htmx.config.defaultSwapStyle = "outerHTML"; // Disable nested OOB swaps
 
-const socialsDropdown = document.getElementById("socials-dd")!;
-document.addEventListener("click", function (event: any) {
-    // Check if the click was outside the element
-    if (!socialsDropdown.contains(event.target)) {
-        (socialsDropdown.firstChild as HTMLElement).removeAttribute("open");
-    }
+document.body.addEventListener("htmx:beforeSwap", function (evt: any) {
+  // Allow 422 and 400 responses to swap
+  // We treat these as form validation errors
+  if (
+    evt.detail.xhr.status === 422 ||
+    evt.detail.xhr.status === 400 ||
+    evt.detail.xhr.status === 429
+  ) {
+    evt.detail.shouldSwap = true;
+    evt.detail.isError = false;
+  }
+});
+
+document.body.addEventListener("htmx:afterSettle", function (event: any) {
+  if (event.detail.target && event.detail.target.id === "body-section") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 });

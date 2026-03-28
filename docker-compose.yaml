@@ -1,0 +1,30 @@
+services:
+
+  frontend-webpack:
+    image: node:24-alpine
+    working_dir: /frontend
+    volumes:
+      - ./frontend:/frontend
+    command: npm run dev:webpack
+
+  personal-website:
+    build:
+      context: .
+      dockerfile: deploy/docker/Dockerfile.dev
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - .:/app
+
+  caddy:
+    image: caddy:2
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - personal-website
+
+volumes:
+  postgres_data:
