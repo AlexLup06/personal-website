@@ -12,6 +12,8 @@ fingerprint_extensions() {
     \( \
       -name "*.js" \
       -o -name "*.css" \
+      -o -name "*.jpg" \
+      -o -name "*.png" \
       -o -name "*.woff" \
       -o -name "*.woff2" \
       -o -name "*.ttf" \
