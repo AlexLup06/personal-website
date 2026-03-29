@@ -46,7 +46,7 @@ func Homepage() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"bg-third-500 relative pt-12 pb-20 md:py-24\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"bg-third-500 relative pt-12 pb-16 md:py-24\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -88,7 +88,7 @@ func Homepage() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"max-w-4xl mx-auto mt-24\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"max-w-4xl mx-auto mt-16 lg:mt-24\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

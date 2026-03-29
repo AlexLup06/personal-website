@@ -1,45 +1,50 @@
 package portfolio
 
 import "github.com/alexlup06/personal-website/internal/http/templates/components/button"
+import "github.com/alexlup06/personal-website/internal/http/templates/components/components"
 
 templ Header(name string) {
-	<div class="text-white bg-third-500 py-14 mb-6 md:mb-10">
-		<div class="max-w-2xl mx-auto gap-2 md:gap-2 flex flex-col">
-			<div>
-				@button.Back()
+	<div class="text-white bg-third-500 py-10 lg:py-14">
+		@components.Section() {
+			<div class="max-w-2xl mx-auto gap-2 md:gap-2 flex flex-col">
+				<div>
+					@button.Back()
+				</div>
+				<h1 class="text-5xl md:text-7xl mb-1">{ name }</h1>
+				<div class="flex flex-wrap gap-2">
+					@Highlight("Go")
+					@Highlight("Authentication")
+					@Highlight("OSS")
+					@Highlight("Infrastructure")
+				</div>
+				<div class="text-white flex gap-4">
+					<a
+						href="https://github.com/authara-org/authara"
+						class="underline cursor-pointer hover:text-third-50 transition"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Github/Authara
+					</a>
+					<a
+						href="https://docs.authara.org"
+						class="underline cursor-pointer hover:text-third-50 transition"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Docs/Authara
+					</a>
+				</div>
 			</div>
-			<h1 class="text-5xl md:text-7xl mb-1">{ name }</h1>
-			<div class="flex gap-2">
-				@Highlight("Go")
-				@Highlight("Authentication")
-				@Highlight("OSS")
-				@Highlight("Infrastructure")
-			</div>
-			<div class="text-white flex gap-4">
-				<a
-					href="https://github.com/authara-org/authara"
-					class="underline cursor-pointer hover:text-third-50 transition"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Github/Authara
-				</a>
-				<a
-					href="https://docs.authara.org"
-					class="underline cursor-pointer hover:text-third-50 transition"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Docs/Authara
-				</a>
-			</div>
-		</div>
+		}
 	</div>
 }
 
 templ BodySection() {
-	<div class="max-w-2xl mx-auto">
-		{ children... }
+	<div class="max-w-2xl mx-auto  my-10 lg:my-14">
+		@components.Section() {
+			{ children... }
+		}
 	</div>
 }
 

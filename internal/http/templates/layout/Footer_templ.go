@@ -43,7 +43,7 @@ func Footer() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div></div><div class=\"md:h-full flex flex-col gap-2 md:gap-3 w-full md:w-1/2\"><div class=\"md:h-1/2 bg-third-500 border-2 border-third-500 rounded-3xl md:rounded-3xl p-10 md:p-14 flex gap-2 md:gap-3 justify-center items-center text-2xl has-[a:hover]:bg-third-25 transition-colors\"><a href=\"mailto:alex.lupatsiy@gmail.com?subject=Project%20Inquiry&body=Hi%20Alexander%2C%0A%0A...\" class=\"flex gap-6 items-center font text-2xl md:text-2xl lg:text-3xl cursor-pointer text-white hover:text-third-500 transition-colors\"><div class=\"h-10 w-10\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div></div><div class=\"md:h-full flex flex-col gap-2 md:gap-3 w-full md:w-1/2\"><div class=\"md:h-1/2 bg-third-500 border-2 border-third-500 rounded-3xl md:rounded-3xl p-10 md:p-14 flex gap-2 md:gap-3 justify-center items-center text-2xl has-[a:hover]:bg-third-25 transition-colors\"><a href=\"mailto:alex.lupatsiy@gmail.com?subject=Project%20Inquiry&body=Hi%20Alexander%2C%0A%0A...\" class=\"flex gap-4 lg:gap-6 items-center font text-xl md:text-2xl lg:text-3xl cursor-pointer text-white hover:text-third-500 transition-colors\"><div class=\"h-7 md:h-8 lg:h-10 aspect-square\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

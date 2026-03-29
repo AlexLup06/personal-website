@@ -46,7 +46,7 @@ func Portfolio() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"text-white bg-third-500 py-14 mb-6 md:mb-10\"><div class=\"max-w-4xl mx-auto gap-2 md:gap-2 flex flex-col\"><h1 class=\"text-5xl md:text-7xl\">Portfolio</h1><h2 class=\"text-xl md:text-3xl\">Check out my Projects.</h2></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"text-white bg-third-500 py-10 lg:py-14\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -62,7 +62,33 @@ func Portfolio() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto my-16\"><div class=\"mb-3 lg:mb-4 flex flex-col md:grid md:grid-cols-2 gap-x-4 gap-y-4\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-4xl mx-auto gap-2 md:gap-2 flex flex-col\"><h1 class=\"text-5xl md:text-7xl\">Portfolio</h1><h2 class=\"text-xl md:text-3xl\">Check out my Projects.</h2></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				return nil
+			})
+			templ_7745c5c3_Err = components.Section().Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Var4 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+				templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+				templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+				if !templ_7745c5c3_IsBuffer {
+					defer func() {
+						templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+						if templ_7745c5c3_Err == nil {
+							templ_7745c5c3_Err = templ_7745c5c3_BufErr
+						}
+					}()
+				}
+				ctx = templ.InitializeContext(ctx)
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"max-w-4xl mx-auto my-10 lg:my-14\"><div class=\"mb-3 lg:mb-4 flex flex-col md:grid md:grid-cols-2 gap-x-4 gap-y-4\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -75,13 +101,13 @@ func Portfolio() templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Section().Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.Section().Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -118,38 +144,38 @@ func ProjectCard(cfg ProjectCardCfg) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var4 == nil {
-			templ_7745c5c3_Var4 = templ.NopComponent
+		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var5 == nil {
+			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div tabindex=\"0\" class=\"cursor-pointer bg-third-25 hover:bg-third-50 outline-third-200 rounded-3xl overflow-hidden transition outline group focus:outline hover:outline focus:outline-third-500 hover:outline-third-500 p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]\" hx-get=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var5 string
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(templ.SafeURL(cfg.Link))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 64, Col: 34}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\" hx-target=\"#body-section\" hx-swap=\"innerHTML\" hx-on::after-request=\"window.scrollTo({top: 0, behavior: 'smooth'})\" hx-replace-url=\"true\" hx-push-url=\"true\"><div class=\"flex justify-between mb-1 items-baseline\"><h2 class=\"text-2xl font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div tabindex=\"0\" class=\"cursor-pointer bg-third-25 hover:bg-third-50 outline-third-200 rounded-3xl overflow-hidden transition outline group focus:outline hover:outline focus:outline-third-500 hover:outline-third-500 p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
-		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(cfg.Name)
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(templ.SafeURL(cfg.Link))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 72, Col: 46}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 66, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</h2><div class=\"stroke-2 group-hover:text-white group-hover:outline-third-500 hover:bg-transparent group-hover:bg-third-500 hover:text-third-500 outline-2 outline-transparent transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><div class=\"w-7\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\" hx-target=\"#body-section\" hx-swap=\"innerHTML\" hx-on::after-request=\"window.scrollTo({top: 0, behavior: 'smooth'})\" hx-replace-url=\"true\" hx-push-url=\"true\"><div class=\"flex justify-between mb-1 items-baseline\"><h2 class=\"text-2xl font-medium\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var7 string
+		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(cfg.Name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 74, Col: 46}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</h2><div class=\"stroke-2 group-hover:text-white group-hover:outline-third-500 hover:bg-transparent group-hover:bg-third-500 hover:text-third-500 outline-2 outline-transparent transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><div class=\"w-7\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -157,20 +183,20 @@ func ProjectCard(cfg ProjectCardCfg) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div></div></div><p class=\"text-md not-md:mb-4\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</div></div></div><p class=\"text-md not-md:mb-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var7 string
-		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(cfg.Description)
+		var templ_7745c5c3_Var8 string
+		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(cfg.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 84, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/portfolio/Portfolio.templ`, Line: 86, Col: 20}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p><div class=\"flex flex-row flex-wrap gap-1.5 mx-1 -translate-x-1 mb-auto\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p><div class=\"flex flex-row flex-wrap gap-1.5 mx-1 -translate-x-1 mb-auto\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -180,7 +206,7 @@ func ProjectCard(cfg ProjectCardCfg) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
