@@ -6,11 +6,11 @@ templ TechStack() {
 	<div class="mb-14 lg:mb-24">
 		@components.SectionHeader("Tools & Techonolgies")
 		<div class="flex flex-wrap gap-1 md:gap-2 mb-3">
-			@BestTech("Go", components.GoLgo(), "left")
+			@BestTech("Go", components.GoLogo(), "left")
+			@BestTech("PostgreSQL", components.PostgreSqlLogo(), "left")
+			@BestTech("Docker", components.DockerLogo(), "left")
+			@BestTech("Kubernetes", components.KubernetesLogo(), "left")
 			@BestTech("HTMX", components.HTMXLogo(), "left")
-			@BestTech("PostgreSQL", components.PostgreSqlogo(), "right")
-			@BestTech("SwiftUI", components.SwiftUILogo(), "right")
-			@BestTech("React", components.ReactLogo(), "right")
 		</div>
 		<div class="mx-auto flex flex-col gap-2 md:gap-3">
 			<div
@@ -74,7 +74,7 @@ templ BestTech(name string, icon templ.Component, side string) {
 			class={
 				"flex items-center",
 				templ.KV("h-3.5 md:h-4.5", name == "Go"),
-				templ.KV("h-5 md:h-7", name != "Go"),
+				templ.KV("h-5 md:h-6", name != "Go"),
 			}
 		>
 			@icon

@@ -43,23 +43,23 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = BestTech("Go", components.GoLgo(), "left").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = BestTech("Go", components.GoLogo(), "left").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = BestTech("PostgreSQL", components.PostgreSqlLogo(), "left").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = BestTech("Docker", components.DockerLogo(), "left").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = BestTech("Kubernetes", components.KubernetesLogo(), "left").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = BestTech("HTMX", components.HTMXLogo(), "left").Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = BestTech("PostgreSQL", components.PostgreSqlogo(), "right").Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = BestTech("SwiftUI", components.SwiftUILogo(), "right").Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = BestTech("React", components.ReactLogo(), "right").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -267,7 +267,7 @@ func BestTech(name string, icon templ.Component, side string) templ.Component {
 		}
 		var templ_7745c5c3_Var10 = []any{"flex items-center",
 			templ.KV("h-3.5 md:h-4.5", name == "Go"),
-			templ.KV("h-5 md:h-7", name != "Go"),
+			templ.KV("h-5 md:h-6", name != "Go"),
 		}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var10...)
 		if templ_7745c5c3_Err != nil {
