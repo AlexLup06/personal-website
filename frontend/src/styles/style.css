@@ -8,8 +8,8 @@
   --breakpoint-xs: 480px;
 
   /* spacing */
-  --spacing-nav-height-lg: 96px;
-  --spacing-nav-height-sm: 80px;
+  --spacing-nav-height-lg: 80px;
+  --spacing-nav-height-sm: 64px;
 
   /* base colors */
   --color-transparent: transparent;

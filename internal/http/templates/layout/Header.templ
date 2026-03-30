@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/alexlup06/personal-website/internal/http/kit/httpctx"
 	"github.com/alexlup06/personal-website/internal/http/templates/components/components"
+	"github.com/alexlup06/personal-website/internal/http/ui"
 )
 
 templ Header() {
@@ -18,7 +19,7 @@ templ Header() {
 			hx-target="#body-section"
 			hx-swap="innerHTML"
 			hx-replace-url="true"
-			src="/static/memoji.png"
+			src={ ui.Static(ctx, "memoji.png") }
 		/>
 		<ul id="navbar" class="flex md:flex-1  items-center gap-6 sm:gap-10 text-md sm:text-xl font-medium">
 			@navLinkHeader("/", "HOME")
