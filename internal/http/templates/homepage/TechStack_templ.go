@@ -63,7 +63,7 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"mx-auto flex flex-col gap-2 md:gap-3\"><div id=\"scroll-stack-container\" class=\"h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x\"><div id=\"stack-container\" class=\"absolute grid h-full grid-flow-col gap-2 md:gap-4\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"mx-auto flex flex-col gap-2 md:gap-3\"><div id=\"scroll-stack-container\" class=\"h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x\"><div id=\"stack-container\" class=\"absolute grid h-full grid-flow-col gap-3 md:gap-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

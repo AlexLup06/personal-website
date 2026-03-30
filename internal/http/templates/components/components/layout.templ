@@ -22,10 +22,10 @@ templ LinkToOtherPageSection(discription, buttonText, link string) {
 		hx-on::after-settle="window.scrollTo({top: 0, behavior: 'smooth'})"
 		hx-replace-url="true"
 	>
-		<p class="text-lg md:text-xl  transition">
+		<p class="text-lg md:text-xl font-medium transition">
 			{ discription }
 		</p>
-		<div class=" h-4.5 md:h-6 aspect-square stroke-2">
+		<div class=" h-5 md:h-[22px] aspect-square stroke-[2.5]">
 			@RightArrow()
 		</div>
 	</a>
