@@ -66,7 +66,7 @@ templ Button(direction string) {
 }
 
 templ BestTech(name string, icon templ.Component, side string) {
-	<div class="center px-3 py-1.5 md:px-4 md:py-2 bg-highlight text-white items-center rounded-2xl text-md md:text-lg flex gap-2 ">
+	<div class="max-w-fit px-3 py-1.5 md:px-4 md:py-2 bg-highlight text-white items-center rounded-2xl text-md md:text-lg flex gap-2 ">
 		if side=="right" && name!="Go" {
 			{ name }
 		}
