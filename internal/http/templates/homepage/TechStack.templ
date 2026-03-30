@@ -19,7 +19,7 @@ templ TechStack() {
 			>
 				<div
 					id="stack-container"
-					class="absolute grid h-full grid-flow-col gap-2 md:gap-3"
+					class="absolute grid h-full grid-flow-col gap-2 md:gap-4"
 				>
 					@Card("Cloud & Infrastructure",
 						[]string{"Docker", "Kubernetes", "Terraform", "GCP", "CI/CD"},
@@ -38,11 +38,11 @@ templ TechStack() {
 						components.Other())
 				</div>
 			</div>
-			<div class="flex gap-2 md:gap-2.5 ml-auto mr-4 p-1.5 rounded-3xl bg-third-25 border border-third-100">
+			<div class="flex gap-2 md:gap-2.5 ml-auto mr-4 p-1.5 rounded-3xl bg-action-25 border-2 border-action-200">
 				@Button("left-button") {
 					@components.LeftArrow()
 				}
-				<div class="w-px my-1 bg-third-100 rounded"></div>
+				<div class="w-0.5 my-1 bg-action-200 rounded"></div>
 				@Button("right-button") {
 					@components.RightArrow()
 				}
@@ -55,7 +55,7 @@ templ Button(direction string) {
 	<button
 		id={ direction }
 		class={
-			"bg-third-800 hover:bg-second-25 border-2 border-third-800 text-white hover:text-third-800",
+			"bg-action hover:bg-action-25 border-2 border-action text-action-25 hover:text-action",
 			"h-6 w-6 md:h-8 md:w-8 stroke-2 text-3xl rounded-full transition cursor-pointer active:scale-90",
 			templ.KV("pr-1", direction == "left-button"),
 			templ.KV("pl-1", direction == "right-button"),
@@ -66,7 +66,7 @@ templ Button(direction string) {
 }
 
 templ BestTech(name string, icon templ.Component, side string) {
-	<div class="center px-3 py-1.5 md:px-4 md:py-2 bg-third-500 text-white items-center rounded-2xl text-md md:text-lg flex gap-2 ">
+	<div class="center px-3 py-1.5 md:px-4 md:py-2 bg-highlight text-white items-center rounded-2xl text-md md:text-lg flex gap-2 ">
 		if side=="right" && name!="Go" {
 			{ name }
 		}
@@ -88,11 +88,11 @@ templ BestTech(name string, icon templ.Component, side string) {
 templ Card(title string, techs []string, icon templ.Component) {
 	<div
 		class="snap-start transform w-52 md:w-60 flex flex-col 
-			   overflow-hidden bg-third-25 border border-third-200 rounded-3xl px-8 py-4"
+			   overflow-hidden bg-third-25 border-2 border-third-500 rounded-3xl px-8 py-4"
 	>
 		<div class="flex justify-between text-third-800">
-			<h4 class="text-xl md:text-2xl font-medium mb-1 md:mb-2">{ title }</h4>
-			<div class="min-w-8 w-8 stroke-[1.5]">
+			<h4 class="text-xl md:text-2xl font-medium mb-1 md:mb-2 text-third-700">{ title }</h4>
+			<div class="min-w-8 w-8 stroke-[1.5] text-third-700">
 				@icon
 			</div>
 		</div>

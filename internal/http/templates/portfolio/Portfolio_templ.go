@@ -149,7 +149,7 @@ func ProjectCard(cfg ProjectCardCfg) templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div tabindex=\"0\" class=\"cursor-pointer bg-third-25 hover:bg-third-50 outline-third-200 rounded-3xl overflow-hidden transition outline group focus:outline hover:outline focus:outline-third-500 hover:outline-third-500 p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div tabindex=\"0\" class=\"cursor-pointer bg-third-2 hover:bg-third-25 outline-third-500 rounded-3xl overflow-hidden transition outline-2 group focus:outline-third-500 hover:outline-third-500 p-6 md:p-6 lg:p-8 grid grid-rows-subgrid row-[span_3]\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -175,7 +175,7 @@ func ProjectCard(cfg ProjectCardCfg) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</h2><div class=\"stroke-2 group-hover:text-white group-hover:outline-third-500 hover:bg-transparent group-hover:bg-third-500 hover:text-third-500 outline-2 outline-transparent transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><div class=\"w-7\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</h2><div class=\"stroke-2 text-action group-hover:text-white group-hover:outline-action hover:bg-transparent group-hover:bg-action hover:text-action outline-2 outline-transparent transition-colors duration-300 rounded-lg pl-1 pt-1 w-9 h-9 cursor-pointer\"><div class=\"w-7\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

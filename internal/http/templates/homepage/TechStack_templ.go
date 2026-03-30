@@ -63,7 +63,7 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"mx-auto flex flex-col gap-2 md:gap-3\"><div id=\"scroll-stack-container\" class=\"h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x\"><div id=\"stack-container\" class=\"absolute grid h-full grid-flow-col gap-2 md:gap-3\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"mx-auto flex flex-col gap-2 md:gap-3\"><div id=\"scroll-stack-container\" class=\"h-60 md:h-72 relative overflow-x-scroll snap-mandatory snap-x\"><div id=\"stack-container\" class=\"absolute grid h-full grid-flow-col gap-2 md:gap-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -97,7 +97,7 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div><div class=\"flex gap-2 md:gap-2.5 ml-auto mr-4 p-1.5 rounded-3xl bg-third-25 border border-third-100\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div><div class=\"flex gap-2 md:gap-2.5 ml-auto mr-4 p-1.5 rounded-3xl bg-action-25 border-2 border-action-200\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -123,7 +123,7 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"w-px my-1 bg-third-100 rounded\"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"w-0.5 my-1 bg-action-200 rounded\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -178,7 +178,7 @@ func Button(direction string) templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var5 = []any{"bg-third-800 hover:bg-second-25 border-2 border-third-800 text-white hover:text-third-800",
+		var templ_7745c5c3_Var5 = []any{"bg-action hover:bg-action-25 border-2 border-action text-action-25 hover:text-action",
 			"h-6 w-6 md:h-8 md:w-8 stroke-2 text-3xl rounded-full transition cursor-pointer active:scale-90",
 			templ.KV("pr-1", direction == "left-button"),
 			templ.KV("pl-1", direction == "right-button"),
@@ -250,7 +250,7 @@ func BestTech(name string, icon templ.Component, side string) templ.Component {
 			templ_7745c5c3_Var8 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<div class=\"center px-3 py-1.5 md:px-4 md:py-2 bg-third-500 text-white items-center rounded-2xl text-md md:text-lg flex gap-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<div class=\"center px-3 py-1.5 md:px-4 md:py-2 bg-highlight text-white items-center rounded-2xl text-md md:text-lg flex gap-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -338,20 +338,20 @@ func Card(title string, techs []string, icon templ.Component) templ.Component {
 			templ_7745c5c3_Var13 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"snap-start transform w-52 md:w-60 flex flex-col overflow-hidden bg-third-25 border border-third-200 rounded-3xl px-8 py-4\"><div class=\"flex justify-between text-third-800\"><h4 class=\"text-xl md:text-2xl font-medium mb-1 md:mb-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"snap-start transform w-52 md:w-60 flex flex-col overflow-hidden bg-third-25 border-2 border-third-500 rounded-3xl px-8 py-4\"><div class=\"flex justify-between text-third-800\"><h4 class=\"text-xl md:text-2xl font-medium mb-1 md:mb-2 text-third-700\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var14 string
 		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 94, Col: 67}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/http/templates/homepage/TechStack.templ`, Line: 94, Col: 82}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</h4><div class=\"min-w-8 w-8 stroke-[1.5]\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</h4><div class=\"min-w-8 w-8 stroke-[1.5] text-third-700\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

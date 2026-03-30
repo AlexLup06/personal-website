@@ -16,6 +16,10 @@
   --color-current: currentColor;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-highlight: #006A9B;
+  --color-action-25: #fdeee9;
+  --color-action-200: #f59b7b;
+  --color-action: #f06939;
 
   /* background */
   --color-background: #ecf7fb;

@@ -7,7 +7,7 @@ templ Section(styles ...string) {
 }
 
 templ SectionHeader(name string) {
-	<div class="text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-6 font-medium">
+	<div class="text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-6 font-medium text-third-700">
 		{ name }
 	</div>
 }
@@ -15,7 +15,7 @@ templ SectionHeader(name string) {
 templ LinkToOtherPageSection(discription, buttonText, link string) {
 	<a
 		id="linkTo"
-		class="flex items-center gap-4 cursor-pointer text-third-600 hover:text-third-200 w-fit"
+		class="flex items-center gap-2 cursor-pointer text-action hover:text-action-200 underline w-fit"
 		hx-get={ link }
 		hx-target="#body-section"
 		hx-swap="innerHTML"

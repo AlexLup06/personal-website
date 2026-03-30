@@ -20,7 +20,7 @@ templ Header(name string) {
 				<div class="text-white flex gap-4">
 					<a
 						href="https://github.com/authara-org/authara"
-						class="underline cursor-pointer hover:text-third-50 transition"
+						class="underline cursor-pointer text-action hover:text-action-200 transition"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -28,7 +28,7 @@ templ Header(name string) {
 					</a>
 					<a
 						href="https://docs.authara.org"
-						class="underline cursor-pointer hover:text-third-50 transition"
+						class="underline cursor-pointer text-action hover:text-action-200 transition"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -41,11 +41,11 @@ templ Header(name string) {
 }
 
 templ BodySection() {
-	<div class="max-w-2xl mx-auto  my-10 lg:my-14">
-		@components.Section() {
+	@components.Section() {
+		<div class="max-w-2xl mx-auto  my-10 lg:my-14">
 			{ children... }
-		}
-	</div>
+		</div>
+	}
 }
 
 templ Highlight(name string) {

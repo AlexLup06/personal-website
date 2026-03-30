@@ -26,7 +26,7 @@ templ Header() {
 			@navLinkHeader("/portfolio", "PORTFOLIO")
 			// @navLinkHeader("/blog", "BLOG")
 		</ul>
-		<ul class="hidden md:flex md:gap-4 gap-2">
+		<ul class="hidden md:flex md:gap-4 gap-2 text-third-900">
 			@socialLinkHeader("https://www.linkedin.com/in/alex-lupatsiy") {
 				@components.LinkedIn()
 			}
@@ -97,7 +97,7 @@ templ socialLinkHeader(link string) {
 	<li>
 		<a
 			href={ templ.SafeURL(link) }
-			class="flex w-9 h-9 md:w-10 md:h-10 rounded-lg overflow-hidden not-md:bg-third-25"
+			class="flex w-9 h-9 md:w-9 md:h-9 rounded-lg overflow-hidden not-md:bg-third-25"
 			target="blank"
 		>
 			{ children... }

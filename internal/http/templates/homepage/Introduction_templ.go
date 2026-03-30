@@ -47,7 +47,7 @@ func Introduction() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span> - and I am currently building  <a href=\"https://docs.authara.org\" class=\"underline hover:text-third-100 transition\" target=\"_blank\" rel=\"noopener noreferrer\">Authara</a>.</p><p class=\"\">When I am not building systems, I’m probably hitting golf balls into a ⛳️.</p></div><div></div></div><div class=\"rounded-3xl overflow-hidden w-48 lg:w-56 h-fit\"><img class=\"A portrait of me\" id=\"logo\" src=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span> - and I am currently building  <a href=\"https://docs.authara.org\" class=\"underline text-action hover:text-action-200 transition\" target=\"_blank\" rel=\"noopener noreferrer\">Authara</a>.</p><p class=\"\">When I am not building systems, I’m probably hitting golf balls into a ⛳️.</p></div><div></div></div><div class=\"rounded-3xl overflow-hidden w-48 lg:w-56 h-fit\"><img class=\"A portrait of me\" id=\"logo\" src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -89,7 +89,7 @@ func Highlight(name string) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<span class=\"text-white rounded-2xl bg-[#006A9B] px-3 py-px transition whitespace-nowrap\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<span class=\"text-white rounded-2xl bg-highlight px-3 py-px transition whitespace-nowrap\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
